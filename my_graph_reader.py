@@ -7,8 +7,8 @@ class ResourceRiverReader():
         self.river = river
 
     def read(self):
-        data_x = torch.load(f'Graphes/river_data/gewaesser_{self.river}_x.pt')
-        data_edges = torch.load(f'Graphes/river_data/gewaesser_{self.river}_edges.pt')
+        data_x = torch.load(f'river_data/gewaesser_{self.river}_x.pt')
+        data_edges = torch.load(f'river_data/gewaesser_{self.river}_edges.pt')
         return data_x, data_edges
 
 class ResourceRiverReaderFactory():
