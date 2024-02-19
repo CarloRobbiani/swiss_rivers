@@ -2,43 +2,54 @@ import pandas as pd
 import os
 
 
-#read in all the air temperature files and write it into one dataframe
-def read_air_temp(folder_path):
-#list all files from directory
-    files = os.listdir(folder_path)
+class Read_txt():
 
-    #init list of dataframes
-    dfs = []
+    #read in all the air temperature files and write it into one dataframe
+    def read_air_temp(folder_path):
 
-    #loop through files
-    for file in files:
+        files = os.listdir(folder_path)
 
-        if file.endswith("legend.txt"):
-            continue #skip
+        #init list of dataframes
+        dfs = []
 
-        file_path = os.path.join(folder_path, file)
-        df = pd.read_csv(file_path, delimiter=';')
 
-        dfs.append(df)
+        for file in files:
 
-    final_df = pd.concat(dfs, ignore_index=True)
-    return final_df
+            if file.endswith("legend.txt"):
+                continue #skip
 
-def read_flow(folder_path):
-    files = os.listdir(folder_path)
+            file_path = os.path.join(folder_path, file)
+            df = pd.read_csv(file_path, delimiter=';')
 
-    #init list of dataframes
-    dfs = []
+            dfs.append(df)
 
-    #loop through files
-    for file in files:
+        final_df = pd.concat(dfs, ignore_index=True)
+        return final_df
 
-        #TODO Change this to read the files only from line 9
+    #read in all hydro data
+    def read_hydro(folder_path):
+        files = os.listdir(folder_path)
 
-        file_path = os.path.join(folder_path, file)
-        df = pd.read_csv(file_path, delimiter=';')
+        dfs = []
 
-        dfs.append(df)
+        for file in files:
 
-    final_df = pd.concat(dfs, ignore_index=True)
-    return final_df
+            file_path = os.path.join(folder_path, file)
+            df = pd.read_csv(file_path, delimiter=';', skiprows=8, encoding="iso-8859-1")
+
+            dfs.append(df)
+
+        final_df = pd.concat(dfs, ignore_index=True)
+        return final_df
+
+def missing(df, column):
+    longest_seq = 0
+    current_seq = 0
+
+    for value in df[column].isnull():
+        if value:
+            current_seq+=1
+            longest_seq = max(longest_seq, current_seq)
+        else:
+            current_seq = 0
+    print(f"Longest sequence: {longest_seq}")
