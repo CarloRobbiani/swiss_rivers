@@ -4,7 +4,7 @@ from my_graph_reader import ResourceRiverReaderFactory
 
 
 
-# Plotting function
+#Function to plot the river data
 def plot_river_data(data_x, data_edges):
     # Plot the river nodes
     plt.scatter(data_x[:, 0], data_x[:, 1], color='blue', label='River Nodes')
@@ -24,12 +24,10 @@ def plot_river_data(data_x, data_edges):
 
 
 if __name__ == "__main__":
-    # Using the AareReader class
     reader_inn = ResourceRiverReaderFactory.inn_reader()
     data_x_inn, data_edges_inn = reader_inn.read()
     plot_river_data(data_x_inn, data_edges_inn)
 
-    # Using the ResourceRiverReader class
     river_reader = ResourceRiverReaderFactory.rhein_reader()
     rhein_data_x, rhein_data_edges = river_reader.read()
     plot_river_data(rhein_data_x, rhein_data_edges)
