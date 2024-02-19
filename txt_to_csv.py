@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+from collections import Counter
 
 
 class Read_txt():
@@ -43,13 +44,25 @@ class Read_txt():
         return final_df
 
 def missing(df, column):
-    longest_seq = 0
+    #longest_seq = 0
+    seq_list = []
     current_seq = 0
 
     for value in df[column].isnull():
         if value:
             current_seq+=1
-            longest_seq = max(longest_seq, current_seq)
+            #longest_seq = max(longest_seq, current_seq)
         else:
+            if(current_seq > 0):
+                seq_list.append(current_seq)
             current_seq = 0
-    print(f"Longest sequence: {longest_seq}")
+
+    if(current_seq > 0):
+        seq_list.append(current_seq)
+
+    len_counts = Counter(seq_list)
+    len_counts_sorted = dict(sorted(len_counts.items()))
+    
+    print("Occurrences of different gap lengths:")
+    for length, count in len_counts_sorted.items():
+        print(f"Length {length}: {count} occurrences")
