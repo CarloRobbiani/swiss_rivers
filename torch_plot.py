@@ -26,8 +26,12 @@ def plot_river_data(data_x, data_edges):
 if __name__ == "__main__":
     reader_inn = ResourceRiverReaderFactory.inn_reader()
     data_x_inn, data_edges_inn = reader_inn.read()
+    print(data_x_inn)
+    print(data_edges_inn)
     plot_river_data(data_x_inn, data_edges_inn)
 
-    river_reader = ResourceRiverReaderFactory.rhein_reader()
-    rhein_data_x, rhein_data_edges = river_reader.read()
-    plot_river_data(rhein_data_x, rhein_data_edges)
+    reader_rhein = ResourceRiverReaderFactory.rohne_reader(-1990)
+    data_x_rhein, data_edges_rhein = reader_rhein.read()
+    print(data_x_rhein)
+    print(data_edges_rhein)
+    #plot_river_data(data_edges_rhein, data_edges_rhein)

@@ -66,3 +66,16 @@ def missing(df, column):
     print("Occurrences of different gap lengths:")
     for length, count in len_counts_sorted.items():
         print(f"Length {length}: {count} occurrences")
+
+
+#Method to find out what dates are missing in the dataset
+def miss_date(df):
+    df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
+
+    date_range = pd.date_range(start = df["Zeitstempel"].min(), end=df["Zeitstempel"].max())
+    missing_dates = df.groupby("Stationsnummer").apply(lambda x: date_range.difference(x["Zeitstempel"])).reset_index()
+    missing_dates.columns = ["Stationsnummer", "missing_dates"]
+
+    missing_dates["missing_dates"] = missing_dates["missing_dates"].apply(lambda x: None if len(x) == 0 else x)
+
+    print(missing_dates)

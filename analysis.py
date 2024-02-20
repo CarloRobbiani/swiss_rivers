@@ -1,4 +1,4 @@
-from txt_to_csv import missing, Read_txt
+from txt_to_csv import missing, Read_txt, miss_date
 import pandas as pd
 
 
@@ -11,6 +11,7 @@ import pandas as pd
 #missing(flow_df, "Wert")
 
 temp_df = Read_txt.read_hydro("hydro_data\Temp")
-temp_df["Wert"]= pd.to_numeric(temp_df["Wert"], errors="coerce")
-missing(temp_df, "Wert")
+miss_date(temp_df)
+#temp_df["Wert"]= pd.to_numeric(temp_df["Wert"], errors="coerce")
+#missing(temp_df, "Wert")
 
