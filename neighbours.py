@@ -1,5 +1,5 @@
 from my_graph_reader import ResourceRiverReaderFactory
-#Enter a data tensor and its edges and create a adjacency list.
+#Enter a data tensor and its edges and create an adjacency list.
 def get_adj(data, edges):
     adj_list = {}
     for i in range(edges.shape[1]):
@@ -14,8 +14,9 @@ def get_adj(data, edges):
     return adj_list
 
 
-#Enter station_nr and river from dataset in hydro data and return the neighbouring stations
+#Enter station_nr and adjacency list from the river in hydro data and return the neighbouring stations
 #Problem: find right adj list
+#station: station number ####
 def get_neigbour(station, adj_list):
     if station not in adj_list:
         return []

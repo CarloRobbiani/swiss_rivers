@@ -43,6 +43,8 @@ class Read_txt():
         final_df = pd.concat(dfs, ignore_index=True)
         return final_df
 
+#Method that returns the different gap length occurences
+#column: column in which the missing values are
 def missing(df, column):
     #longest_seq = 0
     seq_list = []
