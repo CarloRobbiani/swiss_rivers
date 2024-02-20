@@ -1,19 +1,20 @@
-import torch
 import matplotlib.pyplot as plt
 from my_graph_reader import ResourceRiverReaderFactory
 
 
 
 #Function to plot the river data
-def plot_river_data(data_x, data_edges):
+def plot_river_data(data, data_edges):
     # Plot the river nodes
-    plt.scatter(data_x[:, 0], data_x[:, 1], color='blue', label='River Nodes')
+    x = data[:,0].numpy()
+    y = data[:,1].numpy()
+    plt.scatter(x, y, color='blue', label='River Nodes')
 
     # Plot the river edges
-    for edge in data_edges:
-        start = data_x[edge[0]]
-        end = data_x[edge[1]]
-        plt.plot([start[0], end[0]], [start[1], end[1]], color='black', linewidth=0.5)
+    for i in range(data_edges.shape[1]):
+        start = data_edges[0, i]
+        end = data_edges[1, i]
+        plt.plot([x[start], x[end]], [y[start], y[end]], color='red')
 
     plt.xlabel('X Coordinate')
     plt.ylabel('Y Coordinate')
@@ -26,12 +27,8 @@ def plot_river_data(data_x, data_edges):
 if __name__ == "__main__":
     reader_inn = ResourceRiverReaderFactory.inn_reader()
     data_x_inn, data_edges_inn = reader_inn.read()
-    print(data_x_inn)
-    print(data_edges_inn)
     plot_river_data(data_x_inn, data_edges_inn)
 
-    reader_rhein = ResourceRiverReaderFactory.rohne_reader(-1990)
+    reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
     data_x_rhein, data_edges_rhein = reader_rhein.read()
-    print(data_x_rhein)
-    print(data_edges_rhein)
-    #plot_river_data(data_edges_rhein, data_edges_rhein)
+    plot_river_data(data_x_rhein, data_edges_rhein)
