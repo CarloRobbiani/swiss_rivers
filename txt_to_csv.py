@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from collections import Counter
 
-
+#class with functions to read all the text files
 class Read_txt():
 
     #read in all the air temperature files and write it into one dataframe
@@ -12,7 +12,6 @@ class Read_txt():
 
         #init list of dataframes
         dfs = []
-
 
         for file in files:
 
@@ -70,7 +69,7 @@ def missing(df, column):
         print(f"Length {length}: {count} occurrences")
 
 
-#Method to find out what dates are missing in the dataset
+#Method to find out what dates are missing in the dataset of hydro data
 def miss_date(df):
     df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
 
