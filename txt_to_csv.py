@@ -80,3 +80,13 @@ def miss_date(df):
     missing_dates["missing_dates"] = missing_dates["missing_dates"].apply(lambda x: None if len(x) == 0 else x)
 
     print(missing_dates)
+    return missing_dates
+
+#Problem: slow af
+def find_missing_dates(df):
+    min_date = df['Zeitstempel'].min()
+    max_date = df['Zeitstempel'].max()
+    all_dates = pd.date_range(start=min_date, end=max_date, freq="D")
+    existing_dates = pd.to_datetime(df['Zeitstempel']).dt.date.unique()
+    missing_dates = [date for date in all_dates if date.date() not in existing_dates]
+    return missing_dates
