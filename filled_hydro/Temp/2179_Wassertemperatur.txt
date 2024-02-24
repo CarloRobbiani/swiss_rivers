@@ -6205,12 +6205,12 @@ Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-12-28 00
 Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-12-29 00:00:00;;3.3;Freigegeben, provisorische Daten
 Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-12-30 00:00:00;;3.32;Freigegeben, provisorische Daten
 Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-12-31 00:00:00;;2.95;Freigegeben, provisorische Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2008-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2013-11-28 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2018-03-06 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2018-08-16 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-01-07 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-08-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-11-15 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-09-16 00:00:00 00:00:00;;;hinzugefügte Daten
-Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-10-27 00:00:00 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2008-01-01 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2013-11-28 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2018-03-06 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2018-08-16 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-01-07 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-08-01 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2019-11-15 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-09-16 00:00:00;;;hinzugefügte Daten
+Thörishaus, Sensematt;2179;Wassertemperatur;Tagesmittel;°C;Sense;2020-10-27 00:00:00;;;hinzugefügte Daten

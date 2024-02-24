@@ -14974,4 +14974,4 @@ Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-28 00:0
 Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-29 00:00:00;;6.4;Freigegeben, provisorische Daten
 Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-30 00:00:00;;6.45;Freigegeben, provisorische Daten
 Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-31 00:00:00;;6.34;Freigegeben, provisorische Daten
-Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Rheinau;2392;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2004-01-01 00:00:00;;;hinzugefügte Daten

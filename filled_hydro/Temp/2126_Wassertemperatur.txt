@@ -6936,6 +6936,6 @@ Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2020-12-28 00:00:00;;5.6;Freig
 Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2020-12-29 00:00:00;;5.58;Freigegeben, provisorische Daten
 Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2020-12-30 00:00:00;;5.76;Freigegeben, provisorische Daten
 Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2020-12-31 00:00:00;;5.8;Freigegeben, provisorische Daten
-Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2016-02-11 00:00:00 00:00:00;;;hinzugefügte Daten
-Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2016-12-02 00:00:00 00:00:00;;;hinzugefügte Daten
+Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2004-01-01 00:00:00;;;hinzugefügte Daten
+Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2016-02-11 00:00:00;;;hinzugefügte Daten
+Wängi;2126;Wassertemperatur;Tagesmittel;°C;Murg;2016-12-02 00:00:00;;;hinzugefügte Daten

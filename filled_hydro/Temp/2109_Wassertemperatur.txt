@@ -14972,6 +14972,6 @@ Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2020-12-28 00:00:00;;3.2
 Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2020-12-29 00:00:00;;3.03;Freigegeben, provisorische Daten
 Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2020-12-30 00:00:00;;2.68;Freigegeben, provisorische Daten
 Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2020-12-31 00:00:00;;2.75;Freigegeben, provisorische Daten
-Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2011-07-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2011-09-21 00:00:00 00:00:00;;;hinzugefügte Daten
+Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2004-01-01 00:00:00;;;hinzugefügte Daten
+Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2011-07-01 00:00:00;;;hinzugefügte Daten
+Gsteig;2109;Wassertemperatur;Tagesmittel;°C;Lütschine;2011-09-21 00:00:00;;;hinzugefügte Daten

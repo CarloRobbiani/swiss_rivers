@@ -14974,4 +14974,4 @@ Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2020-12-28 00:
 Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2020-12-29 00:00:00;;6.18;Freigegeben, provisorische Daten
 Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2020-12-30 00:00:00;;6.15;Freigegeben, provisorische Daten
 Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2020-12-31 00:00:00;;6.0;Freigegeben, provisorische Daten
-Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Münchenstein, Hofmatt;2106;Wassertemperatur;Tagesmittel;°C;Birs;2004-01-01 00:00:00;;;hinzugefügte Daten

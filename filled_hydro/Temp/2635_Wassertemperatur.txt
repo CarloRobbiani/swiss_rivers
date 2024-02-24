@@ -6571,6 +6571,6 @@ Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2020-12-28 00:
 Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2020-12-29 00:00:00;;1.53;Freigegeben, provisorische Daten
 Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2020-12-30 00:00:00;;1.51;Freigegeben, provisorische Daten
 Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2020-12-31 00:00:00;;1.53;Freigegeben, provisorische Daten
-Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2012-11-29 00:00:00 00:00:00;;;hinzugefügte Daten
-Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2018-05-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2004-01-01 00:00:00;;;hinzugefügte Daten
+Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2012-11-29 00:00:00;;;hinzugefügte Daten
+Einsiedeln, Gross;2635;Wassertemperatur;Tagesmittel;°C;Grossbach;2018-05-01 00:00:00;;;hinzugefügte Daten

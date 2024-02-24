@@ -14082,14 +14082,14 @@ Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2020-12-2
 Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2020-12-29 00:00:00;;4.33;Freigegeben, provisorische Daten
 Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2020-12-30 00:00:00;;4.21;Freigegeben, provisorische Daten
 Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2020-12-31 00:00:00;;4.35;Freigegeben, provisorische Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-03-03 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-03-31 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-10-23 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-04-15 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-04-26 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-12-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-03-14 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-04-14 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-11-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-12-07 00:00:00 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2004-01-01 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-03-03 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-03-31 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2009-10-23 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-04-15 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-04-26 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2010-12-01 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-03-14 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-04-14 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-11-01 00:00:00;;;hinzugefügte Daten
+Buochs, Flugplatz;2481;Wassertemperatur;Tagesmittel;°C;Engelberger Aa;2011-12-07 00:00:00;;;hinzugefügte Daten

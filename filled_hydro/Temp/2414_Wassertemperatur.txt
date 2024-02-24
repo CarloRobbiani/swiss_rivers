@@ -6938,4 +6938,4 @@ Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2020-12-28 
 Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2020-12-29 00:00:00;;4.22;Freigegeben, provisorische Daten
 Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2020-12-30 00:00:00;;3.75;Freigegeben, provisorische Daten
 Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2020-12-31 00:00:00;;3.3;Freigegeben, provisorische Daten
-Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Mosnang, Rietholz;2414;Wassertemperatur;Tagesmittel;°C;Rietholzbach;2004-01-01 00:00:00;;;hinzugefügte Daten

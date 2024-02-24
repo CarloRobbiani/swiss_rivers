@@ -14974,4 +14974,4 @@ Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2020-12-2
 Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2020-12-29 00:00:00;;2.85;Freigegeben, provisorische Daten
 Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2020-12-30 00:00:00;;3.34;Freigegeben, provisorische Daten
 Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2020-12-31 00:00:00;;3.3;Freigegeben, provisorische Daten
-Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Emmenmatt, nur Hauptstation;2070;Wassertemperatur;Tagesmittel;°C;Emme;2004-01-01 00:00:00;;;hinzugefügte Daten

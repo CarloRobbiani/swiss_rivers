@@ -6938,4 +6938,4 @@ Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2020-12-28 0
 Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2020-12-29 00:00:00;;5.0;Freigegeben, provisorische Daten
 Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2020-12-30 00:00:00;;5.22;Freigegeben, provisorische Daten
 Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2020-12-31 00:00:00;;4.77;Freigegeben, provisorische Daten
-Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Huttwil, Häberenbad;2343;Wassertemperatur;Tagesmittel;°C;Langeten;2004-01-01 00:00:00;;;hinzugefügte Daten

@@ -14974,4 +14974,4 @@ Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2020-1
 Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-29 00:00:00;;7.01;Freigegeben, provisorische Daten
 Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-30 00:00:00;;7.1;Freigegeben, provisorische Daten
 Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-31 00:00:00;;7.17;Freigegeben, provisorische Daten
-Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Felsenau, K.W. Klingnau (U.W.);2113;Wassertemperatur;Tagesmittel;°C;Aare;2004-01-01 00:00:00;;;hinzugefügte Daten

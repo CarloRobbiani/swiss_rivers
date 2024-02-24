@@ -5,6 +5,7 @@ import os
 import pandas as pd
 import datetime
 
+
 def slider_to_date(value):
     date = start_date + datetime.timedelta(days=value)
     date =str(date) + " 00:00:00"
@@ -14,6 +15,7 @@ fig, ax = None, None
 
 
 #Function to plot the river data
+#date: value from slider
 def plot_river_data(data, data_edges, date):
 
     global fig, ax

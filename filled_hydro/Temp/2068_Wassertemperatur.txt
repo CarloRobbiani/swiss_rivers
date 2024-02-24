@@ -14974,4 +14974,4 @@ Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2020-12-28 00:00:00;;4.14;
 Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2020-12-29 00:00:00;;4.53;Freigegeben, provisorische Daten
 Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2020-12-30 00:00:00;;4.89;Freigegeben, provisorische Daten
 Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2020-12-31 00:00:00;;4.18;Freigegeben, provisorische Daten
-Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Riazzino;2068;Wassertemperatur;Tagesmittel;°C;Ticino;2004-01-01 00:00:00;;;hinzugefügte Daten

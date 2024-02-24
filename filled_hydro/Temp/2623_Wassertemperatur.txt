@@ -6573,4 +6573,4 @@ Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2020-12-28 00:00:00;;1.0;Fr
 Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2020-12-29 00:00:00;;1.26;Freigegeben, provisorische Daten
 Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2020-12-30 00:00:00;;0.92;Freigegeben, provisorische Daten
 Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2020-12-31 00:00:00;;0.94;Freigegeben, provisorische Daten
-Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2012-03-29 00:00:00 00:00:00;;;hinzugefügte Daten
+Oberwald;2623;Wassertemperatur;Tagesmittel;°C;Rhone;2012-03-29 00:00:00;;;hinzugefügte Daten

@@ -5839,7 +5839,7 @@ Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2020-12-28 00:00:00;
 Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2020-12-29 00:00:00;;5.64;Freigegeben, provisorische Daten
 Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2020-12-30 00:00:00;;5.6;Freigegeben, provisorische Daten
 Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2020-12-31 00:00:00;;5.79;Freigegeben, provisorische Daten
-Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2018-07-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-06-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-07-02 00:00:00 00:00:00;;;hinzugefügte Daten
-Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-08-05 00:00:00 00:00:00;;;hinzugefügte Daten
+Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2018-07-01 00:00:00;;;hinzugefügte Daten
+Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-06-01 00:00:00;;;hinzugefügte Daten
+Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-07-02 00:00:00;;;hinzugefügte Daten
+Isenthal;2276;Wassertemperatur;Tagesmittel;°C;Grosstalbach;2019-08-05 00:00:00;;;hinzugefügte Daten

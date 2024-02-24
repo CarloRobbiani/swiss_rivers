@@ -14974,4 +14974,4 @@ Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-28 
 Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-29 00:00:00;;6.91;Freigegeben, provisorische Daten
 Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-30 00:00:00;;6.91;Freigegeben, provisorische Daten
 Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-31 00:00:00;;6.89;Freigegeben, provisorische Daten
-Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Luzern, Geissmattbrücke;2152;Wassertemperatur;Tagesmittel;°C;Reuss;2004-01-01 00:00:00;;;hinzugefügte Daten

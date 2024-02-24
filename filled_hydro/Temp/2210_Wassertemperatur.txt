@@ -6936,6 +6936,6 @@ Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2020-12-28 00:00:00;;6.31;Fre
 Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2020-12-29 00:00:00;;6.33;Freigegeben, provisorische Daten
 Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2020-12-30 00:00:00;;6.38;Freigegeben, provisorische Daten
 Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2020-12-31 00:00:00;;6.27;Freigegeben, provisorische Daten
-Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2010-10-22 00:00:00 00:00:00;;;hinzugefügte Daten
-Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2011-03-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2004-01-01 00:00:00;;;hinzugefügte Daten
+Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2010-10-22 00:00:00;;;hinzugefügte Daten
+Ocourt;2210;Wassertemperatur;Tagesmittel;°C;Doubs;2011-03-01 00:00:00;;;hinzugefügte Daten

@@ -6937,5 +6937,5 @@ Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2020-12-28 0
 Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2020-12-29 00:00:00;;4.57;Freigegeben, provisorische Daten
 Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2020-12-30 00:00:00;;4.64;Freigegeben, provisorische Daten
 Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2020-12-31 00:00:00;;4.21;Freigegeben, provisorische Daten
-Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2004-07-30 00:00:00 00:00:00;;;hinzugefügte Daten
+Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2004-01-01 00:00:00;;;hinzugefügte Daten
+Yvonand, La Mauguettaz;2369;Wassertemperatur;Tagesmittel;°C;Mentue;2004-07-30 00:00:00;;;hinzugefügte Daten

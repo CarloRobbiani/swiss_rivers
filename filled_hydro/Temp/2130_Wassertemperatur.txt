@@ -14974,4 +14974,4 @@ Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-28 0
 Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-29 00:00:00;;6.45;Freigegeben, provisorische Daten
 Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-30 00:00:00;;6.57;Freigegeben, provisorische Daten
 Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2020-12-31 00:00:00;;6.61;Freigegeben, provisorische Daten
-Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Laufenburg;2130;Wassertemperatur;Tagesmittel;°C;Rhein (Oberwasser);2004-01-01 00:00:00;;;hinzugefügte Daten

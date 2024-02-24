@@ -1823,6 +1823,6 @@ Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-28 00:00:00;;0.0;Freige
 Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-29 00:00:00;;0.0;Freigegeben, provisorische Daten
 Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-30 00:00:00;;0.0;Freigegeben, provisorische Daten
 Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-31 00:00:00;;0.0;Freigegeben, provisorische Daten
-Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-04-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-08-26 00:00:00 00:00:00;;;hinzugefügte Daten
-Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-10-27 00:00:00 00:00:00;;;hinzugefügte Daten
+Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-04-01 00:00:00;;;hinzugefügte Daten
+Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-08-26 00:00:00;;;hinzugefügte Daten
+Tarasp;2265;Wassertemperatur;Tagesmittel;°C;Inn;2016-10-27 00:00:00;;;hinzugefügte Daten

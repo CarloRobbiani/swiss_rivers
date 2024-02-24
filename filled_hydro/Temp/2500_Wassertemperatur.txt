@@ -11808,4 +11808,4 @@ Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2020-12-28 00:00:00;;6.05;F
 Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2020-12-29 00:00:00;;6.4;Freigegeben, provisorische Daten
 Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2020-12-30 00:00:00;;6.58;Freigegeben, provisorische Daten
 Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2020-12-31 00:00:00;;6.46;Freigegeben, provisorische Daten
-Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Ittigen;2500;Wassertemperatur;Tagesmittel;°C;Worble;2004-01-01 00:00:00;;;hinzugefügte Daten

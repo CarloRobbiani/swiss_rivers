@@ -14974,4 +14974,4 @@ Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-28 00:00:00;;2.88;Fr
 Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-29 00:00:00;;3.14;Freigegeben, provisorische Daten
 Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-30 00:00:00;;2.97;Freigegeben, provisorische Daten
 Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2020-12-31 00:00:00;;2.76;Freigegeben, provisorische Daten
-Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Seedorf;2056;Wassertemperatur;Tagesmittel;°C;Reuss;2004-01-01 00:00:00;;;hinzugefügte Daten

@@ -6934,8 +6934,8 @@ Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-12-28 00:00
 Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-12-29 00:00:00;;5.9;Freigegeben, provisorische Daten
 Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-12-30 00:00:00;;6.17;Freigegeben, provisorische Daten
 Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-12-31 00:00:00;;5.86;Freigegeben, provisorische Daten
-Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2012-06-11 00:00:00 00:00:00;;;hinzugefügte Daten
-Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2012-08-04 00:00:00 00:00:00;;;hinzugefügte Daten
-Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2019-07-29 00:00:00 00:00:00;;;hinzugefügte Daten
-Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2004-01-01 00:00:00;;;hinzugefügte Daten
+Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2012-06-11 00:00:00;;;hinzugefügte Daten
+Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2012-08-04 00:00:00;;;hinzugefügte Daten
+Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2019-07-29 00:00:00;;;hinzugefügte Daten
+Ecublens, Les Bois;2432;Wassertemperatur;Tagesmittel;°C;Venoge;2020-01-01 00:00:00;;;hinzugefügte Daten

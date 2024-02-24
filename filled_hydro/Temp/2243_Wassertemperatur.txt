@@ -14972,6 +14972,6 @@ Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2020-12-28 0
 Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2020-12-29 00:00:00;;6.47;Freigegeben, provisorische Daten
 Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2020-12-30 00:00:00;;6.55;Freigegeben, provisorische Daten
 Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2020-12-31 00:00:00;;6.5;Freigegeben, provisorische Daten
-Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2006-06-17 00:00:00 00:00:00;;;hinzugefügte Daten
-Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2007-07-07 00:00:00 00:00:00;;;hinzugefügte Daten
+Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2004-01-01 00:00:00;;;hinzugefügte Daten
+Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2006-06-17 00:00:00;;;hinzugefügte Daten
+Baden, Limmatpromenade;2243;Wassertemperatur;Tagesmittel;°C;Limmat;2007-07-07 00:00:00;;;hinzugefügte Daten

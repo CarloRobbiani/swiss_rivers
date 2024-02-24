@@ -14974,4 +14974,4 @@ Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2020-12-28 00:00:00;;1.35;Fr
 Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2020-12-29 00:00:00;;1.33;Freigegeben, provisorische Daten
 Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2020-12-30 00:00:00;;1.09;Freigegeben, provisorische Daten
 Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2020-12-31 00:00:00;;1.22;Freigegeben, provisorische Daten
-Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Blatten;2269;Wassertemperatur;Tagesmittel;°C;Lonza;2004-01-01 00:00:00;;;hinzugefügte Daten

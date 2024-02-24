@@ -14883,4 +14883,4 @@ S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-28 00:00:00;;0.05;Frei
 S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-29 00:00:00;;0.03;Freigegeben, provisorische Daten
 S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-30 00:00:00;;0.06;Freigegeben, provisorische Daten
 S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2020-12-31 00:00:00;;0.05;Freigegeben, provisorische Daten
-S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+S-Chanf;2462;Wassertemperatur;Tagesmittel;°C;Inn;2004-01-01 00:00:00;;;hinzugefügte Daten

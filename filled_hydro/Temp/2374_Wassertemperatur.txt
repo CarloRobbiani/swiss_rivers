@@ -5111,5 +5111,5 @@ Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2020-12-28 00
 Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2020-12-29 00:00:00;;2.49;Freigegeben, provisorische Daten
 Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2020-12-30 00:00:00;;2.38;Freigegeben, provisorische Daten
 Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2020-12-31 00:00:00;;2.07;Freigegeben, provisorische Daten
-Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2009-12-17 00:00:00 00:00:00;;;hinzugefügte Daten
-Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2011-11-12 00:00:00 00:00:00;;;hinzugefügte Daten
+Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2009-12-17 00:00:00;;;hinzugefügte Daten
+Mogelsberg, Aachsäge;2374;Wassertemperatur;Tagesmittel;°C;Necker;2011-11-12 00:00:00;;;hinzugefügte Daten

@@ -6573,4 +6573,4 @@ Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2020-12-28 00:00:
 Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2020-12-29 00:00:00;;0.26;Freigegeben, provisorische Daten
 Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2020-12-30 00:00:00;;0.05;Freigegeben, provisorische Daten
 Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2020-12-31 00:00:00;;0.1;Freigegeben, provisorische Daten
-Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Blatten bei Naters;2161;Wassertemperatur;Tagesmittel;°C;Massa;2004-01-01 00:00:00;;;hinzugefügte Daten

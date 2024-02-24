@@ -14974,4 +14974,4 @@ Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2020-12-28 00:00:00;;6.
 Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2020-12-29 00:00:00;;6.43;Freigegeben, provisorische Daten
 Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2020-12-30 00:00:00;;6.64;Freigegeben, provisorische Daten
 Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2020-12-31 00:00:00;;6.4;Freigegeben, provisorische Daten
-Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Rheinsfelden;2415;Wassertemperatur;Tagesmittel;°C;Glatt;2004-01-01 00:00:00;;;hinzugefügte Daten

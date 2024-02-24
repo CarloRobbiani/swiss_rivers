@@ -5111,5 +5111,5 @@ Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2020-12-28 00:00:00
 Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2020-12-29 00:00:00;;4.75;Freigegeben, provisorische Daten
 Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2020-12-30 00:00:00;;4.93;Freigegeben, provisorische Daten
 Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2020-12-31 00:00:00;;4.84;Freigegeben, provisorische Daten
-Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2010-01-20 00:00:00 00:00:00;;;hinzugefügte Daten
-Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2010-06-11 00:00:00 00:00:00;;;hinzugefügte Daten
+Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2010-01-20 00:00:00;;;hinzugefügte Daten
+Belp, Mülimatt;2159;Wassertemperatur;Tagesmittel;°C;Gürbe;2010-06-11 00:00:00;;;hinzugefügte Daten

@@ -14973,5 +14973,5 @@ Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2020-12-28 0
 Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2020-12-29 00:00:00;;3.59;Freigegeben, provisorische Daten
 Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2020-12-30 00:00:00;;3.47;Freigegeben, provisorische Daten
 Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2020-12-31 00:00:00;;3.26;Freigegeben, provisorische Daten
-Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;1984-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
-Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;1984-01-01 00:00:00;;;hinzugefügte Daten
+Diepoldsau, Rietbrücke;2473;Wassertemperatur;Tagesmittel;°C;Rhein;2004-01-01 00:00:00;;;hinzugefügte Daten

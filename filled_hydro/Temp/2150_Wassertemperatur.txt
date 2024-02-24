@@ -6573,4 +6573,4 @@ Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2020-12-28 00:00:00;;
 Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2020-12-29 00:00:00;;2.05;Freigegeben, provisorische Daten
 Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2020-12-30 00:00:00;;1.51;Freigegeben, provisorische Daten
 Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2020-12-31 00:00:00;;1.52;Freigegeben, provisorische Daten
-Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Felsenbach;2150;Wassertemperatur;Tagesmittel;°C;Landquart;2004-01-01 00:00:00;;;hinzugefügte Daten

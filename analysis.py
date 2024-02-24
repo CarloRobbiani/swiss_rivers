@@ -18,7 +18,7 @@ import os
 
 
 #Method that takes the hydro data and adds entries where there are no dates
-#File_list: Folder with the temp/flow data
+#File_list: Folder with the original temp/flow data
 #folder_save_path: the folder where the data should be saved to
 def fill_gaps(file_list, folder_save_path):
     for file in os.listdir(file_list):

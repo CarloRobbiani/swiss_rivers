@@ -14974,4 +14974,4 @@ Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-28 00:00:00;
 Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-29 00:00:00;;6.74;Freigegeben, provisorische Daten
 Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-30 00:00:00;;6.71;Freigegeben, provisorische Daten
 Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2020-12-31 00:00:00;;6.63;Freigegeben, provisorische Daten
-Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2004-01-01 00:00:00 00:00:00;;;hinzugefügte Daten
+Brügg, Aegerten;2029;Wassertemperatur;Tagesmittel;°C;Aare;2004-01-01 00:00:00;;;hinzugefügte Daten
