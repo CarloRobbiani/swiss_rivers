@@ -43,4 +43,4 @@ def fill_gaps(file_list, folder_save_path):
         df.to_csv(path, sep=";", index = False)
 
 if __name__ == "__main__":
-    fill_gaps("hydro_data/Temp", "filled_hydro/Temp")
+    fill_gaps("hydro_data/Flow", "filled_hydro/Flow")
