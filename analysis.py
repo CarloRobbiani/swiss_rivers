@@ -17,7 +17,7 @@ import os
 #missing(temp_df, "Wert")
 
 
-#Method that takes the hydro data and adds entries where there are no dates
+#Method that takes the hydro data and adds NaN for the column "Wert" entries where there are no dates
 #File_list: Folder with the original temp/flow data
 #folder_save_path: the folder where the data should be saved to
 def fill_gaps(file_list, folder_save_path):

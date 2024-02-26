@@ -52,6 +52,6 @@ if __name__== "__main__":
     df = pd.read_csv("filled_hydro\Temp/2143_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
     dates = find_missing_dates(df)
     for date in dates:
-        miss = neighbour_missing(n_list, "filled_hydro/Temp", )
+        miss = neighbour_missing(n_list, "filled_hydro/Temp", date)
         print(miss)
     print("Neighbours: ", get_neigbour(2143, adj_rhein))

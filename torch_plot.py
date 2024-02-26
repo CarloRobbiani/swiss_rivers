@@ -28,7 +28,7 @@ def plot_river_data(data, data_edges, date):
     files_temp = os.listdir("filled_hydro\Temp")
     values = []
     
-    #temporary get first line and check for missing data to get colors
+    #get values from station to determine colors
     for station in stations:
         file = [file for file in files_flow if file.startswith(str(station))]
         file.extend([file for file in files_temp if file.startswith(str(station))])
@@ -44,7 +44,7 @@ def plot_river_data(data, data_edges, date):
     colors = ["red" if value == 1 else "blue" for value in values]
 
 
-
+    #TODO: change labels
     ax.scatter(x, y, color=colors, label='River Nodes')
 
     # Plot the river edges
