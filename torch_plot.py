@@ -30,12 +30,15 @@ def plot_river_data(data, data_edges, date):
     
     #get values from station to determine colors
     for station in stations:
+        if str(station) == "-1":
+            values.append(1)
+            continue
         file = [file for file in files_flow if file.startswith(str(station))]
         file.extend([file for file in files_temp if file.startswith(str(station))])
         
         if len(file) > 0:
-            file_path = [f"filled_hydro\Flow\{f}"if "Abfl" in f else "filled_hydro\Temp\{f}" if "Wasser" in f else "" for f in file]
-            df = pd.read_csv(file_path[0], delimiter=";", encoding="iso-8859-1")
+            file_path = [f"filled_hydro\Temp\{f}"if "Wasser" in f else "filled_hydro\Flow\{f}" if "Abfl" in f else "" for f in file]
+            df = pd.read_csv(file_path[1], delimiter=";", encoding="iso-8859-1")
             df.set_index('Zeitstempel', inplace=True)
             values.append(int(pd.isna(df.loc[date, "Wert"])))
         else:

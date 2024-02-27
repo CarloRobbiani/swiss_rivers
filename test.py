@@ -14,7 +14,7 @@ print(data_x_inn)
 reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
 data_x_rhein, data_edges_rhein = reader_rhein.read()
 print(data_edges_rhein)
-print(data_x_rhein) """
+print(data_x_rhein) 
 
 for file in os.listdir("filled_hydro\Temp"):
 
@@ -22,6 +22,8 @@ for file in os.listdir("filled_hydro\Temp"):
     sorted = df.sort_values(by="Zeitstempel")
 
     missing(sorted, "Wert")
+
+"""
 
 
 

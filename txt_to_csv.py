@@ -69,20 +69,18 @@ def missing(df, column):
         print(f"Length {length}: {count} occurrences")
 
 
-#Method to find out what dates are missing in the dataset of hydro data
+#Method to find out what dates have missing values in the dataset of hydro data
 def miss_date(df):
-    df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
+    
+    # Convert 'Zeitstempel' column to datetime type
+    df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
 
-    date_range = pd.date_range(start = df["Zeitstempel"].min(), end=df["Zeitstempel"].max())
-    missing_dates = df.groupby("Stationsnummer").apply(lambda x: date_range.difference(x["Zeitstempel"])).reset_index()
-    missing_dates.columns = ["Stationsnummer", "missing_dates"]
-
-    missing_dates["missing_dates"] = missing_dates["missing_dates"].apply(lambda x: None if len(x) == 0 else x)
-
-    print(missing_dates)
-    return missing_dates
+    # Find all rows where 'Wert' column has missing values
+    missing_values_dates = df.loc[df['Wert'].isna(), 'Zeitstempel']
+    return missing_values_dates
 
 #Problem: slow af
+#Method used on the dataframe where the rows are missing in order to fill them up
 def find_missing_dates(df):
     min_date = df['Zeitstempel'].min()
     max_date = df['Zeitstempel'].max()

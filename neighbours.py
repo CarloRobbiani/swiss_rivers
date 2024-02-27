@@ -1,7 +1,7 @@
 from my_graph_reader import ResourceRiverReaderFactory
 import os
 import pandas as pd
-from txt_to_csv import find_missing_dates
+from txt_to_csv import miss_date
 
 #Enter a data tensor and its edges and create an adjacency list.
 def get_adj(data, edges):
@@ -34,9 +34,11 @@ def neighbour_missing(neighbour_list, path, date):
     isMissing = []
     files = os.listdir(path)
     for neighbour in neighbour_list:
-        file_list = [path + f if neighbour in f else "" for f in files]
-    for file in file_list:
-        df = pd.read_csv(file, delimiter=";", encoding="iso-8859-1")
+        if str(neighbour) == "-1":
+                continue
+        #file_list = [path + f if str(neighbour) in f else "" for f in files]
+        df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+        #df = pd.read_csv(file, delimiter=";", encoding="iso-8859-1")
         df.set_index('Zeitstempel', inplace=True)
         isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
 
@@ -48,10 +50,14 @@ if __name__== "__main__":
     data_x_rhein, data_edges_rhein = reader_rhein.read()
 
     adj_rhein = get_adj(data_x_rhein, data_edges_rhein)
-    n_list = get_neigbour(2143, adj_rhein)
-    df = pd.read_csv("filled_hydro\Temp/2143_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
-    dates = find_missing_dates(df)
-    for date in dates:
-        miss = neighbour_missing(n_list, "filled_hydro/Temp", date)
-        print(miss)
-    print("Neighbours: ", get_neigbour(2143, adj_rhein))
+    for station in adj_rhein:
+        if str(station) == "-1":
+                continue
+        df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+        dates = miss_date(df)
+        n_list = get_neigbour(station, adj_rhein)
+        for date in dates:
+            miss = neighbour_missing(n_list, "filled_hydro/Temp", str(date))
+            if miss > 0:
+                 print(date, ": ",  miss)
+    #print("Neighbours: ", get_neigbour(2143, adj_rhein))
