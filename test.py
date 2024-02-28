@@ -21,7 +21,7 @@ for file in os.listdir("filled_hydro\Temp"):
     df = pd.read_csv("filled_hydro\Temp/" + file, delimiter=";")
     sorted = df.sort_values(by="Zeitstempel")
 
-    missing(sorted, "Wert")
+    missing_len(sorted, "Wert")
 
 """
 

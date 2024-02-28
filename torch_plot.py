@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import datetime
 
-
+#Function that converts the slider value into date
 def slider_to_date(value):
     date = start_date + datetime.timedelta(days=value)
     date =str(date) + " 00:00:00"
