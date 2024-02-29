@@ -1,7 +1,7 @@
 from my_graph_reader import ResourceRiverReaderFactory
 import os
 import pandas as pd
-from txt_to_csv import miss_date
+from txt_to_csv import Gaps
 
 class Neighbour:
     
@@ -45,6 +45,16 @@ class Neighbour:
             isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
 
         return sum(isMissing)
+    
+    #Get the values of all neighbouring stations on a certain date
+    def get_Neighbour_values(station, date, adj_list):
+        values = {}
+        neighbour_stations = Neighbour.get_neigbour(station, adj_list)
+        for st in neighbour_stations:
+            df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+            df.set_index('Zeitstempel', inplace=True)
+            values[st] = df.loc[date, "Wert"]
+        return values
 
 
 if __name__== "__main__":
@@ -56,7 +66,7 @@ if __name__== "__main__":
         if str(station) == "-1":
                 continue
         df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
-        dates = miss_date(df)
+        dates = Gaps.miss_date(df)
         n_list = Neighbour.get_neigbour(station, adj_rhein)
         for date in dates:
             miss = Neighbour.neighbour_missing(n_list, "filled_hydro/Temp", str(date))

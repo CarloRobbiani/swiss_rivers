@@ -46,7 +46,7 @@ class Read_txt:
 class Gaps():
     #Method that returns the different gap length occurences
     #column: column in which the missing values are
-    def missing_len(df, column):
+    def missing_len(df, column, do_print):
         #longest_seq = 0
         seq_list = []
         current_seq = 0
@@ -66,9 +66,12 @@ class Gaps():
         len_counts = Counter(seq_list)
         len_counts_sorted = dict(sorted(len_counts.items()))
         
-        print("Occurrences of different gap lengths:")
-        for length, count in len_counts_sorted.items():
-            print(f"Length {length}: {count} occurrences")
+        if do_print:
+            print("Occurrences of different gap lengths:")
+            for length, count in len_counts_sorted.items():
+                print(f"Length {length}: {count} occurrences")
+        return len_counts_sorted
+        
 
 
     #Method to find out what dates have missing values in the dataset of hydro data
