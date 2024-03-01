@@ -6,7 +6,7 @@ Exportperiode: 2003-12-27-2019-01-01 2019-01-01-2020-12-31
 Parameter: Wassertemperatur
 Parametereinheit: °C
 Zeitreihe: Tagesmittel
-Stationsname;Stationsnummer;Parameter;Zeitreihe;Parametereinheit;Gewässer;Zeitstempel;Zeitpunkt_des_Auftretens;Wert;Freigabestatus;;;;;;;;;
+Stationsname;Stationsnummer;Parameter;Zeitreihe;Parametereinheit;Gewässer;Zeitstempel;Zeitpunkt_des_Auftretens;Wert;Freigabestatus
 Areuse - St-Sulpice;2290;Wassertemperatur;Tagesmittel;°C;?;2009-04-24 00:00:00;;7.2;Freigegeben. validierte Daten
 Areuse - St-Sulpice;2290;Wassertemperatur;Tagesmittel;°C;?;2009-04-25 00:00:00;;7.29;Freigegeben. validierte Daten
 Areuse - St-Sulpice;2290;Wassertemperatur;Tagesmittel;°C;?;2009-04-26 00:00:00;;7.28;Freigegeben. validierte Daten

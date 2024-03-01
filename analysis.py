@@ -19,4 +19,4 @@ import os
 
 
 if __name__ == "__main__":
-    Gaps.fill_gaps("hydro_data/Flow", "filled_hydro/Flow")
+    Gaps.fill_gaps("hydro_data/Temp", "filled_hydro/Temp")

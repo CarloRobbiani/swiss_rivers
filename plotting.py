@@ -4,6 +4,8 @@ from txt_to_csv import Gaps
 from neighbours import Neighbour
 from my_graph_reader import ResourceRiverReaderFactory
 from collections import Counter
+import seaborn as sns
+import missingno as msno
 
 #plots the nr of missing values of neighbours as a bar plot
 def plot_missing_neighbour_nr(adj_list):
@@ -26,6 +28,8 @@ def plot_missing_neighbour_nr(adj_list):
     plt.xticks(x)
     plt.show()
 
+#Plots length of each gap 
+#column: column where missing values occur
 def plot_missing_length(station_nr, column):
 
     df = pd.read_csv(f"filled_hydro\Temp/{station_nr}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
@@ -37,6 +41,8 @@ def plot_missing_length(station_nr, column):
     plt.xticks(x)
     plt.show()
 
+
+
 if __name__=="__main__":
 
     reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
@@ -45,5 +51,8 @@ if __name__=="__main__":
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
     #plot_missing_neighbour_nr(adj_rhein)
     #plot_missing_length(2091, "Wert")
-    example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
-        
+    #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
+    df = pd.read_csv(f"filled_hydro\Temp/2176_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+    df_sorted = df.sort_values(by="Zeitstempel")
+    msno.matrix(df_sorted)
+    plt.show()

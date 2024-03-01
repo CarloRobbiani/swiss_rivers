@@ -1,5 +1,5 @@
 from my_graph_reader import ResourceRiverReader, ResourceRiverReaderFactory
-from txt_to_csv import missing
+from txt_to_csv import Gaps
 import os
 import pandas as pd
     
@@ -24,6 +24,10 @@ for file in os.listdir("filled_hydro\Temp"):
     missing_len(sorted, "Wert")
 
 """
+
+df = pd.read_csv("hydro_data\Temp/2176_Wassertemperatur.txt", skiprows=8, delimiter=";", encoding="latin1")
+print(df.head())
+#print(df["Gewässer"].iloc[0])
 
 
 

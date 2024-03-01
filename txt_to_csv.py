@@ -88,7 +88,8 @@ class Gaps():
     #Problem: slow af
     #Method used on the dataframe where the rows are missing in order to fill them up
     def find_missing_dates(df):
-        min_date = df['Zeitstempel'].min()
+        min_date = "1980-01-01 00:00:00"
+        #min_date = df['Zeitstempel'].min()
         max_date = df['Zeitstempel'].max()
         all_dates = pd.date_range(start=min_date, end=max_date, freq="D")
         existing_dates = pd.to_datetime(df['Zeitstempel']).dt.date.unique()
@@ -101,16 +102,16 @@ class Gaps():
     def fill_gaps(file_list, folder_save_path):
         for file in os.listdir(file_list):
             file_path = file_list + "/" + file
-            df = pd.read_csv(file_path, delimiter=';', skiprows=8, encoding="iso-8859-1")
+            df = pd.read_csv(file_path, skiprows=8, delimiter=";", encoding="latin1")
             missings = Gaps.find_missing_dates(df)
 
             for date in missings:
-                new_row = {'Stationsname': df['Stationsname'].iloc[0],
-            'Stationsnummer': df['Stationsnummer'].iloc[0],
-            'Parameter': df['Parameter'].iloc[0],
-            'Zeitreihe': df['Zeitreihe'].iloc[0],
-            'Parametereinheit': df['Parametereinheit'].iloc[0],
-            'Gewässer': df['Gewässer'].iloc[0],
+                new_row = {'Stationsname': df.iloc[:,0].iloc[0],
+            'Stationsnummer': df.iloc[:,1].iloc[0],
+            'Parameter': df.iloc[:,2].iloc[0],
+            'Zeitreihe': df.iloc[:,3].iloc[0],
+            'Parametereinheit': df.iloc[:,4].iloc[0],
+            'Gewässer': df.iloc[:,5].iloc[0],
             'Zeitstempel': str(date),
             'Zeitpunkt_des_Auftretens': None,
             'Wert': None,
