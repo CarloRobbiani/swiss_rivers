@@ -25,9 +25,11 @@ for file in os.listdir("filled_hydro\Temp"):
 
 """
 
-df = pd.read_csv("hydro_data\Temp/2176_Wassertemperatur.txt", skiprows=8, delimiter=";", encoding="latin1")
-print(df.head())
+#df = pd.read_csv("hydro_data\Temp/2176_Wassertemperatur.txt", skiprows=8, delimiter=";", encoding="latin1")
+#print(df.head())
 #print(df["Gewässer"].iloc[0])
+
+print(Gaps.gaps_with_dates("2174"))
 
 
 

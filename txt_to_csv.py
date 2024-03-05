@@ -85,6 +85,40 @@ class Gaps():
         missing_values_dates = df.loc[df['Wert'].isna(), 'Zeitstempel']
         return missing_values_dates
 
+    #function that returns df with information of gap lenght and start and end time of gap
+    def gaps_with_dates(station):
+        df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin")
+        df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
+        df = df.sort_values(by="Zeitstempel")
+        df.set_index("Zeitstempel", inplace=True)
+        current_seq = 0
+        gap_lengths = []
+        start_dates = []
+        end_dates = []
+
+        for index, value in df["Wert"].items():
+            if  pd.isnull(value):
+                if current_seq == 0:
+                    start_dates.append(index)
+                current_seq+=1
+            else:
+                if current_seq > 0:
+                    gap_lengths.append(current_seq)
+                    end_dates.append(index)
+                current_seq = 0
+
+        gap_df = pd.DataFrame({
+            'start_date': start_dates,
+            'end_date': end_dates,
+            'gap_length': gap_lengths
+        })
+        
+        return gap_df
+        
+
+
+
+
     #Problem: slow af
     #Method used on the dataframe where the rows are missing in order to fill them up
     def find_missing_dates(df):
