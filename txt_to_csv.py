@@ -42,6 +42,21 @@ class Read_txt:
         final_df = pd.concat(dfs, ignore_index=True)
         return final_df
 
+    def read_filled_hydro():
+        files = os.listdir("filled_hydro/Temp")
+
+        dfs = []
+
+        for file in files:
+
+            file_path = os.path.join("filled_hydro/Temp", file)
+            df = pd.read_csv(file_path, delimiter=';', encoding="latin1")
+
+            dfs.append(df)
+
+        final_df = pd.concat(dfs, ignore_index=True)
+        return final_df
+
 
 class Gaps():
     #Method that returns the different gap length occurences
@@ -50,6 +65,7 @@ class Gaps():
         #longest_seq = 0
         seq_list = []
         current_seq = 0
+        df.sort_values(by="Zeitstempel")
 
         for value in df[column].isnull():
             if value:

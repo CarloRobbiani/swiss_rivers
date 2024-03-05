@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from txt_to_csv import Gaps
+from txt_to_csv import Gaps, Read_txt
 from neighbours import Neighbour
 from my_graph_reader import ResourceRiverReaderFactory
-from collections import Counter
+from collections import Counter, defaultdict
 import seaborn as sns
 import missingno as msno
 import os
@@ -31,15 +31,27 @@ def plot_missing_neighbour_nr(adj_list):
 
 #Plots length of each gap 
 #column: column where missing values occur
-def plot_missing_length(station_nr, column):
+def plot_missing_length(file_path, column):
+    data = []
+    files = os.listdir(file_path)
+    for file in files:
+        df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
+        df.sort_values(by="Zeitstempel", inplace=True)
+        current_seq = 0
 
-    df = pd.read_csv(f"filled_hydro\Temp/{station_nr}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-    missing_list = Gaps.missing_len(df, column, False)
-    x = list(missing_list.keys())
-    y = list(missing_list.values())
-    
-    plt.bar(x, y)
-    plt.xticks(x)
+        for value in df[column].isnull():
+            if value:
+                current_seq+=1
+            else:
+                if(current_seq > 0):
+                    data.append(current_seq)
+                current_seq = 0
+        if(current_seq > 0):
+            data.append(current_seq)
+
+    plt.hist(data, bins=40, rwidth=0.8, align="mid")
+    plt.title("Amount of Gaps with given length")
+    #plt.xticks(x)
     plt.show()
 
 #plots a heatmap of all the missing values in the files of filepath
@@ -77,7 +89,7 @@ def plot_missing_per_year(file_path):
     plt.show() 
 
 #plots the amount of long gaps (>360) per year
-#TODO maybe change to starting date again
+#TODO maybe change to starting date again instead of for every year if it occurs
 def plot_long_gaps(file_path):
     dates = []
     files = os.listdir(file_path)
@@ -114,7 +126,7 @@ if __name__=="__main__":
 
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
     #plot_missing_neighbour_nr(adj_rhein)
-    #plot_missing_length(2091, "Wert")
+    #plot_missing_length("filled_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
     #df = pd.read_csv(f"filled_hydro\Temp/2176_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
     #df_sorted = df.sort_values(by="Zeitstempel")
