@@ -16,7 +16,7 @@ fig, ax = None, None
 
 #Function to plot the river data
 #date: value from slider
-def plot_river_data(data, data_edges, date):
+def plot_river_data_with_slider(data, data_edges, date):
 
     global fig, ax
     ax.clear()
@@ -64,6 +64,42 @@ def plot_river_data(data, data_edges, date):
 
     fig.canvas.draw_idle()
 
+#plots both the old stations and the new stations
+def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990):
+    #fig, ax = plt.subplots(2)
+
+    x_2010 = data_2010[:,0]
+    y_2010 = data_2010[:,1]
+    x_1990 = data_1990[:,0]
+    y_1990 = data_1990[:,1]
+    #stations_2010 = data_2010[:,2].tolist()
+
+
+
+    plt.scatter(x_2010, y_2010, label='River Nodes 2010', c = "Red")
+    plt.scatter(x_1990, y_1990, label='River Nodes 1990')
+
+ 
+
+    # Plot the river edges
+    for i in range(data_edges_2010.shape[1]):
+        start = data_edges_2010[0, i]
+        end = data_edges_2010[1, i]
+        plt.plot([x_2010[start], x_2010[end]], [y_2010[start], y_2010[end]], color='black')
+
+    """ for i in range(data_edges_1990.shape[1]):
+        start = data_edges_1990[0, i]
+        end = data_edges_1990[1, i]
+        plt.plot([x_1990[start], x_1990[end]], [y_1990[start], y_1990[end]], color='black') """
+
+    plt.xlabel('X Coordinate')
+    plt.ylabel('Y Coordinate')
+    plt.title('River Data')
+    plt.legend()
+
+    plt.show()
+
+
 
 if __name__ == "__main__":
     #reader_inn = ResourceRiverReaderFactory.inn_reader()
@@ -78,17 +114,23 @@ if __name__ == "__main__":
     # Create a matplotlib figure and axis
     #fig, ax = plt.subplots()
 
-
+    """
     fig, ax = plt.subplots()
     plt.subplots_adjust(bottom=0.25)
     ax_slider = plt.axes([0.1, 0.01, 0.65, 0.03])
     slider = Slider(ax_slider, 'Date', 0, total_days, valinit=0, valstep=1)
     init_date = slider_to_date(slider.val)
-   
+    """
 
-    reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
-    data_x_rhein, data_edges_rhein = reader_rhein.read()
+    reader_rhein_1990 = ResourceRiverReaderFactory.rhein_reader(-1990)
+    data_x_rhein_1990, data_edges_rhein_1990 = reader_rhein_1990.read()
 
+    reader_rhein_2010 = ResourceRiverReaderFactory.rhein_reader(-2010)
+    data_x_rhein_2010, data_edges_rhein_2010 = reader_rhein_2010.read()
+
+
+    plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
+    """
     def update(val):
         current_date = slider_to_date(slider.val)
         print(current_date)
@@ -98,4 +140,5 @@ if __name__ == "__main__":
 
     plot_river_data(data_x_rhein, data_edges_rhein, init_date)
     plt.show()
+    """
 

@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from collections import Counter
+import datetime
 
 #class with functions to read all the text files
 class Read_txt:
@@ -93,8 +94,6 @@ class Gaps():
     #Method to find out what dates have missing values in the dataset of hydro data
     #Assumes the dates are there
     def miss_date(df):
-        
-        # Convert 'Zeitstempel' column to datetime type
         df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
 
         # Find all rows where 'Wert' column has missing values
@@ -131,16 +130,26 @@ class Gaps():
         
         return gap_df
         
+    #Method to find if a station is part of a gap on a given date
+    #returns length of gap (0 if not part of a gap)
+    def find_gap_length(station, date):
+        gap_df = Gaps.gaps_with_dates(station)
 
-
-
-
+        for index in gap_df.index:
+            start = gap_df["start_date"][index]
+            end = gap_df["end_date"][index] + datetime.timedelta(days = 1)
+            date_range = pd.date_range(start, end)
+            if date in date_range:
+                return gap_df["gap_length"][index]
+            return 0
+        
     #Problem: slow af
     #Method used on the dataframe where the rows are missing in order to fill them up
     def find_missing_dates(df):
         min_date = "1980-01-01 00:00:00"
         #min_date = df['Zeitstempel'].min()
-        max_date = df['Zeitstempel'].max()
+        #max_date = df['Zeitstempel'].max()
+        max_date = "2020-12-31 00:00:00"
         all_dates = pd.date_range(start=min_date, end=max_date, freq="D")
         existing_dates = pd.to_datetime(df['Zeitstempel']).dt.date.unique()
         missing_dates = [date for date in all_dates if date.date() not in existing_dates]

@@ -58,7 +58,7 @@ class Neighbour:
 
 
 if __name__== "__main__":
-    reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
+    reader_rhein = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein, data_edges_rhein = reader_rhein.read()
 
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)

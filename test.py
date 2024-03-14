@@ -15,7 +15,7 @@ reader_rhein = ResourceRiverReaderFactory.rhein_reader(-1990)
 data_x_rhein, data_edges_rhein = reader_rhein.read()
 print(data_edges_rhein)
 print(data_x_rhein) 
-""" 
+
 for file in os.listdir("filled_hydro\Temp"):
 
     df = pd.read_csv("filled_hydro\Temp/" + file, delimiter=";", encoding="latin1")
@@ -30,6 +30,8 @@ for file in os.listdir("filled_hydro\Temp"):
 #print(df["Gewässer"].iloc[0])
 
 print(Gaps.missing_len(df, "Wert", True))
+"""
+print(Gaps.find_gap_length(2143, "2001-01-01 00:00:00"))
 
 
 

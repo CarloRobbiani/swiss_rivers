@@ -55,18 +55,31 @@ def plot_missing_length(file_path, column):
     plt.show()
 
 #plots a heatmap of all the missing values in the files of filepath
+#TODO Annotate plot with station numbers and years and so on
 def plot_missing_values(file_path):
-    data = []
+    data = {}
     files = os.listdir(file_path)
     for file in files:
         df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
         df_sorted = df.sort_values(by="Zeitstempel")
-        data.append(df_sorted["Wert"])
+
+        station = df_sorted.iloc[0,1]
+        data[station] = df_sorted.set_index("Zeitstempel")["Wert"]
+
+
 
     final_df = pd.DataFrame(data)
+    final_df = final_df.sort_index()
+
+    first_half = final_df[final_df.index < '2000-01-01 00:00:00']
+    second_half = final_df[final_df.index >= '2000-01-01 00:00:00']
+
     
-    plt.figure(figsize=(16, 8))
-    msno.matrix(final_df)
+    plt.figure(figsize=(18, 8))
+    colours = ['#34495E', 'seagreen'] 
+    sns.heatmap(final_df.isnull(), cmap=sns.color_palette(colours))
+    #msno.matrix(first_half)
+    #msno.matrix(second_half)
     plt.show()
 
 #Plots percentage of missing values per year
@@ -92,6 +105,7 @@ def plot_missing_per_year(file_path):
 #TODO maybe change to starting date again instead of for every year if it occurs
 def plot_long_gaps(file_path):
     dates = []
+    dates_short = []
     files = os.listdir(file_path)
     for file in files:
         df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
@@ -104,15 +118,26 @@ def plot_long_gaps(file_path):
                 date_range = range(start, end)
                 for date in date_range:
                     dates.append(date)
+
+            if station_df["gap_length"][index] <= 2:
+                start = station_df["start_date"][index].year
+                end = station_df["end_date"][index].year
+                #date_range = range(start, end)
+                dates_short.append(start)
     
     date_counts = Counter(dates)
+    date_short_counts = Counter(dates_short)
 
-    x = list(date_counts.keys())
+    x = sorted(list(date_counts.keys()))
     y = list(date_counts.values())
-    plt.bar(x,y)
+    x_short = sorted(list(date_short_counts.keys()))
+    y_short = list(date_short_counts.values())
+    plt.plot(x,y, label = "long gaps", marker = "o")
+    plt.plot(x_short, y_short, label = "short gaps", marker = "o")
     plt.title('Amount of long Gaps (>360 days) per year')
     plt.xlabel('Year')
     plt.xticks(rotation=45)
+    plt.legend()
     plt.show() 
 
 
@@ -131,5 +156,7 @@ if __name__=="__main__":
     #df = pd.read_csv(f"filled_hydro\Temp/2176_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
     #df_sorted = df.sort_values(by="Zeitstempel")
     #msno.matrix(df_sorted)
-    plot_long_gaps("filled_hydro/Temp")
+    #plot_long_gaps("filled_hydro/Temp")
+    plot_missing_values("filled_hydro\Temp")
+    #plot_missing_per_year("filled_hydro/Temp")
 
