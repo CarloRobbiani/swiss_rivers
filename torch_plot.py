@@ -76,8 +76,17 @@ def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990)
 
 
 
+
     plt.scatter(x_2010, y_2010, label='River Nodes 2010', c = "Red")
     plt.scatter(x_1990, y_1990, label='River Nodes 1990')
+
+    for i, row in enumerate(data_2010.numpy()):
+        x = row[0]
+        y = row[1]
+        text = row[2]
+
+        plt.annotate(str(text), xy=(x,y), xytext=(x+200, y+200))
+
 
  
 
@@ -128,8 +137,15 @@ if __name__ == "__main__":
     reader_rhein_2010 = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein_2010, data_edges_rhein_2010 = reader_rhein_2010.read()
 
+    reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
+    data_x_rhone_1990, data_edges_rhone_1990 = reader_rhone_1990.read()
+
+    reader_rhone_2010 = ResourceRiverReaderFactory.rohne_reader(-2010)
+    data_x_rhone_2010, data_edges_rhone_2010 = reader_rhone_2010.read()
+
 
     plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
+    #plot_river_data_both(data_x_rhone_2010, data_edges_rhone_2010, data_x_rhone_1990, data_edges_rhone_1990)
     """
     def update(val):
         current_date = slider_to_date(slider.val)
