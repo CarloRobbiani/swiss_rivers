@@ -50,6 +50,13 @@ def plot_river_data_with_slider(data, data_edges, date):
     #TODO: change labels
     ax.scatter(x, y, color=colors, label='River Nodes')
 
+    for i, row in enumerate(data.numpy()):
+        x_coord = row[0]
+        y_coord = row[1]
+        text = row[2]
+
+        ax.annotate(str(text), xy=(x_coord,y_coord), xytext=(x_coord+200, y_coord+200))
+
     # Plot the river edges
     for i in range(data_edges.shape[1]):
         start = data_edges[0, i]
@@ -111,10 +118,6 @@ def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990)
 
 
 if __name__ == "__main__":
-    #reader_inn = ResourceRiverReaderFactory.inn_reader()
-    #data_x_inn, data_edges_inn = reader_inn.read()
-    #plot_river_data(data_x_inn, data_edges_inn)
-
     # Calculate the total number of days between start and end dates
     start_date = datetime.date(1990, 1, 1)
     end_date = datetime.date(2021, 1, 1)
@@ -123,13 +126,13 @@ if __name__ == "__main__":
     # Create a matplotlib figure and axis
     #fig, ax = plt.subplots()
 
-    """
-    fig, ax = plt.subplots()
+    
+    """ fig, ax = plt.subplots()
     plt.subplots_adjust(bottom=0.25)
     ax_slider = plt.axes([0.1, 0.01, 0.65, 0.03])
     slider = Slider(ax_slider, 'Date', 0, total_days, valinit=0, valstep=1)
-    init_date = slider_to_date(slider.val)
-    """
+    init_date = slider_to_date(slider.val) """
+    
 
     reader_rhein_1990 = ResourceRiverReaderFactory.rhein_reader(-1990)
     data_x_rhein_1990, data_edges_rhein_1990 = reader_rhein_1990.read()
@@ -137,24 +140,29 @@ if __name__ == "__main__":
     reader_rhein_2010 = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein_2010, data_edges_rhein_2010 = reader_rhein_2010.read()
 
+    """
+
     reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
     data_x_rhone_1990, data_edges_rhone_1990 = reader_rhone_1990.read()
 
     reader_rhone_2010 = ResourceRiverReaderFactory.rohne_reader(-2010)
-    data_x_rhone_2010, data_edges_rhone_2010 = reader_rhone_2010.read()
+    data_x_rhone_2010, data_edges_rhone_2010 = reader_rhone_2010.read() 
 
+    reader_ti = ResourceRiverReaderFactory.ticino_reader()
+    data_x_ti, data_edges_ti = reader_ti.read()
+    """ 
 
     plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
     #plot_river_data_both(data_x_rhone_2010, data_edges_rhone_2010, data_x_rhone_1990, data_edges_rhone_1990)
-    """
-    def update(val):
+    
+    """ def update(val):
         current_date = slider_to_date(slider.val)
         print(current_date)
-        plot_river_data(data_x_rhein, data_edges_rhein, current_date)
+        plot_river_data_with_slider(data_x_ti, data_edges_ti, current_date) """
 
-    slider.on_changed(update)
+    #slider.on_changed(update)
 
-    plot_river_data(data_x_rhein, data_edges_rhein, init_date)
-    plt.show()
-    """
+    #plot_river_data_with_slider(data_x_ti, data_edges_ti, init_date)
+    #plt.show()
+    
 

@@ -101,6 +101,7 @@ class Gaps():
         return missing_values_dates
 
     #function that returns df with information of gap lenght and start and end time of gap
+    #returns df with columns [start_date, end_date, gap_length]
     def gaps_with_dates(station):
         df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin")
         df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
