@@ -31,7 +31,8 @@ for file in os.listdir("filled_hydro\Temp"):
 
 print(Gaps.missing_len(df, "Wert", True))
 """
-print(Gaps.find_gap_length(2143, "2001-01-01 00:00:00"))
+#print(Gaps.find_gap_length(2143, "2001-01-01 00:00:00"))
+print(Gaps.gaps_with_dates(2499))
 
 
 

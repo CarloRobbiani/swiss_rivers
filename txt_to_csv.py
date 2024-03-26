@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from collections import Counter
 import datetime
+from fastparquet import ParquetFile
 
 #class with functions to read all the text files
 class Read_txt:
@@ -102,8 +103,11 @@ class Gaps():
 
     #function that returns df with information of gap lenght and start and end time of gap
     #returns df with columns [start_date, end_date, gap_length]
+    #start date is the day before the gap, end date the day after the gap ends
     def gaps_with_dates(station):
-        df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin")
+        #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        df = pf.to_pandas()
         df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
         df = df.sort_values(by="Zeitstempel")
         df.set_index("Zeitstempel", inplace=True)
@@ -115,7 +119,7 @@ class Gaps():
         for index, value in df["Wert"].items():
             if  pd.isnull(value):
                 if current_seq == 0:
-                    start_dates.append(index)
+                    start_dates.append(index - datetime.timedelta(days=1))
                 current_seq+=1
             else:
                 if current_seq > 0:
@@ -132,8 +136,11 @@ class Gaps():
         return gap_df
         
     #Method to find if a station is part of a gap on a given date
-    #returns length of gap (0 if not part of a gap)
-    def find_gap_length(station, date):
+    #returns length of gap (-1 if not part of a gap)
+    """ def find_gap_length(station, date):
+        if station == -1:
+            return -1
+
         gap_df = Gaps.gaps_with_dates(station)
 
         for index in gap_df.index:
@@ -142,7 +149,28 @@ class Gaps():
             date_range = pd.date_range(start, end)
             if date in date_range:
                 return gap_df["gap_length"][index]
-            return 0
+            return -1 """
+    
+    def find_gap_length(station, date):
+        if station == -1:
+            return -1
+
+        gap_df = Gaps.gaps_with_dates(station)
+
+        gap_df['start_date'] = pd.to_datetime(gap_df['start_date'])
+        gap_df['end_date'] = pd.to_datetime(gap_df['end_date'])
+        gap_df['end_date'] += pd.Timedelta(days=1)
+
+        # Create boolean mask to filter rows where the date is within the range
+        mask = (date >= gap_df['start_date']) & (date <= gap_df['end_date'])
+
+        # Use boolean indexing to filter rows and get the gap_length
+        matching_gaps = gap_df[mask]
+
+        if not matching_gaps.empty:
+            return matching_gaps.iloc[0]['gap_length']
+        else:
+            return -1
         
     #Problem: slow af
     #Method used on the dataframe where the rows are missing in order to fill them up

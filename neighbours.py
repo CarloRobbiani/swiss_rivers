@@ -2,6 +2,7 @@ from my_graph_reader import ResourceRiverReaderFactory
 import os
 import pandas as pd
 from txt_to_csv import Gaps
+from fastparquet import ParquetFile
 
 class Neighbour:
     
@@ -32,15 +33,14 @@ class Neighbour:
     #neighbour list: result of get_neighbour function
     #path: path where .txt files are stored
     #date: the date where we found missing values in data
-    def neighbour_missing(neighbour_list, path, date):
+    def neighbour_missing(neighbour_list, date):
         isMissing = []
-        files = os.listdir(path)
         for neighbour in neighbour_list:
-            if str(neighbour) == "-1":
+            if neighbour == -1:
                     continue
-            #file_list = [path + f if str(neighbour) in f else "" for f in files]
-            df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
-            #df = pd.read_csv(file, delimiter=";", encoding="iso-8859-1")
+            #df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+            pf = ParquetFile(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
+            df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
 
@@ -51,7 +51,11 @@ class Neighbour:
         values = {}
         neighbour_stations = Neighbour.get_neigbour(station, adj_list)
         for st in neighbour_stations:
-            df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+            if st == -1:
+                continue
+            #df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+            pf = ParquetFile(f"parquet_hydro\Temp/{st}_Wassertemperatur.parquet")
+            df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             values[st] = df.loc[date, "Wert"]
         return values
@@ -65,11 +69,13 @@ if __name__== "__main__":
     for station in adj_rhein:
         if str(station) == "-1":
                 continue
-        df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+        #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
+        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        df = pf.to_pandas()
         dates = Gaps.miss_date(df)
         n_list = Neighbour.get_neigbour(station, adj_rhein)
         for date in dates:
-            miss = Neighbour.neighbour_missing(n_list, "filled_hydro/Temp", str(date))
+            miss = Neighbour.neighbour_missing(n_list, str(date))
             if miss > 0:
                  print(date, ": ",  miss)
     #print("Neighbours: ", get_neigbour(2143, adj_rhein))
