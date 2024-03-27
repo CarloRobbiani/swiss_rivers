@@ -32,10 +32,13 @@ def plot_missing_neighbour_nr(adj_list):
 #Plots length of each gap 
 #column: column where missing values occur
 def plot_missing_length(file_path, column):
+    fig, ax = plt.subplots(1,3)
+
     data = []
     files = os.listdir(file_path)
     for file in files:
-        df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
+        #df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
+        df = pd.read_parquet(f"parquet_hydro\Temp/{file}")
         df.sort_values(by="Zeitstempel", inplace=True)
         current_seq = 0
 
@@ -49,9 +52,25 @@ def plot_missing_length(file_path, column):
         if(current_seq > 0):
             data.append(current_seq)
 
-    plt.hist(data, bins=40, rwidth=0.8, align="mid")
-    plt.title("Amount of Gaps with given length")
-    #plt.xticks(x)
+    low_vals = [x for x in data if x <= 50]
+    mid_vals = [x for x in data if 50 < x <= 365]
+    high_vals = [x for x in data if 365 < x]
+
+    
+
+    ax[0].hist(low_vals, bins=50, rwidth=0.8, align="mid")
+    ax[0].set_title(r"Gap length $\leq$ 50")
+    ax[0].set(ylabel = "Nr. of Occurences")
+    ax[1].hist(mid_vals, bins=50, rwidth=0.8, align="mid")
+    ax[1].set_title(r"50 < Gap length $\leq$ 365")
+    ax[2].hist(high_vals, bins=50, rwidth=0.8, align="mid")
+    ax[2].set_title("Gap length < 365")
+
+    
+    for axs in ax.flat:
+        axs.set(xlabel='Days')
+
+    fig.suptitle("Amount of Gaps in Air temp. with given length")
     plt.show()
 
 #plots a heatmap of all the missing values in the files of filepath
@@ -151,12 +170,12 @@ if __name__=="__main__":
 
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
     #plot_missing_neighbour_nr(adj_rhein)
-    #plot_missing_length("filled_hydro\Temp", "Wert")
+    plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
     #df = pd.read_csv(f"filled_hydro\Temp/2176_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
     #df_sorted = df.sort_values(by="Zeitstempel")
     #msno.matrix(df_sorted)
     #plot_long_gaps("filled_hydro/Temp")
-    plot_missing_values("filled_hydro\Temp")
+    #plot_missing_values("filled_hydro\Temp")
     #plot_missing_per_year("filled_hydro/Temp")
 

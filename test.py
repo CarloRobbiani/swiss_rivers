@@ -32,7 +32,16 @@ for file in os.listdir("filled_hydro\Temp"):
 print(Gaps.missing_len(df, "Wert", True))
 """
 #print(Gaps.find_gap_length(2143, "2001-01-01 00:00:00"))
-print(Gaps.gaps_with_dates(2499))
+#print(Gaps.gaps_with_dates(2499))
+
+df = pd.read_parquet(f"parquet_hydro\Temp/2091_Wassertemperatur.parquet")
+df = df.sort_values(by="Zeitstempel")
+
+#df = pd.read_csv("filled_hydro/Temp/2091_Wassertemperatur.txt",  delimiter=";", encoding="latin1")
+
+df = Gaps.gaps_with_dates(2091)
+print(df.head())
+
 
 
 

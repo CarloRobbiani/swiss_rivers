@@ -3,6 +3,7 @@ import os
 from collections import Counter
 import datetime
 from fastparquet import ParquetFile
+from itertools import groupby
 
 #class with functions to read all the text files
 class Read_txt:
@@ -110,8 +111,35 @@ class Gaps():
         df = pf.to_pandas()
         df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
         df = df.sort_values(by="Zeitstempel")
-        df.set_index("Zeitstempel", inplace=True)
-        current_seq = 0
+        #df.set_index("Zeitstempel", inplace=True)
+
+        missing_data = df['Wert'].isnull()
+
+        gap_lengths = []
+        start_dates = []
+        end_dates = []
+
+
+        consecutive_missing = []
+        for k, g in groupby(enumerate(missing_data), lambda x: x[1]):
+            if k:
+                consecutive_missing.append(list(map(lambda x: x[0], list(g))))
+
+        for entry in consecutive_missing:
+
+            start_dates.append(df.iloc[entry[0]]["Zeitstempel"] - datetime.timedelta(days=1))
+            end_dates.append(df.iloc[entry[-1]]["Zeitstempel"] + datetime.timedelta(days=1))
+            gap_lengths.append(len(entry))
+
+        gap_df = pd.DataFrame({
+            'start_date': start_dates,
+            'end_date': end_dates,
+            'gap_length': gap_lengths
+        })
+        
+        return gap_df
+
+        """ current_seq = 0
         gap_lengths = []
         start_dates = []
         end_dates = []
@@ -133,7 +161,9 @@ class Gaps():
             'gap_length': gap_lengths
         })
         
-        return gap_df
+        return gap_df """
+
+
         
     #Method to find if a station is part of a gap on a given date
     #returns length of gap (-1 if not part of a gap)

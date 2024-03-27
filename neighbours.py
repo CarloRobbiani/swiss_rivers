@@ -39,8 +39,8 @@ class Neighbour:
             if neighbour == -1:
                     continue
             #df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-            pf = ParquetFile(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
-            df = pf.to_pandas()
+            df = pd.read_parquet(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
+            #df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
 

@@ -29,12 +29,12 @@ def fill(data_x, data_edges, adj_list):
 
         print(f"Station {station}")
 
-        if str(station) == "-1":
-            continue
+        if station == -1:
+            continue 
 
         #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        df = pf.to_pandas()
+        df = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        #df = pf.to_pandas()
         missing_dates_df = Gaps.gaps_with_dates(station)
 
         for index, row in missing_dates_df.iterrows():
@@ -51,7 +51,7 @@ def fill(data_x, data_edges, adj_list):
                 
             else:
                 #TODO use either air temperature or neighbour
-                neighbour_list = Neighbour.get_neigbour(station, adj_list)
+                neighbour_list = adj_list[station]
                 length = len(neighbour_list)
                 #TODO make it faster
                 for date in date_range:
@@ -62,7 +62,7 @@ def fill(data_x, data_edges, adj_list):
                         value_list = Neighbour.get_Neighbour_values(station, str(date), adj_list)
 
                     #case some missing neighbours
-                    elif missing_nr > 0:
+                    elif length > missing_nr > 0:
                         for neighbour in neighbour_list:
                             gap_len = Gaps.find_gap_length(neighbour, str(date))
                             if 0 < gap_len <=2:
@@ -73,7 +73,7 @@ def fill(data_x, data_edges, adj_list):
                                 value = interpolate(df_n, start_date, end_date)
                                 print(f"Neighbour {neighbour} temp: {value}")
 
-                    #case only much missing neighbours
+                    #case only missing neighbours
                     elif missing_nr == length:
                         #TODO use air temperature
                         continue
@@ -128,6 +128,7 @@ if __name__ == "__main__":
     reader_rhein = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein, data_edges_rhein = reader_rhein.read()
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
+    
 
     profile(fill(data_x_rhein, data_edges_rhein, adj_rhein))
     print_stats()
