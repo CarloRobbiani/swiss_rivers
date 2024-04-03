@@ -52,25 +52,28 @@ def plot_missing_length(file_path, column):
         if(current_seq > 0):
             data.append(current_seq)
 
-    low_vals = [x for x in data if x <= 50]
-    mid_vals = [x for x in data if 50 < x <= 365]
+    low_vals = [x for x in data if x <= 20]
+    mid_vals = [x for x in data if 20 < x <= 365]
     high_vals = [x for x in data if 365 < x]
 
     
 
-    ax[0].hist(low_vals, bins=50, rwidth=0.8, align="mid")
-    ax[0].set_title(r"Gap length $\leq$ 50")
+    ax[0].hist(low_vals, bins=40, rwidth=0.8, align="mid")
+    ax[0].set_title(r"Gap length $\leq$ 20")
     ax[0].set(ylabel = "Nr. of Occurences")
-    ax[1].hist(mid_vals, bins=50, rwidth=0.8, align="mid")
-    ax[1].set_title(r"50 < Gap length $\leq$ 365")
-    ax[2].hist(high_vals, bins=50, rwidth=0.8, align="mid")
-    ax[2].set_title("Gap length < 365")
+    ax[1].hist(mid_vals, bins=40, rwidth=0.8, align="mid")
+
+    ax[1].set_title(r"20 < Gap length $\leq$ 100")
+    ax[2].hist(high_vals, bins=40, rwidth=0.8, align="mid")
+    ax[2].set_title(r"Gap length $\geq$ 365")
+    
+    
 
     
     for axs in ax.flat:
         axs.set(xlabel='Days')
 
-    fig.suptitle("Amount of Gaps in Air temp. with given length")
+    fig.suptitle("Amount of Gaps in Water temp. with given length")
     plt.show()
 
 #plots a heatmap of all the missing values in the files of filepath
@@ -90,15 +93,23 @@ def plot_missing_values(file_path):
     final_df = pd.DataFrame(data)
     final_df = final_df.sort_index()
 
-    first_half = final_df[final_df.index < '2000-01-01 00:00:00']
-    second_half = final_df[final_df.index >= '2000-01-01 00:00:00']
-
     
     plt.figure(figsize=(18, 8))
-    colours = ['#34495E', 'seagreen'] 
-    sns.heatmap(final_df.isnull(), cmap=sns.color_palette(colours))
-    #msno.matrix(first_half)
-    #msno.matrix(second_half)
+    colours = ["grey", "lightgray"] 
+    ax = sns.heatmap(final_df.isnull(), cmap=colours)
+
+    colorbar = ax.collections[0].colorbar
+    colorbar.set_ticks([0.25,0.75])
+    colorbar.set_ticklabels(['Not missing', 'missing'])
+
+
+    plt.yticks(rotation=0) 
+    plt.yticks(range(0, len(final_df.index), 700), [x[:4] for x in final_df.index[::700]]) 
+    plt.title("Missing values per station and year")
+    plt.ylabel("Time")
+    plt.xlabel("Station")
+   
+
     plt.show()
 
 #Plots percentage of missing values per year
@@ -170,12 +181,10 @@ if __name__=="__main__":
 
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
     #plot_missing_neighbour_nr(adj_rhein)
-    plot_missing_length("parquet_hydro\Temp", "Wert")
+    #plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
-    #df = pd.read_csv(f"filled_hydro\Temp/2176_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-    #df_sorted = df.sort_values(by="Zeitstempel")
-    #msno.matrix(df_sorted)
+
     #plot_long_gaps("filled_hydro/Temp")
-    #plot_missing_values("filled_hydro\Temp")
+    plot_missing_values("filled_hydro\Temp")
     #plot_missing_per_year("filled_hydro/Temp")
 

@@ -19,6 +19,31 @@ class Neighbour:
                 adj_list[end] = []
             adj_list[end].append(start)
         return adj_list
+    
+    def all_adj_list():
+        big_adj = {}
+
+        reader_rhein = ResourceRiverReaderFactory.rhein_reader(-2010)
+        data_x_rhein, data_edges_rhein = reader_rhein.read()
+        adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
+        big_adj.update(adj_rhein)
+
+        reader_inn = ResourceRiverReaderFactory.inn_reader()
+        data_x_inn, data_edges_inn = reader_inn.read()
+        adj_inn = Neighbour.get_adj(data_x_inn, data_edges_inn)
+        big_adj.update(adj_inn)
+
+        reader_rohne = ResourceRiverReaderFactory.rohne_reader(-2010)
+        data_x_rohne, data_edges_rohne = reader_rohne.read()
+        adj_rohne = Neighbour.get_adj(data_x_rohne, data_edges_rohne)
+        big_adj.update(adj_rohne)
+
+        reader_ti = ResourceRiverReaderFactory.ticino_reader()
+        data_x_ti, data_edges_ti = reader_ti.read()
+        adj_ti = Neighbour.get_adj(data_x_ti, data_edges_ti)
+        big_adj.update(adj_ti)
+
+        return big_adj
 
 
     #Enter station_nr and adjacency list from the river in hydro data and return the neighbouring stations

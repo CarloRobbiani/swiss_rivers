@@ -124,14 +124,16 @@ if __name__ == "__main__":
     total_days = (end_date - start_date).days
 
     # Create a matplotlib figure and axis
-    #fig, ax = plt.subplots()
+    """ fig, ax = plt.subplots()
 
     
-    """ fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
     plt.subplots_adjust(bottom=0.25)
     ax_slider = plt.axes([0.1, 0.01, 0.65, 0.03])
     slider = Slider(ax_slider, 'Date', 0, total_days, valinit=0, valstep=1)
     init_date = slider_to_date(slider.val) """
+
+    
     
 
     reader_rhein_1990 = ResourceRiverReaderFactory.rhein_reader(-1990)
@@ -139,18 +141,22 @@ if __name__ == "__main__":
 
     reader_rhein_2010 = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein_2010, data_edges_rhein_2010 = reader_rhein_2010.read()
-
     """
-
+    
     reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
     data_x_rhone_1990, data_edges_rhone_1990 = reader_rhone_1990.read()
 
     reader_rhone_2010 = ResourceRiverReaderFactory.rohne_reader(-2010)
     data_x_rhone_2010, data_edges_rhone_2010 = reader_rhone_2010.read() 
-
+    
+    
     reader_ti = ResourceRiverReaderFactory.ticino_reader()
     data_x_ti, data_edges_ti = reader_ti.read()
-    """ 
+    
+
+    reader_inn = ResourceRiverReaderFactory.inn_reader()
+    data_x, data_edges = reader_inn.read()
+    """
 
     plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
     #plot_river_data_both(data_x_rhone_2010, data_edges_rhone_2010, data_x_rhone_1990, data_edges_rhone_1990)
@@ -158,11 +164,11 @@ if __name__ == "__main__":
     """ def update(val):
         current_date = slider_to_date(slider.val)
         print(current_date)
-        plot_river_data_with_slider(data_x_ti, data_edges_ti, current_date) """
+        plot_river_data_with_slider(data_x, data_edges, current_date) 
 
-    #slider.on_changed(update)
+    slider.on_changed(update)
 
-    #plot_river_data_with_slider(data_x_ti, data_edges_ti, init_date)
-    #plt.show()
+    plot_river_data_with_slider(data_x, data_edges, init_date)
+    plt.show() """
     
 
