@@ -1,12 +1,36 @@
 from my_graph_reader import ResourceRiverReaderFactory
-import os
 import pandas as pd
 from txt_to_csv import Gaps
 from fastparquet import ParquetFile
 
 class Neighbour:
+
+    #station lookup table for the special cases
+    #TODO check if both directions are needed
+    def alter_neighbour(station):
+        adj_list = {
+            2179 : 2085,
+            2308 : 2143,
+            2033 : 2143,
+            2126 : 2044,
+            2410 : 2143,
+            2150 : 2143,
+            2327 : 2143,
+            2432 : 2174,
+            2617 : 2462,
+            2167 : 2068,
+            2612 : 2068,
+            2109 : 2030,
+            2019 : 2030,
+            2473 : 2143,
+            2009 : 2174
+        }
+
+        return adj_list.get(station)
+
+
     
-#Enter a data tensor and its edges and create an adjacency list.
+    #Enter a data tensor and its edges and create an adjacency list.
     def get_adj(data, edges):
         adj_list = {}
         for i in range(edges.shape[1]):
@@ -78,6 +102,7 @@ class Neighbour:
         for st in neighbour_stations:
             if st == -1:
                 continue
+
             #df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
             pf = ParquetFile(f"parquet_hydro\Temp/{st}_Wassertemperatur.parquet")
             df = pf.to_pandas()

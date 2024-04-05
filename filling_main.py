@@ -24,6 +24,7 @@ def print_stats():
 
 #function that takes a station (int) and a adj list and fills the missing values with the models
 #@profile
+#TODO überlegen wie mit neuen Stationen umgehen, Baudatum?
 def fill(station, adj_list):
 
     print(f"Station {station}")
@@ -55,17 +56,29 @@ def fill(station, adj_list):
 
             #TODO make it faster
             for date in date_range:
+                value_list = []
                 missing_nr = Neighbour.neighbour_missing(neighbour_list, str(date))
                 discharge = return_flow(station, date)
 
                 #case no missing neighbours
                 if missing_nr == 0:
-                    value_list = Neighbour.get_Neighbour_values(station, str(date), adj_list)
+                    values = Neighbour.get_Neighbour_values(station, str(date), adj_list)
                     print("No missing Neighbours")
+                    #TODO use either AQN2gap or AN2gap
 
                 #case some missing neighbours
                 elif length > missing_nr > 0:
+                    #TODO consider special cases
                     for neighbour in neighbour_list:
+                        if isnewer(neighbour, date):
+                            #If the station is newer than the specified date use the alternative neighbour
+                            new_n = Neighbour.alter_neighbour(station)
+                            pf = ParquetFile(f"parquet_hydro\Temp/{new_n}_Wassertemperatur.parquet")
+                            df_n = pf.to_pandas()
+                            value = df_n.loc[(df_n['Zeitstempel'] == date)]["Wert"]
+                            value_list.append(value)
+                            continue
+
                         gap_len = Gaps.find_gap_length(neighbour, str(date))
                         if 0 < gap_len <=2:
                             #interpolate
@@ -74,11 +87,46 @@ def fill(station, adj_list):
                             df_n = pf.to_pandas()
                             value = interpolate(df_n, start_date, end_date)
                             print(f"Neighbour {neighbour} temp: {value}")
+                            value_list.append(value)
 
-                        #TODO else ignore
+                        #TODO use air temp
+                        else:
+                            value = fill_with_air(neighbour, date, adj_list)
+                            value_list.append(value)
+                    #TODO use AQN2Gap model or AN2Gap model
 
                 #case only missing neighbours
                 elif missing_nr == length:
+                    #TODO consider special cases
+
+                    for n in neighbour_list:
+                        if isnewer(n, str(date)):
+                            # use alternative Neighbour
+                            new_n = Neighbour.alter_neighbour(station)
+                            pf = ParquetFile(f"parquet_hydro\Temp/{new_n}_Wassertemperatur.parquet")
+                            df_n = pf.to_pandas()
+                            value = df_n.loc[(df_n['Zeitstempel'] == date)]["Wert"]
+                            value_list.append(value)
+                            continue
+                        else:
+                            #use original Neighbour(s)
+
+                            gap_len = Gaps.find_gap_length(n, str(date))
+                            if 0 < gap_len <=2:
+                                #interpolate
+                                #df_n =  pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+                                pf = ParquetFile(f"parquet_hydro\Temp/{n}_Wassertemperatur.parquet")
+                                df_n = pf.to_pandas()
+                                value = interpolate(df_n, start_date, end_date)
+                                print(f"Neighbour {n} temp: {value}")
+                                value_list.append(value)
+
+                            #TODO use air temp
+                            else:
+                                value = fill_with_air(n, date, adj_list)
+                                value_list.append(value)
+                        #TODO use AQN2Gap model or AN2Gap model
+                        continue
                     #use air temperature
                     result = fill_with_air(station, date, adj_list)
                     #print(f"Air: {result}")
@@ -86,8 +134,7 @@ def fill(station, adj_list):
 
 
 #takes a station and a date in the date format and returns the air temp of that station and date
-#TODO check if its an empty dataframe and take a year later otherwise
-#TODO convert date from "1980-01-10 00:00:00" to 19800101        
+#TODO check if its an empty dataframe and take a year later otherwise  
 def fill_with_air(station, date, adj_list):
 
     #dt_object = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
@@ -132,6 +179,19 @@ def interpolate(df, start_date, end_date):
    result = float((start_value + end_value) / 2)
    return result
 
+#Takes a station and returns True if it was built after the specified date
+def isnewer(station, date):
+    df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+
+    building_date = df["Zeitstempel"].iloc[0]
+    building_year = int(building_date[:4])
+    spec_date = int(date[:4])
+    if building_year >= spec_date:
+        return True
+    return False
+    
+
+
 
 if __name__ == "__main__":
 
@@ -143,8 +203,7 @@ if __name__ == "__main__":
     #print(return_flow(2609, "1988-09-18 00:00:00"))
 
 
-
-    fill(2327, big_adj)
+   #fill(2327, big_adj)
     
 
     #profile(fill(data_x_rhein, data_edges_rhein, adj_rhein))
