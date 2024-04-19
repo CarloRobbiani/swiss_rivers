@@ -2,10 +2,11 @@ from my_graph_reader import ResourceRiverReaderFactory
 import pandas as pd
 from txt_to_csv import Gaps
 from fastparquet import ParquetFile
+import numpy as np
 
 class Neighbour:
 
-    #station lookup table for the special cases
+    #station lookup table for the special cases returns 0 if station not in list
     #TODO check if both directions are needed
     def alter_neighbour(station):
         adj_list = {
@@ -25,6 +26,8 @@ class Neighbour:
             2473 : 2143,
             2009 : 2174
         }
+        if station not in adj_list:
+            return 0
 
         return adj_list.get(station)
 
@@ -109,6 +112,16 @@ class Neighbour:
             df.set_index('Zeitstempel', inplace=True)
             values[st] = df.loc[date, "Wert"]
         return values
+    
+    #returns the value of a station on a given date
+    def get_value(station, date):
+        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        df = pf.to_pandas()
+
+        value = station.loc[station["Zeitstempel"] == date]["Wert"]
+        if value == np.nan:
+            return None
+        return value
 
 
 if __name__== "__main__":

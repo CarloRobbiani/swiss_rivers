@@ -110,7 +110,7 @@ def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990)
 
     plt.xlabel('X Coordinate')
     plt.ylabel('Y Coordinate')
-    plt.title('River Data')
+    plt.title('River Data Rhein')
     plt.legend()
 
     plt.show()

@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import pandas as pd
 from txt_to_csv import Gaps, Read_txt
 from neighbours import Neighbour
@@ -53,19 +54,20 @@ def plot_missing_length(file_path, column):
             data.append(current_seq)
 
     low_vals = [x for x in data if x <= 20]
-    mid_vals = [x for x in data if 20 < x <= 365]
-    high_vals = [x for x in data if 365 < x]
+    mid_vals = [x for x in data if 20 < x <= 700]
+    high_vals = [x for x in data if 700 < x]
 
     
 
     ax[0].hist(low_vals, bins=40, rwidth=0.8, align="mid")
     ax[0].set_title(r"Gap length $\leq$ 20")
     ax[0].set(ylabel = "Nr. of Occurences")
+    ax[0].xaxis.set_major_locator(MaxNLocator(integer=True))
     ax[1].hist(mid_vals, bins=40, rwidth=0.8, align="mid")
 
-    ax[1].set_title(r"20 < Gap length $\leq$ 100")
+    ax[1].set_title(r"20 < Gap length $\leq$ 700")
     ax[2].hist(high_vals, bins=40, rwidth=0.8, align="mid")
-    ax[2].set_title(r"Gap length $\geq$ 365")
+    ax[2].set_title(r"Gap length > 700")
     
     
 
@@ -170,7 +172,18 @@ def plot_long_gaps(file_path):
     plt.legend()
     plt.show() 
 
+#Plots the value of two df into one plot
+#df1 is a df from filled hydro and df2 the values from the filling main function
+def plot_multi_color(df1, df2):
+    df1_s= df1.sort_values(by="Zeitstempel")
+    df2_s= df2.sort_values(by="Zeitstempel")
+    x1 = df1_s["Wert"]
+    y1 = df1_s["Zeitstempel"]
+    x2 = df2_s["wert"]
+    y2 = df2_s["Zeitstempel"]
 
+    plt.plot(x1,y1, color = "blue")
+    plt.plot(x2, y2, color = "red")
 
 
 
@@ -181,10 +194,10 @@ if __name__=="__main__":
 
     adj_rhein = Neighbour.get_adj(data_x_rhein, data_edges_rhein)
     #plot_missing_neighbour_nr(adj_rhein)
-    #plot_missing_length("parquet_hydro\Temp", "Wert")
+    plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
 
     #plot_long_gaps("filled_hydro/Temp")
-    plot_missing_values("filled_hydro\Temp")
+    #plot_missing_values("filled_hydro\Temp")
     #plot_missing_per_year("filled_hydro/Temp")
 
