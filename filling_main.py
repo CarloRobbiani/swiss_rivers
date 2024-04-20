@@ -142,7 +142,7 @@ def return_flow(station, date):
 
     flow_df = pd.read_csv(f"filled_hydro\Flow/{station}_Abfluss_Tagesmittel.txt", delimiter=';',  encoding="latin1")
 
-    row = flow_df.loc[(flow_df['Stationsnummer'] == station) & (flow_df['Zeitstempel'] == date)]
+    row = flow_df.loc[(flow_df['Stationsnummer'] == station) & (flow_df['Zeitstempel'] == str(date))]
 
     if pd.isna(row["Wert"].iloc[0]):
         return -1
