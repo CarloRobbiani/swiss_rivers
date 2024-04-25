@@ -8,6 +8,8 @@ from my_graph_reader import ResourceRiverReaderFactory
 import profile
 from line_profiler import LineProfiler
 from fastparquet import ParquetFile
+import numpy as np
+from models import Models
 
 
 profiler = LineProfiler()
@@ -26,8 +28,18 @@ def print_stats():
 #@profile
 #TODO überlegen wie mit neuen Stationen umgehen, Baudatum?; wie zurückgeben?
 def fill(station, adj_list):
+    #temporary df for presentation
+    columns = {"Zeistempel", "Wert"}
+    dataframe = pd.DataFrame(columns=columns)
 
     print(f"Station {station}")
+
+    data = np.load("models/2170\Apr19_15-58-07_bnode051_11234070_2823_normalizers.npy")
+    target_low, target_high = map(float, data[0][1:])
+    discharge_low, discharge_high = map(float, data[1][1:])
+    air_low, air_high = map(float, data[2][1:])
+    wt_n_low, wt_n_high = map(float, data[3][1:])
+
 
     if station == -1:
         return -1
@@ -46,8 +58,10 @@ def fill(station, adj_list):
         if gap_length < 3:
             #TODO use interpolation
             for date in date_range:
-                value = interpolate(df, start_date, end_date)
-                print(value)
+                out = interpolate(df, start_date, end_date)
+                print(f"Out interpolation: {out}")
+                new_row = {"Zeitstempel": date, "Wert" : out}
+                dataframe = pd.concat([dataframe, pd.DataFrame([new_row])])
             
         else:
             #TODO use either air temperature or neighbour + discharge
@@ -59,12 +73,19 @@ def fill(station, adj_list):
                 value_list = []
                 missing_nr = Neighbour.neighbour_missing(neighbour_list, str(date))
                 discharge = return_flow(station, date)
+                air_target = fill_with_air(station, date, adj_list)
 
                 #case no missing neighbours
                 if missing_nr == 0:
                     values = Neighbour.get_Neighbour_values(station, str(date), adj_list)
                     print("No missing Neighbours")
                     #TODO use either AQN2gap or AN2gap
+                    output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
+                                      target_low, target_high, wt_n_low, wt_n_high, values, station)
+                    
+                    print(f"Output: {output}")
+                    new_row = {"Zeitstempel": date, "Wert" : output.item()}
+                    dataframe = pd.concat([dataframe, pd.DataFrame([new_row])])
 
                 #case  missing neighbours
                 elif missing_nr > 0:
@@ -89,7 +110,7 @@ def fill(station, adj_list):
                             value_list.append(value)
 
 
-                        elif isnewer(neighbour, date):
+                        elif isnewer(neighbour, str(date)):
                             #If the station is newer than the specified date use the alternative neighbour
                             #TODO treat the case where it is not the new station considered
                             new_n = Neighbour.alter_neighbour(station)
@@ -105,23 +126,28 @@ def fill(station, adj_list):
                         #TODO use air temp
                         else:
                             value = fill_with_air(neighbour, date, adj_list)
-                            value_list.append(value)
+                            value_at = Models.a2gap(air_low, air_high, value, target_low, target_high, station)
+                            value_list.append(value_at)
                     #TODO use AQN2Gap model or AN2Gap model
-
-               
-                    #print(f"Air: {result}")
+                    output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
+                                      target_low, target_high, wt_n_low, wt_n_high, value_list, station)
+                    
+                    print(f"Output: {output}")
+                    new_row = {"Zeitstempel": date, "Wert" : output.item()}
+                    dataframe = pd.concat([dataframe, pd.DataFrame([new_row])])
+    df = pd.DataFrame(dataframe, columns=["Zeitstempel", "Wert"])
+    df.to_csv("temp.csv", index=False)
 
 
 
 #takes a station and a date in the date format and returns the air temp of that station and date
 #TODO check if its an empty dataframe and take a year later otherwise  
-def fill_with_air(station, date, adj_list):
+def fill_with_air(station, date, adj_list, air_df):
 
     #dt_object = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
     dt = date.strftime("%Y%m%d")
 
     h2m = Hydro2MeteoMapper()
-    air_df = Read_txt.read_air_temp("air_temp")
 
     air_station = (h2m.meteo(str(station)))
     row = air_df.loc[(air_df['stn'] == air_station) & (air_df['time'] == int(dt))]
@@ -180,7 +206,7 @@ if __name__ == "__main__":
     #print(return_flow(2609, "1988-09-18 00:00:00"))
 
 
-   #fill(2327, big_adj)
+    fill(2170, big_adj)
     
 
     #profile(fill(data_x_rhein, data_edges_rhein, adj_rhein))
