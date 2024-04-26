@@ -7,6 +7,8 @@ import profile
 from line_profiler import LineProfiler
 from fastparquet import ParquetFile
 import torch
+from reading import Read_txt
+import numpy as np
 
 import numpy as np
 from filling_main import interpolate, fill_with_air, return_flow, isnewer
@@ -142,28 +144,25 @@ def fill_a2gap(station, adj_list):
 
     #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
     df = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+    df = df.sort_values(by="Zeitstempel")
     output_df = df.set_index("Zeitstempel")
     #df = pf.to_pandas()
     missing_dates_df = Gaps.gaps_with_dates(station)
 
     for index, row in missing_dates_df.iterrows():
-        start_date = row["start_date"]
+        start_date = max((row["start_date"], datetime.strptime("1980-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")))
         end_date = row["end_date"]
         gap_length = row["gap_length"]
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
         value_list = []
         
-        for date in date_range:
-            air_target = fill_with_air(station, date, adj_list, air_df)
-            value_list.append(air_target)
+        value_list = Read_txt.get_air_betw(station, start_date, end_date, air_df)
             
-        arr = np.array(value_list)
-        value_at = Models.a2gap(arr, station)
+        value_at = Models.a2gap(value_list, station)
 
-
-    output_df.loc[str(date), "Wert"] = value_at.item()
-    output_df.reset_index(inplace=True)
-    output_df.to_csv("temp.csv", index=False)
+        #output_df.loc[str(start_date): str(end_date)]["Wert"] = array_value
+        output_df.reset_index(inplace=True)
+        output_df.to_csv("temp.csv", index=False)
 
 
         

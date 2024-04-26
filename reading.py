@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 from txt_to_csv import Gaps
+from hydro_to_meteo import Hydro2MeteoMapper
+from datetime import datetime
 
 #class with functions to read all the text files
 class Read_txt:
@@ -56,6 +58,20 @@ class Read_txt:
 
         final_df = pd.concat(dfs, ignore_index=True)
         return final_df
+    #Function that takes a station and two dates (in date format) and returns the values
+    #form the air station between those dates as a numpy array
+    def get_air_betw(station, start_date, end_date, air_df):
+        dt_start = start_date.strftime("%Y%m%d")
+        dt_end = end_date.strftime("%Y%m%d")
+
+        h2m = Hydro2MeteoMapper()
+
+        air_station = (h2m.meteo(str(station)))
+
+        air_df = air_df.loc[(air_df['stn'] == air_station)]
+        air_df = air_df[air_df["time"].between(int(dt_start), int(dt_end))]
+        return air_df["tre200d0"].to_numpy()
+        
     
 
 import pyarrow as pa

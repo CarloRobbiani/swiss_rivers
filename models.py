@@ -19,7 +19,8 @@ class Models:
         norm_t = MinMaxNormalizer(target)
         normalizer_air = MinMaxNormalizer(air_temp)
         #air_t = air_t.numpy()
-        n_at = (normalizer_air.normalize(air_t)).astype(np.float)
+        n_at = (normalizer_air.normalize(air_t))#.astype(float)
+        n_at = np.float32(n_at)
 
         #print(metadata["hyperparameters"])
 
@@ -27,7 +28,7 @@ class Models:
 
         model.load_state_dict(torch.load("models/2481\Apr19_19-21-53_bnode041_11243843_1794_best_valid_loss_at2wt.pt"))
 
-        input_data = torch.tensor([[n_at]])
+        input_data = torch.tensor([n_at])
         output = model(input_data) 
         #print(output)
         norm_output = norm_t.denormalize(output)
