@@ -69,7 +69,7 @@ class Read_txt:
         air_station = (h2m.meteo(str(station)))
 
         air_df = air_df.loc[(air_df['stn'] == air_station)]
-        air_df = air_df[air_df["time"].between(int(dt_start), int(dt_end))]
+        air_df = air_df[air_df["time"].between(int(dt_start), int(dt_end), inclusive="neither")]
         return air_df["tre200d0"].to_numpy()
         
     

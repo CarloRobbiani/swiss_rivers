@@ -150,7 +150,7 @@ def fill_a2gap(station, adj_list):
     missing_dates_df = Gaps.gaps_with_dates(station)
 
     for index, row in missing_dates_df.iterrows():
-        start_date = max((row["start_date"], datetime.strptime("1980-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")))
+        start_date = row["start_date"]
         end_date = row["end_date"]
         gap_length = row["gap_length"]
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
@@ -160,9 +160,11 @@ def fill_a2gap(station, adj_list):
             
         value_at = Models.a2gap(value_list, station)
 
-        #output_df.loc[str(start_date): str(end_date)]["Wert"] = array_value
-        output_df.reset_index(inplace=True)
-        output_df.to_csv("temp.csv", index=False)
+        array_value = value_at.detach().numpy()
+
+        output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
+    output_df.reset_index(inplace=True)
+    output_df.to_csv("temp.csv", index=False)
 
 
         
