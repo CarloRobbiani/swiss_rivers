@@ -5,83 +5,100 @@ from prediction import RecurrentPredictionModel
 import json
 import os
 
-class Models:
-    #TODO anstatt nur ein value für air_t gib als input langer vektor
-    def a2gap(air_t, station):
+#order of normalizers: target, discharge, air, all the neighbours
+class Model():
 
-        data = np.load("models/2481\Apr19_20-24-04_bnode051_11243919_1797_normalizers.npy")
-        t_low, t_high = map(float, data[0][1:])
-        air_low, air_high = map(float, data[2][1:])
-        wt_n_low, wt_n_high = map(float, data[3][1:])
+    def __init__(self, station, model_type, input_size):
 
-        air_temp = np.array([air_low, air_high])
-        target = np.array([t_low, t_high])
-        norm_t = MinMaxNormalizer(target)
-        normalizer_air = MinMaxNormalizer(air_temp)
-        #air_t = air_t.numpy()
-        n_at = (normalizer_air.normalize(air_t))#.astype(float)
+        self.station = station
+        self.model_type = model_type
+        directory = f"models\{station}"
+        
+
+        files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
+        filename = files[-1]
+        self.data = np.load(f"models/{station}/" + filename)
+
+        self.read_npy_file()
+        
+
+        self.model = Model.read_metadata(station, model_type, input_size)
+        #TODO check to automatize
+        files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")]
+        self.model.load_state_dict(torch.load(f"models/{station}/" + files[0]))
+        self.model.eval()
+
+
+    
+    def a2gap(self, air_t):
+
+        n_at = (self.normalizers[2].normalize(air_t))#.astype(float)
         n_at = np.float32(n_at)
 
-        #print(metadata["hyperparameters"])
 
-        model = Models.read_metadata(station, "at2wt", 1)
-
-        model.load_state_dict(torch.load("models/2481\Apr19_19-21-53_bnode041_11243843_1794_best_valid_loss_at2wt.pt"))
-
-        model.eval()
-
-        #input_data = torch.tensor([n_at])
         input_data = torch.tensor(n_at, dtype=torch.float32).unsqueeze(1)
-        output = model(input_data) 
+        output = self.model(input_data) 
         #print(output)
-        norm_output = norm_t.denormalize(output)
+        norm_output = self.normalizers[0].denormalize(output)
+
+        return norm_output
+
+    def aq2gap(self, air_t, discharge_t):
+        
+        n_at = (self.normalizers[2].normalize(air_t))
+        n_at = np.float32(n_at)
+
+        n_discharge = np.float32(self.normalizers[1].normalize(discharge_t))
+
+        n_at = torch.tensor(n_at, dtype=torch.float32)
+        n_discharge = torch.tensor(n_discharge, dtype=torch.float32)
+        torch_input = torch.stack((n_discharge, n_at), dim=1)
+
+        output = self.model(torch_input)
+        norm_output = self.normalizers[0].denormalize(output)
 
         return norm_output
 
     #TODO Turn n_t list into a tensor?
-    #TODO Stations with multiple neighbours? Maybe dont denormalize them in fill function?
-    def atqn2gap(air_low, air_high, air_t, q_low, q_high, q_target, t_low, t_high, n_low, n_high, n_t, station):
-        air_temp = np.array([air_low, air_high])
-        discharge = np.array([q_low, q_high])
-        nei = np.array([n_low, n_high])
-        target = np.array([t_low, t_high])
-        norm_targ = MinMaxNormalizer(target)
-        normalizer_air = MinMaxNormalizer(air_temp)
-        normalizer_d = MinMaxNormalizer(discharge)
-        normalizer_n = MinMaxNormalizer(nei)
-        n_at = float(normalizer_air.normalize(air_t))
-        n_q = float(normalizer_d.normalize(q_target))
-        #n_nei = float(normalizer_n.normalize(n_t[0].item()))
-        n_nei = float(normalizer_n.normalize(n_t))
+    #TODO Stations with multiple neighbours? 
+    def aqn2gap(self, air_t, q_target, n_t):
 
-        model = Models.read_metadata(station, "atqn2wt", 3)
-        
-        model.load_state_dict(torch.load("models/2481\Apr19_20-24-04_bnode051_11243919_1797_best_valid_loss_atqn2wt.pt"))
+        n_at = (self.normalizers[2].normalize(air_t))
+        n_at = np.float32(n_at)
+        n_discharge = np.float32(self.normalizers[1].normalize(q_target))
+        tensor_list = []
+
+        tensor_list.append(torch.tensor(n_discharge, dtype=torch.float32))
+        tensor_list.append(torch.tensor(n_at, dtype=torch.float32))
+
+        for i in range(len(n_t)):
+            norm_index = i+3
+            value_n = np.float32(self.normalizers[norm_index].normalize(n_t[i]))
+            tensor_list.append(torch.tensor(value_n, dtype=torch.float32))
+
         #immer reihenfolge beibahlten wei bei files
-        input_data = torch.tensor([[n_at,n_q,n_nei]])
-        output = model.forward(input_data) 
+
+
+        #n_neighbours = torch.tensor(n_neighbours, dtype=torch.float32)
+        torch_input = torch.stack(tensor_list, dim=1)
+
+        output = self.model(torch_input)
         #print(output)
-        norm_out = norm_targ.denormalize(output)
+        norm_out = self.normalizers[0].denormalize(output)
 
         return norm_out
 
-    def atn2gap(air_low, air_high, air_t, t_low, t_high, n_low, n_high, n_t, station):
-        air_temp = np.array([air_low, air_high])
-        nei = np.array([n_low, n_high])
-        target = np.array([t_low, t_high])
-        norm_targ = MinMaxNormalizer(target)
-        normalizer_air = MinMaxNormalizer(air_temp)
-        normalizer_n = MinMaxNormalizer(nei)
-        n_at = normalizer_air.normalize(air_t)
-        n_nei = normalizer_n.normalize(n_t[0].item())
+    def an2gap(self, air_t, n_t):
 
-        model = Models.read_metadata(station, "atn2wt", 2)
+        n_at = (self.normalizers[2].normalize(air_t))
+        n_at = np.float32(n_at)
+
+
         
-        model.load_state_dict(torch.load("models/2481\Apr19_19-49-54_bnode058_11243851_1797_best_valid_loss_atq2wt.pt"))
-        input_data = torch.tensor([[n_at,n_nei]])
-        output = model.forward(input_data) 
+        input_data = torch.tensor([[n_at]])#n_nei]])
+        output = self.model(input_data) 
         #print(output)
-        norm_out = norm_targ.denormalize(output)
+        norm_out = self.normalizers[0].denormalize(output)
         return norm_out
 
 
@@ -102,10 +119,24 @@ class Models:
         
         return model
 
+    #returns an array of normalizers in the stated order
+    def read_npy_file(self):
+        self.arr = []
+        self.normalizers = []
+        for row in self.data:
+            self.arr.append([row[1], row[2]])
+
+        for item in self.arr:
+            self.normalizers.append(MinMaxNormalizer(np.array(item, dtype=np.float32)))
+
+    
+            
+
+
 
 if __name__ == "__main__":
 
-    Models.read_metadata(2170, "at2wt")
+    Model.read_metadata(2170, "at2wt")
 
     """ Models.atqn2gap()
     odel = np.load("models\Apr18_16-06-55_bnode052_11183649_3435_normalizers.npy")

@@ -138,48 +138,40 @@ class Gaps():
         })
         
         return gap_df
+    
+    #Returns an array with dates where in between there are no missing values in the specified columns
+    #returns an array of the form [('1980-01-01 00:00:00', '1982-12-31 00:00:00'), ('1983-01-02 00:00:00', '1990-01-01 00:00:00')]
+    def consecutive_non_missing(df, start_date, end_date, column_names):
 
-        """ current_seq = 0
-        gap_lengths = []
-        start_dates = []
-        end_dates = []
-
-        for index, value in df["Wert"].items():
-            if  pd.isnull(value):
-                if current_seq == 0:
-                    start_dates.append(index - datetime.timedelta(days=1))
-                current_seq+=1
+        df = df.sort_values(by="Zeitstempel")
+        #df = df.set_index("Zeitstempel")
+        df_filtered = df[(df["Zeitstempel"] >= start_date) & (df["Zeitstempel"] <= end_date)]
+    
+        # Reset index to make indexing easier
+        df_filtered.reset_index(drop=True, inplace=True)
+        
+        consecutive_blocks = []
+        start = None
+        end = None
+        
+        for i in range(len(df_filtered)):
+            if all(pd.notna(df_filtered.loc[i, col]) for col in column_names):
+                if start is None:
+                    start = df_filtered.loc[i, 'Zeitstempel']
+                end = df_filtered.loc[i, 'Zeitstempel']
             else:
-                if current_seq > 0:
-                    gap_lengths.append(current_seq)
-                    end_dates.append(index)
-                current_seq = 0
-
-        gap_df = pd.DataFrame({
-            'start_date': start_dates,
-            'end_date': end_dates,
-            'gap_length': gap_lengths
-        })
+                if start is not None:
+                    consecutive_blocks.append((start, end))
+                    start = None
+                    end = None
         
-        return gap_df """
-
-
+        # Check if the last block extends to the end of the DataFrame
+        if start is not None:
+            consecutive_blocks.append((start, end))
         
-    #Method to find if a station is part of a gap on a given date
-    #returns length of gap (-1 if not part of a gap)
-    """ def find_gap_length(station, date):
-        if station == -1:
-            return -1
+        return consecutive_blocks
+        
 
-        gap_df = Gaps.gaps_with_dates(station)
-
-        for index in gap_df.index:
-            start = gap_df["start_date"][index]
-            end = gap_df["end_date"][index] + datetime.timedelta(days = 1)
-            date_range = pd.date_range(start, end)
-            if date in date_range:
-                return gap_df["gap_length"][index]
-            return -1 """
     
     def find_gap_length(station, date):
         if station == -1:

@@ -12,7 +12,7 @@ import numpy as np
 
 import numpy as np
 from filling_main import interpolate, fill_with_air, return_flow, isnewer
-from models import Models
+from models import Model
 
 def fill(station, adj_list):
     print(f"Station {station}")
@@ -66,11 +66,10 @@ def fill(station, adj_list):
                     v_tens = (values[2152])
                     print("No missing Neighbours")
                     #TODO use either AQN2gap or AN2gap
-                    output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
-                                      target_low, target_high, wt_n_low, wt_n_high, v_tens, station)
+                    #output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
+                     #                 target_low, target_high, wt_n_low, wt_n_high, v_tens, station)
                     
-                    print(f"Output: {output}")
-                    output_df.loc[str(date), "Wert"] = output.item()
+                    #output_df.loc[str(date), "Wert"] = output.item()
 
                     """ new_row = {"Zeitstempel": date, "Wert" : output.item()}
                     dataframe = pd.concat([dataframe, pd.DataFrame([new_row])]) """
@@ -114,14 +113,14 @@ def fill(station, adj_list):
                         #TODO use air temp
                         else:
                             value = fill_with_air(neighbour, date, adj_list)
-                            value_at = Models.a2gap(value, neighbour)
-                            value_list.append(value_at)
+                            #value_at = Models.a2gap(value, neighbour)
+                            #value_list.append(value_at)
                     #TODO use AQN2Gap model or AN2Gap model
-                    output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
-                                      target_low, target_high, wt_n_low, wt_n_high, value_list, station)
+                    #output = Models.atqn2gap(air_low, air_high, air_target, discharge_low, discharge_high, discharge, 
+                              #        target_low, target_high, wt_n_low, wt_n_high, value_list, station)
                     
-                    print(f"Output: {output}")
-                    output_df.loc[str(date), "Wert"] = output.item()
+                    #print(f"Output: {output}")
+                    #output_df.loc[str(date), "Wert"] = output.item()
                     """ new_row = {"Zeitstempel": date, "Wert" : output.item()}
                     dataframe = pd.concat([dataframe, pd.DataFrame([new_row])])
     df = pd.DataFrame(dataframe, columns=["Zeitstempel", "Wert"]) """
@@ -133,10 +132,8 @@ def fill(station, adj_list):
 def fill_a2gap(station, adj_list):
     air_df = Read_txt.read_air_temp("air_temp")
     data = np.load("models/2481\Apr19_20-24-04_bnode051_11243919_1797_normalizers.npy")
-    target_low, target_high = map(float, data[0][1:])
-    discharge_low, discharge_high = map(float, data[1][1:])
-    air_low, air_high = map(float, data[2][1:])
-    wt_n_low, wt_n_high = map(float, data[3][1:])
+
+    model_at = Model(station, "at2wt", 1)
 
 
     if station == -1:
@@ -156,15 +153,102 @@ def fill_a2gap(station, adj_list):
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
         value_list = []
         
-        value_list = Read_txt.get_air_betw(station, start_date, end_date, air_df)
+        value_list = Read_txt.get_air_betw(station, start_date + timedelta(days=1), end_date, air_df)
             
-        value_at = Models.a2gap(value_list, station)
+        value_at = model_at.a2gap(value_list)
 
         array_value = value_at.detach().numpy()
 
         output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
     output_df.reset_index(inplace=True)
     output_df.to_csv("temp.csv", index=False)
+
+#fills in gaps only with air temperature
+def fill_aq2gap(station, adj_list):
+    air_df = Read_txt.read_air_temp("air_temp")
+
+    model_atq = Model(station, "atq2wt", 2)
+    if station == -1:
+        return -1
+
+    df_flow = pd.read_csv(f"filled_hydro\Flow/{station}_Abfluss_Tagesmittel.txt", delimiter=';',  encoding="latin1")
+    df_flow = df_flow.sort_values(by="Zeitstempel")
+    df_temp = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+    df_temp = df_temp.sort_values(by="Zeitstempel")
+    df_temp["Flow"] = df_flow["Wert"].to_numpy()
+    output_df = df_temp.set_index("Zeitstempel")
+    missing_dates_df = Gaps.gaps_with_dates(station)
+
+    for index, row in missing_dates_df.iterrows():
+        start_date = row["start_date"]
+        end_date = row["end_date"]
+        gap_length = row["gap_length"]
+        date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
+        value_list = []
+
+        date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), ["Flow"])
+
+        for start, end in date_list:
+            flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
+            value_list = Read_txt.get_air_betw(station, start, end, air_df)
+            
+            value_wt = model_atq.aq2gap(value_list, flow_list)
+
+            array_value = value_wt.detach().numpy()
+
+            output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
+    output_df.reset_index(inplace=True)
+    output_df.to_csv("temp_q.csv", index=False)
+
+def fill_aqn2gap(station, adj_list):
+
+    cols = ["Flow"]
+    air_df = Read_txt.read_air_temp("air_temp")
+
+    model_atq = Model(station, "atqn2wt", 3)
+    if station == -1:
+        return -1
+
+    df_flow = pd.read_csv(f"filled_hydro\Flow/{station}_Abfluss_Tagesmittel.txt", delimiter=';',  encoding="latin1")
+    df_flow = df_flow.sort_values(by="Zeitstempel")
+    df_temp = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+    df_temp = df_temp.sort_values(by="Zeitstempel")
+    df_temp["Flow"] = df_flow["Wert"].to_numpy()
+    for n in adj_list[station]:
+        df_n = pd.read_csv(f"filled_hydro\Temp/{n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+        df_n = df_n.sort_values(by="Zeitstempel")
+        df_temp[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
+        cols.append(df_n["Stationsnummer"][0])
+
+    output_df = df_temp.set_index("Zeitstempel")
+    missing_dates_df = Gaps.gaps_with_dates(station)
+
+    for index, row in missing_dates_df.iterrows():
+        start_date = row["start_date"]
+        end_date = row["end_date"]
+        gap_length = row["gap_length"]
+        date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
+        value_list = []
+
+        date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), cols)
+
+        for start, end in date_list:
+            if start == end:
+                continue # All rows have some missing data
+            n_list = []
+            flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
+            value_list = Read_txt.get_air_betw(station, start, end, air_df)
+            for n in adj_list[station]:
+                n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
+            
+            
+            value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
+
+            array_value = value_wt.detach().numpy()
+
+            output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
+    output_df.reset_index(inplace=True)
+    output_df.to_csv("temp_qn.csv", index=False)
 
 
         
@@ -176,4 +260,7 @@ if __name__ == "__main__":
 
 
     big_adj = Neighbour.all_adj_list()
-    fill_a2gap(2481, big_adj)
+    #fill_a2gap(2481, big_adj)
+    #fill_aq2gap(2481, big_adj)
+    fill_aqn2gap(2481, big_adj)
+    #res = Gaps.consecutive_non_missing(df, "1980-01-01 00:00:00", "1990-01-01 00:00:00", ["Wert"])
