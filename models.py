@@ -6,6 +6,7 @@ import json
 import os
 
 #order of normalizers: target, discharge, air, all the neighbours
+#order of input: discharge, air, neighbours
 class Model():
 
     def __init__(self, station, model_type, input_size):
@@ -23,7 +24,6 @@ class Model():
         
 
         self.model = Model.read_metadata(station, model_type, input_size)
-        #TODO check to automatize
         files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")]
         self.model.load_state_dict(torch.load(f"models/{station}/" + files[0]))
         self.model.eval()
@@ -35,10 +35,8 @@ class Model():
         n_at = (self.normalizers[2].normalize(air_t))#.astype(float)
         n_at = np.float32(n_at)
 
-
         input_data = torch.tensor(n_at, dtype=torch.float32).unsqueeze(1)
         output = self.model(input_data) 
-        #print(output)
         norm_output = self.normalizers[0].denormalize(output)
 
         return norm_output
@@ -59,8 +57,7 @@ class Model():
 
         return norm_output
 
-    #TODO Turn n_t list into a tensor?
-    #TODO Stations with multiple neighbours? 
+
     def aqn2gap(self, air_t, q_target, n_t):
 
         n_at = (self.normalizers[2].normalize(air_t))
@@ -78,39 +75,41 @@ class Model():
 
         #immer reihenfolge beibahlten wei bei files
 
-
-        #n_neighbours = torch.tensor(n_neighbours, dtype=torch.float32)
         torch_input = torch.stack(tensor_list, dim=1)
 
         output = self.model(torch_input)
-        #print(output)
         norm_out = self.normalizers[0].denormalize(output)
 
         return norm_out
 
     def an2gap(self, air_t, n_t):
+        tensor_list = []
 
         n_at = (self.normalizers[2].normalize(air_t))
         n_at = np.float32(n_at)
+        tensor_list.append(torch.tensor(n_at, dtype=torch.float32))
 
-
+        for i in range(len(n_t)):
+            norm_index = i+3
+            value_n = np.float32(self.normalizers[norm_index].normalize(n_t[i]))
+            tensor_list.append(torch.tensor(value_n, dtype=torch.float32))
         
-        input_data = torch.tensor([[n_at]])#n_nei]])
-        output = self.model(input_data) 
-        #print(output)
+        torch_input = torch.stack(tensor_list, dim=1)
+
+        output = self.model(torch_input)
         norm_out = self.normalizers[0].denormalize(output)
-        return norm_out
 
 
     #station: ####; model: either at2wt/atq2wt/atqn2wt as a string
     #returns the model from the metadata
     def read_metadata(station, model, input_size):
         directory = f"models\{station}"
-        prefix = f"{station}_{model}"
+        prefix = f"{station}_{model}_T2010"
 
         filename = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
         
-        f = open(f"C:/Users\carlo\OneDrive\Documents\GitHub\swiss_rivers\models/{station}/" + str(filename[0]))
+        #f = open(f"C:/Users\carlo\OneDrive\Documents\GitHub\swiss_rivers\models/{station}/" + str(filename[0]))
+        f = open(f"models/{station}/" + str(filename[0]))
 
         metadata = json.load(f)
         model = RecurrentPredictionModel(input_size, 
@@ -136,7 +135,7 @@ class Model():
 
 if __name__ == "__main__":
 
-    Model.read_metadata(2170, "at2wt")
+    #Model.read_metadata(2170, "at2wt")
 
     """ Models.atqn2gap()
     odel = np.load("models\Apr18_16-06-55_bnode052_11183649_3435_normalizers.npy")

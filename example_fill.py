@@ -131,7 +131,6 @@ def fill(station, adj_list):
 #fills in gaps only with air temperature
 def fill_a2gap(station, adj_list):
     air_df = Read_txt.read_air_temp("air_temp")
-    data = np.load("models/2481\Apr19_20-24-04_bnode051_11243919_1797_normalizers.npy")
 
     model_at = Model(station, "at2wt", 1)
 
@@ -143,7 +142,6 @@ def fill_a2gap(station, adj_list):
     df = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
     df = df.sort_values(by="Zeitstempel")
     output_df = df.set_index("Zeitstempel")
-    #df = pf.to_pandas()
     missing_dates_df = Gaps.gaps_with_dates(station)
 
     for index, row in missing_dates_df.iterrows():
@@ -161,9 +159,10 @@ def fill_a2gap(station, adj_list):
 
         output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
     output_df.reset_index(inplace=True)
+    #output_df.to_csv(f"Temp_{station}_a.csv", index=False)
     output_df.to_csv("temp.csv", index=False)
 
-#fills in gaps only with air temperature
+#fills in gaps with air temperature and discharge
 def fill_aq2gap(station, adj_list):
     air_df = Read_txt.read_air_temp("air_temp")
 
@@ -198,14 +197,15 @@ def fill_aq2gap(station, adj_list):
 
             output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
     output_df.reset_index(inplace=True)
+    #output_df.to_csv(f"Temp_{station}_aq.csv", index=False)
     output_df.to_csv("temp_q.csv", index=False)
 
 def fill_aqn2gap(station, adj_list):
 
-    cols = ["Flow"]
+    cols = ["Flow"] #columns to check for missing data
     air_df = Read_txt.read_air_temp("air_temp")
 
-    model_atq = Model(station, "atqn2wt", 3)
+    model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
     if station == -1:
         return -1
 
@@ -243,17 +243,12 @@ def fill_aqn2gap(station, adj_list):
             
             
             value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
-
             array_value = value_wt.detach().numpy()
-
             output_df.loc[str(start_date): str(end_date - timedelta(days=1)),"Wert"] = array_value
+
     output_df.reset_index(inplace=True)
+    #output_df.to_csv(f"Temp_{station}_aqn.csv", index=False)
     output_df.to_csv("temp_qn.csv", index=False)
-
-
-        
-
-
 
 
 if __name__ == "__main__":
@@ -261,6 +256,6 @@ if __name__ == "__main__":
 
     big_adj = Neighbour.all_adj_list()
     #fill_a2gap(2481, big_adj)
-    #fill_aq2gap(2481, big_adj)
-    fill_aqn2gap(2481, big_adj)
+    fill_aq2gap(2481, big_adj)
+    #fill_aqn2gap(2481, big_adj)
     #res = Gaps.consecutive_non_missing(df, "1980-01-01 00:00:00", "1990-01-01 00:00:00", ["Wert"])

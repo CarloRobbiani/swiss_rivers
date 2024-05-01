@@ -1,0 +1,12 @@
+{
+    "model": "RecurrentPredictionModel(1, configuration['width'], configuration['depth'])",
+    "hyperparameters": {
+        "width": "64",
+        "depth": "3"
+    },
+    "test_result": {
+        "rmse": 0.7130464959183639,
+        "mae": 0.5685150291454482,
+        "nse": 0.9313176620867263
+    }
+}
