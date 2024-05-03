@@ -114,6 +114,51 @@ def plot_missing_values(file_path):
 
     plt.show()
 
+def plot_res_heatmeap():
+
+    data = {}
+    cols = ["Wert", "Model"]
+    stations = os.listdir("predictions")
+    for st in stations:
+        df = pd.read_csv(f"predictions\{st}/Temp_final_{st}.csv", delimiter=",")
+        df_sorted = df.sort_values(by="Zeitstempel")
+        data[st] = df_sorted.set_index("Zeitstempel")["Model"]
+
+
+
+    final_df = pd.DataFrame(data)
+    #final_df = pd.concat(data, axis=0)
+    final_df = final_df.sort_index()
+
+    
+    plt.figure(figsize=(18, 8))
+    colors = ["grey", "cornflowerblue", "lightskyblue", "royalblue"]
+
+    numbers = {
+        "Source": 0,
+        "A2Gap": 1,
+        "AN2Gap": 2, #TODO Change it to AN2gap later on with return_final_df function renaming
+        "AQN2Gap": 3
+    }
+
+    value_map = final_df.map(lambda x: numbers.get(x, -1))
+    ax = sns.heatmap(value_map, cmap=colors)
+
+    colorbar = ax.collections[0].colorbar
+    colorbar.set_ticks([0.4, 1.2, 2.0, 2.7])
+    colorbar.set_ticklabels(["Source","A2Gap", "AQ2Gap","AQN2Gap"])
+
+
+    plt.yticks(rotation=0) 
+    plt.yticks(range(0, len(final_df.index), 700), [x[:4] for x in final_df.index[::700]]) 
+    plt.title("Missing values per station and year")
+    plt.ylabel("Time")
+    plt.xlabel("Station")
+   
+
+    plt.show()
+
+
 #Plots percentage of missing values per year
 def plot_missing_per_year(file_path):
     data = []
@@ -213,10 +258,7 @@ if __name__=="__main__":
     #plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
     
-    df = pd.read_csv("temp_qn.csv")
-    plot_multi_color(df)
+    plot_res_heatmeap()
 
-    #plot_long_gaps("filled_hydro/Temp")
-    #plot_missing_values("filled_hydro\Temp")
-    #plot_missing_per_year("filled_hydro/Temp")
+
 

@@ -128,7 +128,7 @@ def fill(station, adj_list):
     output_df.to_csv("temp.csv", index=False)
 
 
-#fills in gaps only with air temperature
+#fills in gaps only with air temperature maybe add interplolation for short gaps
 def fill_a2gap(station, adj_list):
     air_df = Read_txt.read_air_temp("air_temp")
 
@@ -262,17 +262,50 @@ def fill_aqn2gap(station, adj_list):
     output_df.to_csv(f"predictions/{station}/Temp_{station}_aqn.csv", index=False)
     #output_df.to_csv("temp_qn.csv", index=False)
 
+#returns the final estimation of the df
+def return_final_df(station):
+    df = pd.read_parquet(f"parquet_hydro\Temp\{station}_Wassertemperatur.parquet")
+    df = df.sort_values(by="Zeitstempel")
+    df = df.set_index("Zeitstempel")
+    df_a = pd.read_csv(f"predictions\{station}\Temp_{station}_a.csv")
+    df_a = df_a.sort_values(by="Zeitstempel")
+    df_a = df_a.set_index("Zeitstempel")
+    df_aq = pd.read_csv(f"predictions\{station}\Temp_{station}_aq.csv")
+    df_aq = df_aq.sort_values(by="Zeitstempel")
+    df_aq = df_aq.set_index("Zeitstempel")
+    df_aqn = pd.read_csv(f"predictions\{station}\Temp_{station}_aqn.csv")
+    df_aqn = df_aqn.sort_values(by="Zeitstempel")
+    df_aqn = df_aqn.set_index("Zeitstempel")
+    df["Model"] = "Source"
+
+    df.loc[df["Wert"].isna(), "Model"] = "AQN2Gap"
+    df["Wert"] = df["Wert"].fillna(df_aqn["Wert"])
+
+    df.loc[df["Wert"].isna(), "Model"] = "AQ2Gap"
+    df["Wert"] = df["Wert"].fillna(df_aq["Wert"])
+
+    df.loc[df["Wert"].isna(), "Model"] = "A2Gap"
+    df["Wert"] = df["Wert"].fillna(df_a["Wert"])
+
+    df.reset_index(inplace=True)
+    df.to_csv(f"predictions/{station}/Temp_final_{station}.csv", index=False)
+
+
+
+
 
 if __name__ == "__main__":
 
 
     big_adj = Neighbour.all_adj_list()
-    #Think about station 2307 with air CHA, only recorded after 1981?
        
-    for st in os.listdir("models"):
+    """ for st in os.listdir("models"):
         fill_a2gap(int(st), big_adj)
         fill_aq2gap(int(st), big_adj)
-        fill_aqn2gap(int(st), big_adj)
+        fill_aqn2gap(int(st), big_adj) """
+    
+    for st in os.listdir("models"):
+        return_final_df(int(st))
     
     #fill_aq2gap(2410, big_adj)
     #fill_a2gap(2481, big_adj)
