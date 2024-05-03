@@ -13,7 +13,7 @@ class Model():
 
         self.station = station
         self.model_type = model_type
-        directory = f"models\{station}"
+        directory = f"models/{station}"
         
 
         files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
@@ -25,13 +25,13 @@ class Model():
 
         self.model = Model.read_metadata(station, model_type, input_size)
         files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")]
-        self.model.load_state_dict(torch.load(f"models/{station}/" + files[0]))
+        self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
         self.model.eval()
 
 
     
     def a2gap(self, air_t):
-
+        air_t = air_t.astype("f")
         n_at = (self.normalizers[2].normalize(air_t))#.astype(float)
         n_at = np.float32(n_at)
 
@@ -42,6 +42,7 @@ class Model():
         return norm_output
 
     def aq2gap(self, air_t, discharge_t):
+        air_t = air_t.astype("f")
         
         n_at = (self.normalizers[2].normalize(air_t))
         n_at = np.float32(n_at)
@@ -59,7 +60,7 @@ class Model():
 
 
     def aqn2gap(self, air_t, q_target, n_t):
-
+        air_t = air_t.astype("f")
         n_at = (self.normalizers[2].normalize(air_t))
         n_at = np.float32(n_at)
         n_discharge = np.float32(self.normalizers[1].normalize(q_target))
@@ -83,6 +84,7 @@ class Model():
         return norm_out
 
     def an2gap(self, air_t, n_t):
+        air_t = air_t.astype("f")        
         tensor_list = []
 
         n_at = (self.normalizers[2].normalize(air_t))
@@ -103,12 +105,12 @@ class Model():
     #station: ####; model: either at2wt/atq2wt/atqn2wt as a string
     #returns the model from the metadata
     def read_metadata(station, model, input_size):
-        directory = f"models\{station}"
+        directory = f"models/{station}"
         prefix = f"{station}_{model}_T2010"
 
         filename = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
         
-        #f = open(f"C:/Users\carlo\OneDrive\Documents\GitHub\swiss_rivers\models/{station}/" + str(filename[0]))
+        #f = open(f"C:/Users/carlo/OneDrive/Documents/GitHub/swiss_rivers/models/{station}/" + str(filename[0]))
         f = open(f"models/{station}/" + str(filename[0]))
 
         metadata = json.load(f)
@@ -138,9 +140,9 @@ if __name__ == "__main__":
     #Model.read_metadata(2170, "at2wt")
 
     """ Models.atqn2gap()
-    odel = np.load("models\Apr18_16-06-55_bnode052_11183649_3435_normalizers.npy")
+    odel = np.load("models/Apr18_16-06-55_bnode052_11183649_3435_normalizers.npy")
     print(odel)
-    odel2 = np.load("models\Apr18_17-07-55_bnode029_11185597_3423_normalizers.npy")
+    odel2 = np.load("models/Apr18_17-07-55_bnode029_11185597_3423_normalizers.npy")
     print(odel2)
-    tor = torch.load("models\Apr18_16-06-55_bnode052_11183649_3435_best_valid_loss_at2wt.pt")
+    tor = torch.load("models/Apr18_16-06-55_bnode052_11183649_3435_best_valid_loss_at2wt.pt")
     #print(tor) """

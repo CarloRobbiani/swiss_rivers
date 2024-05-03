@@ -60,7 +60,7 @@ class Read_txt:
         return final_df
     #Function that takes a station and two dates (in date format) and returns the values
     #form the air station between those dates as a numpy array
-    def get_air_betw(station, start_date, end_date, air_df):
+    def get_air_betw(station, start_date, end_date, air_df, gap_length, adj_list):
 
         if type(start_date) == str and type(end_date) == str:
             dt_start = start_date[0:10].replace("-", "")
@@ -73,9 +73,14 @@ class Read_txt:
 
         air_station = (h2m.meteo(str(station)))
 
-        air_df = air_df.loc[(air_df['stn'] == air_station)]
-        air_df = air_df[air_df["time"].between(int(dt_start), int(dt_end), inclusive="left")]
-        return air_df["tre200d0"].to_numpy()
+        air_df_st = air_df.loc[(air_df['stn'] == air_station)]
+        air_df_st = air_df_st[air_df_st["time"].between(int(dt_start), int(dt_end), inclusive="left")]
+        only_numeric = pd.to_numeric(air_df_st["tre200d0"], errors='coerce').notnull().all()
+        if not only_numeric or len(air_df_st["tre200d0"]) < gap_length:
+            neighbour = adj_list[station][0]
+            air_array = Read_txt.get_air_betw(neighbour, start_date, end_date, air_df, gap_length, adj_list)
+            return air_array
+        return air_df_st["tre200d0"].to_numpy()
         
     
 
@@ -118,5 +123,9 @@ class read_parquet:
 
 if __name__ == "__main__":
 
-    read_parquet.fill_gaps("hydro_data/Temp", "parquet_hydro/Temp")
+    #read_parquet.fill_gaps("hydro_data/Temp", "parquet_hydro/Temp")
+    read_parquet.fill_gaps("hydro_data/Flow", "parquet_hydro/Flow")
+
+    #air_df = Read_txt.read_air_temp("air_temp")
+    #air_df.head()
 
