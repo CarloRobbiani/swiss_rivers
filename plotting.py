@@ -114,6 +114,7 @@ def plot_missing_values(file_path):
 
     plt.show()
 
+#plots heatmap with colours depending on model
 def plot_res_heatmeap():
 
     data = {}
@@ -132,12 +133,12 @@ def plot_res_heatmeap():
 
     
     plt.figure(figsize=(18, 8))
-    colors = ["grey", "cornflowerblue", "lightskyblue", "royalblue"]
+    colors = ["grey","lightskyblue", "cornflowerblue", "royalblue"]
 
     numbers = {
         "Source": 0,
         "A2Gap": 1,
-        "AN2Gap": 2, #TODO Change it to AN2gap later on with return_final_df function renaming
+        "AN2Gap": 2, #TODO Change it to AQ2gap later on with return_final_df function renaming
         "AQN2Gap": 3
     }
 
@@ -145,7 +146,7 @@ def plot_res_heatmeap():
     ax = sns.heatmap(value_map, cmap=colors)
 
     colorbar = ax.collections[0].colorbar
-    colorbar.set_ticks([0.4, 1.2, 2.0, 2.7])
+    colorbar.set_ticks([0.4, 1.1, 1.9, 2.6])
     colorbar.set_ticklabels(["Source","A2Gap", "AQ2Gap","AQN2Gap"])
 
 

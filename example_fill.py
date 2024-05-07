@@ -150,6 +150,11 @@ def fill_a2gap(station, adj_list):
         gap_length = row["gap_length"]
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
         value_list = []
+
+        if gap_length < 3:
+            temperature = interpolate(df, start_date, end_date)
+            for date in date_range:
+                output_df.loc[str(date), "Wert"] = temperature
         
         value_list = Read_txt.get_air_betw(station, start_date + timedelta(days=1), end_date, air_df, gap_length, adj_list)
             
@@ -186,6 +191,11 @@ def fill_aq2gap(station, adj_list):
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
         value_list = []
 
+        if gap_length < 3:
+            temperature = interpolate(df_temp, start_date, end_date)
+            for date in date_range:
+                output_df.loc[str(date), "Wert"] = temperature
+
         date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), ["Flow"])
 
         for start, end in date_list:
@@ -207,6 +217,7 @@ def fill_aq2gap(station, adj_list):
     output_df.to_csv(f"predictions/{station}/Temp_{station}_aq.csv", index=False)
     #output_df.to_csv("temp_q.csv", index=False)
 
+#TODO check if one neighbour too much missing data and ignore if necessary
 def fill_aqn2gap(station, adj_list):
 
     cols = ["Flow"] #columns to check for missing data
@@ -237,6 +248,11 @@ def fill_aqn2gap(station, adj_list):
         gap_length = row["gap_length"]
         date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
         value_list = []
+
+        if gap_length < 3:
+            temperature = interpolate(df_temp, start_date, end_date)
+            for date in date_range:
+                output_df.loc[str(date), "Wert"] = temperature
 
         date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), cols)
 

@@ -32,4 +32,20 @@ class ResourceRiverReaderFactory():
     @staticmethod
     def ticino_reader(suffix=''):
         return ResourceRiverReader(f'ticino{suffix}')
+    
+    @staticmethod
+    def rhein_special_reader():
+        return ResourceRiverReader(f"special_rhein")
+    
+    @staticmethod
+    def rhone_special_reader():
+        return ResourceRiverReader(f"special_rhone")
+    
+    @staticmethod
+    def inn_special_reader():
+        return ResourceRiverReader(f"special_inn")
+    
+    @staticmethod
+    def ticino_special_reader():
+        return ResourceRiverReader(f"special_ti")
         

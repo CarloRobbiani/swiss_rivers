@@ -4,6 +4,7 @@ from matplotlib.widgets import Slider
 import os
 import pandas as pd
 import datetime
+import torch
 
 #Function that converts the slider value into date
 def slider_to_date(value):
@@ -115,6 +116,87 @@ def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990)
 
     plt.show()
 
+def create_special_graph_rhein(data_2010):
+    stations = [2179, 2308, 2033,2126 ,2410 ,2150 ,2327, 2085, 2143, 2044, 2109, 2019, 2030, 2473]
+
+    mask = torch.tensor([elem[-1] in stations for elem in data_2010])
+
+    tensor_x = data_2010[mask]
+    tensor_edges = torch.tensor([[10, 2, 5, 9, 3, 4, 6, 12, 13, 7],
+                                       [8, 0, 0, 1, 0, 0, 0, 11, 11, 0]])
+
+    print(tensor_edges)
+    torch.save(tensor_x, "river_data\gewaesser_special_rhein_x.pt")
+    torch.save(tensor_edges, "river_data\gewaesser_special_rhein_edges.pt")
+
+def create_special_graph_rhone(data_2010):
+    stations = [2432, 2009, 2174]
+
+    mask = torch.tensor([elem[-1] in stations for elem in data_2010])
+
+    tensor_x = data_2010[mask]
+    tensor_edges = torch.tensor([[2, 1],
+                                [0, 0]])
+
+    torch.save(tensor_x, "river_data\gewaesser_special_rhone_x.pt")
+    torch.save(tensor_edges, "river_data\gewaesser_special_rhone_edges.pt")
+
+def create_special_graph_inn(data_2010):
+    stations = [2617, 2462]
+
+    mask = torch.tensor([elem[-1] in stations for elem in data_2010])
+
+    tensor_x = data_2010[mask]
+    tensor_edges = torch.tensor([[0],
+                                [1]])
+
+    print(tensor_edges)
+    torch.save(tensor_x, "river_data\gewaesser_special_inn_x.pt")
+    torch.save(tensor_edges, "river_data\gewaesser_special_inn_edges.pt")
+
+def create_special_graph_ti(data_2010):
+    stations = [2167, 2068, 2612]
+
+    mask = torch.tensor([elem[-1] in stations for elem in data_2010])
+
+    tensor_x = data_2010[mask]
+    tensor_edges = torch.tensor([[0, 2],
+                                [1, 1]])
+
+    torch.save(tensor_x, "river_data\gewaesser_special_ti_x.pt")
+    torch.save(tensor_edges, "river_data\gewaesser_special_ti_edges.pt")
+
+def plot_special(data_x, data_edges):
+
+    x_data = data_x[:,0]
+    y_data = data_x[:,1]
+
+
+    plt.scatter(x_data, y_data, label='River Nodes special cases', c = "Blue")
+
+
+    for i, row in enumerate(data_x.numpy()):
+        x = row[0]
+        y = row[1]
+        text = row[2]
+
+        plt.annotate(str(text), xy=(x,y), xytext=(x+200, y+200))
+
+
+
+    # Plot the river edges
+    for i in range(data_edges.shape[1]):
+        start = data_edges[0, i]
+        end = data_edges[1, i]
+        plt.plot([x_data[start], x_data[end]], [y_data[start], y_data[end]], color='black')
+
+    plt.xlabel('X Coordinate')
+    plt.ylabel('Y Coordinate')
+    plt.title('River Data Rhein')
+    plt.legend()
+
+    plt.show()
+
 
 
 if __name__ == "__main__":
@@ -141,9 +223,14 @@ if __name__ == "__main__":
 
     reader_rhein_2010 = ResourceRiverReaderFactory.rhein_reader(-2010)
     data_x_rhein_2010, data_edges_rhein_2010 = reader_rhein_2010.read()
-    """
+
+    reader = ResourceRiverReaderFactory.ticino_special_reader()
+    data_x, data_edges = reader.read()
+    plot_special(data_x, data_edges)
     
-    reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
+
+    
+    """ reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
     data_x_rhone_1990, data_edges_rhone_1990 = reader_rhone_1990.read()
 
     reader_rhone_2010 = ResourceRiverReaderFactory.rohne_reader(-2010)
@@ -155,10 +242,10 @@ if __name__ == "__main__":
     
 
     reader_inn = ResourceRiverReaderFactory.inn_reader()
-    data_x, data_edges = reader_inn.read()
-    """
+    data_x, data_edges = reader_inn.read() """
+    
 
-    plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
+    #plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
     #plot_river_data_both(data_x_rhone_2010, data_edges_rhone_2010, data_x_rhone_1990, data_edges_rhone_1990)
     
     """ def update(val):
