@@ -147,7 +147,6 @@ class Gaps():
         #df = df.set_index("Zeitstempel")
         df_filtered = df[(df["Zeitstempel"] >= start_date) & (df["Zeitstempel"] <= end_date)]
     
-        # Reset index to make indexing easier
         df_filtered.reset_index(drop=True, inplace=True)
         
         consecutive_blocks = []
@@ -169,6 +168,44 @@ class Gaps():
         if start is not None:
             consecutive_blocks.append((start, end))
         
+        return consecutive_blocks
+    
+    #returns the consecutive blocks in df but also allows that some neighbours are missing
+    def consecutive_non_missing_with_neighbours(df, start_date, end_date, column_names):
+
+        df = df.sort_values(by="Zeitstempel")
+        #df = df.set_index("Zeitstempel")
+        df_filtered = df[(df["Zeitstempel"] >= start_date) & (df["Zeitstempel"] <= end_date)]
+    
+        df_filtered.reset_index(drop=True, inplace=True)
+        
+        consecutive_blocks = []
+        start = None
+        end = None
+        missing_columns = set()
+        nr_of_neighbours = len(column_names) - 1
+        neighbour_cols = column_names[-nr_of_neighbours:]
+
+        for i in range(len(df_filtered)):
+            missing_cols_for_row = set(col for col in neighbour_cols if pd.isna(df_filtered.loc[i, col]))
+            if nr_of_neighbours - 1 >= len(missing_cols_for_row) >= 1 and (start is None or missing_cols_for_row == missing_cols):
+                if start is None:
+                    start = df_filtered.loc[i, 'Zeitstempel']
+                end = df_filtered.loc[i, 'Zeitstempel']
+                
+                if len(missing_cols_for_row) == 0:
+                    missing_cols = None
+                else:
+                    missing_cols = missing_cols_for_row
+            else:
+                if start is not None:
+                    consecutive_blocks.append((start, end, missing_cols))
+                    start = None
+                    end = None
+        # Check if the last block extends to the end of the DataFrame
+        if start is not None:
+            consecutive_blocks.append((start, end, missing_cols))
+
         return consecutive_blocks
         
 

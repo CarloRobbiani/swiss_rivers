@@ -8765,7 +8765,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-29 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,4.2,"Freigegeben, validierte Daten",Source
 2003-12-30 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.9,"Freigegeben, validierte Daten",Source
 2003-12-31 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,4.3,"Freigegeben, validierte Daten",Source
-2004-01-01 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,5.129963874816895,hinzugefügte Daten,AN2Gap
+2004-01-01 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,5.129963874816895,hinzugefügte Daten,AQ2Gap
 2004-01-02 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.98,"Freigegeben, validierte Daten",Source
 2004-01-03 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.7,"Freigegeben, validierte Daten",Source
 2004-01-04 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.37,"Freigegeben, validierte Daten",Source
@@ -10226,7 +10226,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2007-12-29 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.44,"Freigegeben, validierte Daten",Source
 2007-12-30 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.87,"Freigegeben, validierte Daten",Source
 2007-12-31 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.49,"Freigegeben, validierte Daten",Source
-2008-01-01 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.794644355773926,hinzugefügte Daten,AN2Gap
+2008-01-01 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.794644355773926,hinzugefügte Daten,AQ2Gap
 2008-01-02 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,2.97,"Freigegeben, validierte Daten",Source
 2008-01-03 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.42,"Freigegeben, validierte Daten",Source
 2008-01-04 00:00:00,Gümmenen,2467,Wassertemperatur,Tagesmittel,°C,Saane,,3.38,"Freigegeben, validierte Daten",Source

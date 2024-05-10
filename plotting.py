@@ -133,12 +133,12 @@ def plot_res_heatmeap():
 
     
     plt.figure(figsize=(18, 8))
-    colors = ["grey","lightskyblue", "cornflowerblue", "royalblue"]
+    colors = ["grey","paleturquoise", "cornflowerblue", "mediumblue"]
 
     numbers = {
         "Source": 0,
         "A2Gap": 1,
-        "AN2Gap": 2, #TODO Change it to AQ2gap later on with return_final_df function renaming
+        "AQ2Gap": 2, #TODO Change it to AQ2gap later on with return_final_df function renaming
         "AQN2Gap": 3
     }
 
@@ -152,7 +152,7 @@ def plot_res_heatmeap():
 
     plt.yticks(rotation=0) 
     plt.yticks(range(0, len(final_df.index), 700), [x[:4] for x in final_df.index[::700]]) 
-    plt.title("Missing values per station and year")
+    plt.title("Models used for imputing gaps")
     plt.ylabel("Time")
     plt.xlabel("Station")
    

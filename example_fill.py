@@ -254,8 +254,11 @@ def fill_aqn2gap(station, adj_list):
             for date in date_range:
                 output_df.loc[str(date), "Wert"] = temperature
 
+        #Check if one or more neighbours are missing and ignore them 
+        #date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols)
         date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), cols)
 
+        #for start, end, missing_cols in date_list:
         for start, end in date_list:
             if start == end:
                 continue # All rows have some missing data
@@ -266,8 +269,9 @@ def fill_aqn2gap(station, adj_list):
             flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
             value_list = Read_txt.get_air_betw(station, start, end, air_df, gap_l, big_adj)
 
-            for n in adj_list[station]:
-                n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
+            """ for n in adj_list[station]:
+                if n not in missing_cols: """
+            n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
             
             
             value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
@@ -278,6 +282,67 @@ def fill_aqn2gap(station, adj_list):
     output_df.to_csv(f"predictions/{station}/Temp_{station}_aqn.csv", index=False)
     #output_df.to_csv("temp_qn.csv", index=False)
 
+def fill_aqn2gap_ignoring(station, adj_list):
+
+    cols = ["Flow"] #columns to check for missing data
+    air_df = Read_txt.read_air_temp("air_temp")
+
+    model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
+    if station == -1:
+        return -1
+
+    #df_flow = pd.read_csv(f"filled_hydro\Flow/{station}_Abfluss_Tagesmittel.txt", delimiter=';',  encoding="latin1")
+    df_flow = pd.read_parquet(f"parquet_hydro\Flow/{station}_Abfluss_Tagesmittel.parquet")
+    df_flow = df_flow.sort_values(by="Zeitstempel")
+    df_temp = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+    df_temp = df_temp.sort_values(by="Zeitstempel")
+    df_temp["Flow"] = df_flow["Wert"].to_numpy()
+    for n in adj_list[station]:
+        df_n = pd.read_csv(f"filled_hydro\Temp/{n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+        df_n = df_n.sort_values(by="Zeitstempel")
+        df_temp[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
+        cols.append(df_n["Stationsnummer"][0])
+
+    output_df = df_temp.set_index("Zeitstempel")
+    missing_dates_df = Gaps.gaps_with_dates(station)
+
+    for index, row in missing_dates_df.iterrows():
+        start_date = row["start_date"]
+        end_date = row["end_date"]
+        gap_length = row["gap_length"]
+        date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
+        value_list = []
+
+        if gap_length < 3:
+            temperature = interpolate(df_temp, start_date, end_date)
+            for date in date_range:
+                output_df.loc[str(date), "Wert"] = temperature
+
+        #Check if one or more neighbours are missing and ignore them 
+        date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols)
+
+        for start, end, missing_cols in date_list:
+            if start == end:
+                continue # All rows have some missing data
+            start_d = datetime.strptime(start, "%Y-%m-%d %H:%M:%S")
+            end_d = datetime.strptime(end, "%Y-%m-%d %H:%M:%S")
+            gap_l = (end_d - start_d).days
+            n_list = []
+            flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
+            value_list = Read_txt.get_air_betw(station, start, end, air_df, gap_l, big_adj)
+
+            for n in adj_list[station]:
+                if n not in missing_cols:
+                    n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
+            
+            
+            value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
+            array_value = value_wt.detach().numpy()
+            output_df.loc[str(start): str(end_d-timedelta(days=1)),"Wert"] = array_value
+
+    output_df.reset_index(inplace=True)
+    output_df.to_csv(f"predictions/{station}/Temp_{station}_aqn.csv", index=False)
+    
 #returns the final estimation of the df
 def return_final_df(station):
     df = pd.read_parquet(f"parquet_hydro\Temp\{station}_Wassertemperatur.parquet")
@@ -314,6 +379,7 @@ if __name__ == "__main__":
 
 
     big_adj = Neighbour.all_adj_list()
+    fill_aqn2gap(2288, big_adj)
        
     """ for st in os.listdir("models"):
         fill_a2gap(int(st), big_adj)
