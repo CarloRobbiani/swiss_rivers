@@ -16,7 +16,30 @@ import os
 #temp_df["Wert"]= pd.to_numeric(temp_df["Wert"], errors="coerce")
 #missing(temp_df, "Wert")
 
+def get_percentages():
+
+
+    model_names = ["A2Gap", "AQ2Gap", "AQN2Gap"]
+    models = []
+
+    stations = os.listdir("predictions")
+    for st in stations:
+        df = pd.read_csv(f"predictions\{st}/Temp_final_{st}.csv", delimiter=",")
+        df = df[df["Model"] != "Source"]
+        models.extend(df["Model"].tolist())
+
+    total_len = len(models)
+
+    for m in model_names:
+        m_list = [mod for mod in models if m == mod]
+        len_m = len(m_list)
+        p = len_m / total_len * 100
+        print(f"Model {m} precentage: {p}")
+
+
+
+
 
 
 if __name__ == "__main__":
-    Gaps.fill_gaps("hydro_data/Temp", "filled_hydro/Temp")
+    get_percentages()
