@@ -347,8 +347,7 @@ def fill_aqn2gap_special(station, adj_list):
 
     cols = ["Flow"] #columns to check for missing data
     air_df = Read_txt.read_air_temp("air_temp")
-    special_cols = ["Flow"]
-    special_cols.append(Neighbour.alter_neighbour(station))
+    special_n = (Neighbour.alter_neighbour(station))
 
     if station == -1:
         return -1
@@ -365,6 +364,9 @@ def fill_aqn2gap_special(station, adj_list):
         df_temp[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
         cols.append(df_n["Stationsnummer"][0])
 
+    if special_n != 0:
+        cols.append(special_n)
+
     output_df = df_temp.set_index("Zeitstempel")
     missing_dates_df = Gaps.gaps_with_dates(station)
 
@@ -380,15 +382,9 @@ def fill_aqn2gap_special(station, adj_list):
             for date in date_range:
                 output_df.loc[str(date), "Wert"] = temperature
 
-        if len(cols) == 3 and isnewer(cols[2], start_date):
-            special_df = pd.read_parquet(f"parquet_hydro\Temp/{special_cols[1]}_Wassertemperatur.parquet")
-            df_temp[special_cols[1]] = special_df["Wert"].to_numpy()
-            date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), special_cols)
-            #model_atq = Model(station, "atqn2wt_special", 3) #special model
-        else:
-            #Check if one or more neighbours are missing and ignore them 
-            date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols)
-            model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
+        #Check if one or more neighbours are missing and ignore them 
+        date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols)
+        
 
         for start, end, missing_cols in date_list:
             if start == end:
@@ -404,7 +400,12 @@ def fill_aqn2gap_special(station, adj_list):
                 if n not in missing_cols:
                     n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
             
-            
+            if n_list == []: #if list is empty add special neighbour and load special model
+                n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][cols[-1]])
+                model_atq = Model(station, "atqn2wt_special", 3) #TODO Add these models, is not yet working
+            else:
+                model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
+
             value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
             array_value = value_wt.detach().numpy()
             output_df.loc[str(start): str(end_d-timedelta(days=1)),"Wert"] = array_value
