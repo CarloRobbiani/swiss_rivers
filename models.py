@@ -4,6 +4,7 @@ from normalizer import MinMaxNormalizer
 from prediction import RecurrentPredictionModel
 import json
 import os
+from neighbours import Neighbour
 
 #order of normalizers: target, discharge, air, all the neighbours
 #order of input: discharge, air, neighbours
@@ -11,21 +12,31 @@ class Model():
 
     def __init__(self, station, model_type, input_size):
 
+
         self.station = station
         self.model_type = model_type
         directory = f"models/{station}"
         
 
         files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
-        filename = files[-1]
+        if (Neighbour.alter_neighbour(station) != 0):
+            filename = files[-2]
+        else:
+            filename = files[-1]
         self.data = np.load(f"models/{station}/" + filename)
 
         self.read_npy_file()
         
 
         self.model = Model.read_metadata(station, model_type, input_size)
-        files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")]
-        self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
+        files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")] #TODO consider special cases
+
+        if (model_type == "atqn2wt"):
+            if (Neighbour.alter_neighbour(station) != 0):
+                self.model.load_state_dict(torch.load(f"models/{station}/" + files[-2]))
+        else:
+            self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
+
         self.model.eval()
 
 
@@ -106,7 +117,10 @@ class Model():
     #returns the model from the metadata
     def read_metadata(station, model, input_size):
         directory = f"models/{station}"
-        prefix = f"{station}_{model}_T2010"
+        if model == "atqn2wt_T1990":
+            prefix = f"{station}_{model}"
+        else: 
+            prefix = f"{station}_{model}_T2010"
 
         filename = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
         

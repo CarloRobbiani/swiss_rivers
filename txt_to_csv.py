@@ -105,10 +105,10 @@ class Gaps():
     #function that returns df with information of gap lenght and start and end time of gap
     #returns df with columns [start_date, end_date, gap_length]
     #start date is the day before the gap, end date the day after the gap ends
-    def gaps_with_dates(station):
-        #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        df = pf.to_pandas()
+    def gaps_with_dates(station, save_path):
+        df = pd.read_csv(f"{save_path}\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+        #pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        #df = pf.to_pandas()
         df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
         df = df.sort_values(by="Zeitstempel")
         #df.set_index("Zeitstempel", inplace=True)

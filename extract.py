@@ -18,4 +18,5 @@ def create_folders():
         os.mkdir(f"predictions/{f}")
 
 if __name__ == "__main__":
-    create_folders()
+    #create_folders()
+    extract_zip()

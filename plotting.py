@@ -6,8 +6,8 @@ from neighbours import Neighbour
 from my_graph_reader import ResourceRiverReaderFactory
 from collections import Counter, defaultdict
 import seaborn as sns
-import missingno as msno
 import os
+import matplotlib.lines as mlines
 
 #plots the nr of missing values of neighbours as a bar plot
 def plot_missing_neighbour_nr(adj_list):
@@ -219,32 +219,35 @@ def plot_long_gaps(file_path):
     plt.show() 
 
 #Plots the value of two df into one plot
-#df1 is a df from filled hydro and df2 the values from the filling main function
+#df is a  df from the predictions
+#TODO make that plt plots with missing values on axis
 def plot_multi_color(df):
-    # Convert Zeitpunkt_des_Auftretens column to datetime if it's not already
+    
     df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
     
-    # Filter timestamps after the year 2000
-    df_filtered = df[df['Zeitstempel'].dt.year < 1987]
-    
-    # Separate data based on Freigabestatus
-    df_red = df_filtered[df_filtered['Freigabestatus'] == 'hinzugefügte Daten']
-    df_blue = df_filtered[df_filtered['Freigabestatus'] != 'hinzugefügte Daten']
-    
-    df_red_s = df_red.sort_values(by="Zeitstempel")
-    df_blue_s = df_blue.sort_values(by="Zeitstempel")
-    
-    x_red = df_red_s["Zeitstempel"]
-    y_red = df_red_s["Wert"]
-    x_blue = df_blue_s["Zeitstempel"]
-    y_blue = df_blue_s["Wert"]
+    # Filter timestamps 
+    df_filtered = df[df['Zeitstempel'].dt.year < 1990]
+    df_filtered = df_filtered[df_filtered["Zeitstempel"].dt.year > 1980]
 
-    plt.plot(x_red, y_red, color="red", label="Imputed Data")
-    plt.plot(x_blue, y_blue, color="blue", label="Recorded Data")
-    plt.title("Water temperature of the station 2481")
+    df_filtered = df_filtered.sort_values(by="Zeitstempel")
+    
+
+    color_map = {'hinzugefÃ¼gte Daten': 'red', 'other': 'blue'}
+    colors = df_filtered['Freigabestatus'].map(lambda x: color_map.get(x, 'blue'))
+    
+    x = df_filtered['Zeitstempel']
+    y = df_filtered['Wert']
+
+    fig, ax = plt.subplots()
+    for i in range(len(x) - 1):
+        ax.plot(x.iloc[i:i+2], y.iloc[i:i+2], color=colors.iloc[i])
+
+    red_line = mlines.Line2D([], [], color='red', label='Imputed Data')
+    blue_line = mlines.Line2D([], [], color='blue', label='Recorded Data')
+    ax.legend(handles=[red_line, blue_line])
+    plt.title("Water temperature of the station 2288")
     plt.ylabel("Temperature C°")
     plt.xlabel("Date")
-    plt.legend()
     plt.show()
 
 
@@ -258,8 +261,11 @@ if __name__=="__main__":
     #plot_missing_neighbour_nr(adj_rhein)
     #plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
+
+    df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
+    plot_multi_color(df)
     
-    plot_res_heatmeap()
+    #plot_res_heatmeap()
 
 
 
