@@ -263,9 +263,9 @@ if __name__=="__main__":
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
 
     df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
-    plot_multi_color(df)
+    #plot_multi_color(df)
     
-    #plot_res_heatmeap()
+    plot_res_heatmeap()
 
 
 

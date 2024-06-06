@@ -7334,8 +7334,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2000-01-28 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.5,"Freigegeben, validierte Daten",265.908
 2000-01-29 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.7,"Freigegeben, validierte Daten",96.482
 2000-01-30 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.8,"Freigegeben, validierte Daten",108.094
-2000-01-31 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,8.938336372375488,"Freigegeben, validierte Daten",124.543
-2000-02-01 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,7.331968307495117,hinzugefÃ¼gte Daten,344.005
+2000-01-31 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.9,"Freigegeben, validierte Daten",124.543
+2000-02-01 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.9,hinzugefÃ¼gte Daten,344.005
 2000-02-02 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,4.9,"Freigegeben, validierte Daten",356.871
 2000-02-03 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.0,"Freigegeben, validierte Daten",371.471
 2000-02-04 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.0,"Freigegeben, validierte Daten",363.671
@@ -8764,8 +8764,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-28 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.8,"Freigegeben, validierte Daten",159.66
 2003-12-29 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,6.0,"Freigegeben, validierte Daten",163.095
 2003-12-30 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.9,"Freigegeben, validierte Daten",155.243
-2003-12-31 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,7.243383407592773,"Freigegeben, validierte Daten",151.209
-2004-01-01 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,6.782236099243164,hinzugefÃ¼gte Daten,139.771
+2003-12-31 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.8,"Freigegeben, validierte Daten",151.209
+2004-01-01 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.76,hinzugefÃ¼gte Daten,139.771
 2004-01-02 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.72,"Freigegeben, validierte Daten",136.258
 2004-01-03 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.87,"Freigegeben, validierte Daten",135.102
 2004-01-04 00:00:00,"Chancy, Aux Ripes",2174,Wassertemperatur,Tagesmittel,Â°C,RhÃ´ne,,5.62,"Freigegeben, validierte Daten",135.592

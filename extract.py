@@ -25,9 +25,10 @@ def create_folders():
     files = os.listdir("models")
 
     for f in files:
-        os.mkdir(f"predictions/{f}")
+        if not os.path.exists(f"predictions/{f}"):
+            os.mkdir(f"predictions/{f}")
 
 if __name__ == "__main__":
     #create_folders()
-    #extract_zip()
-    print(find_folders_with_files("models", "Jun05"))
+    extract_zip()
+    #print(find_folders_with_files("models", "Jun05"))

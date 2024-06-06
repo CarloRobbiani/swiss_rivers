@@ -8764,8 +8764,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-28 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,5.1,"Freigegeben, validierte Daten",2.481
 2003-12-29 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.9,"Freigegeben, validierte Daten",3.109
 2003-12-30 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.3,"Freigegeben, validierte Daten",2.796
-2003-12-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,5.075882911682129,"Freigegeben, validierte Daten",2.385
-2004-01-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,5.041419506072998,hinzugefÃ¼gte Daten,2.154
+2003-12-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.9,"Freigegeben, validierte Daten",2.385
+2004-01-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.855,hinzugefÃ¼gte Daten,2.154
 2004-01-02 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.81,"Freigegeben, validierte Daten",2.059
 2004-01-03 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,4.01,"Freigegeben, validierte Daten",1.863
 2004-01-04 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,3.56,"Freigegeben, validierte Daten",1.744
@@ -11848,8 +11848,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2012-06-07 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,15.12,"Freigegeben, validierte Daten",1.511
 2012-06-08 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,15.82,"Freigegeben, validierte Daten",4.194
 2012-06-09 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,14.46,"Freigegeben, validierte Daten",3.296
-2012-06-10 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.732349395751953,"Freigegeben, validierte Daten",2.391
-2012-06-11 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.596606254577637,hinzugefÃ¼gte Daten,2.202
+2012-06-10 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.89,"Freigegeben, validierte Daten",2.391
+2012-06-11 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.940000000000001,hinzugefÃ¼gte Daten,2.202
 2012-06-12 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.99,"Freigegeben, validierte Daten",3.086
 2012-06-13 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,12.55,"Freigegeben, validierte Daten",4.184
 2012-06-14 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,11.91,"Freigegeben, validierte Daten",3.892
@@ -11902,8 +11902,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2012-07-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,18.71,"Freigegeben, validierte Daten",0.613
 2012-08-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,19.65,"Freigegeben, validierte Daten",0.646
 2012-08-02 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,20.09,"Freigegeben, validierte Daten",0.661
-2012-08-03 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,18.560226440429688,"Freigegeben, validierte Daten",0.499
-2012-08-04 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,18.866199493408203,hinzugefÃ¼gte Daten,0.47
+2012-08-03 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,20.66,"Freigegeben, validierte Daten",0.499
+2012-08-04 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,20.28,hinzugefÃ¼gte Daten,0.47
 2012-08-05 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,19.9,"Freigegeben, validierte Daten",1.403
 2012-08-06 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,18.88,"Freigegeben, validierte Daten",1.936
 2012-08-07 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,17.99,"Freigegeben, validierte Daten",0.861
@@ -14452,8 +14452,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-07-25 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,22.97,"Freigegeben, provisorische Daten",0.589
 2019-07-26 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,22.85,"Freigegeben, provisorische Daten",1.444
 2019-07-27 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,21.76,"Freigegeben, provisorische Daten",1.673
-2019-07-28 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,13.915067672729492,"Freigegeben, provisorische Daten",7.008
-2019-07-29 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,14.563570976257324,hinzugefÃ¼gte Daten,5.526
+2019-07-28 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,16.92,"Freigegeben, provisorische Daten",7.008
+2019-07-29 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,16.130000000000003,hinzugefÃ¼gte Daten,5.526
 2019-07-30 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,15.34,"Freigegeben, provisorische Daten",2.285
 2019-07-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,16.66,"Freigegeben, provisorische Daten",1.701
 2019-08-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,17.07,"Freigegeben, provisorische Daten",1.285
@@ -14608,8 +14608,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-12-28 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,7.6,"Freigegeben, provisorische Daten",17.453
 2019-12-29 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,6.89,"Freigegeben, provisorische Daten",12.225
 2019-12-30 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,6.28,"Freigegeben, provisorische Daten",9.746
-2019-12-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,5.006593704223633,"Freigegeben, provisorische Daten",8.462
-2020-01-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,5.144072532653809,hinzugefÃ¼gte Daten,7.497
+2019-12-31 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,6.61,"Freigegeben, provisorische Daten",8.462
+2020-01-01 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,6.695,hinzugefÃ¼gte Daten,7.497
 2020-01-02 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,6.78,"Freigegeben, provisorische Daten",6.812
 2020-01-03 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,7.26,"Freigegeben, provisorische Daten",6.252
 2020-01-04 00:00:00,"Ecublens, Les Bois",2432,Wassertemperatur,Tagesmittel,Â°C,Venoge,,7.84,"Freigegeben, provisorische Daten",5.697

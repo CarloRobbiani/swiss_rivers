@@ -8765,7 +8765,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-29 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,2.8,"Freigegeben, validierte Daten"
 2003-12-30 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,2.5,"Freigegeben, validierte Daten"
 2003-12-31 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,3.1,"Freigegeben, validierte Daten"
-2004-01-01 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,2.9646008014678955,hinzugefÃ¼gte Daten
+2004-01-01 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,3.13,hinzugefÃ¼gte Daten
 2004-01-02 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,3.16,"Freigegeben, validierte Daten"
 2004-01-03 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,3.07,"Freigegeben, validierte Daten"
 2004-01-04 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,2.06,"Freigegeben, validierte Daten"
@@ -11503,7 +11503,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-06-28 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,8.99,"Freigegeben, validierte Daten"
 2011-06-29 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.99,"Freigegeben, validierte Daten"
 2011-06-30 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.98,"Freigegeben, validierte Daten"
-2011-07-01 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.424705982208252,hinzugefÃ¼gte Daten
+2011-07-01 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.725,hinzugefÃ¼gte Daten
 2011-07-02 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.47,"Freigegeben, validierte Daten"
 2011-07-03 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.42,"Freigegeben, validierte Daten"
 2011-07-04 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.83,"Freigegeben, validierte Daten"
@@ -11585,7 +11585,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-09-18 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,6.43,"Freigegeben, validierte Daten"
 2011-09-19 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,5.56,"Freigegeben, validierte Daten"
 2011-09-20 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,6.85,"Freigegeben, validierte Daten"
-2011-09-21 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,6.883352756500244,hinzugefÃ¼gte Daten
+2011-09-21 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.225,hinzugefÃ¼gte Daten
 2011-09-22 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.6,"Freigegeben, validierte Daten"
 2011-09-23 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.84,"Freigegeben, validierte Daten"
 2011-09-24 00:00:00,Gsteig,2109,Wassertemperatur,Tagesmittel,Â°C,LÃ¼tschine,,7.65,"Freigegeben, validierte Daten"

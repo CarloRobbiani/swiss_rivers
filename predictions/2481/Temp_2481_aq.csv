@@ -8764,8 +8764,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.1,"Freigegeben, validierte Daten",2.324
 2003-12-29 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.1,"Freigegeben, validierte Daten",3.168
 2003-12-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.1,"Freigegeben, validierte Daten",3.036
-2003-12-31 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.106159210205078,"Freigegeben, validierte Daten",2.874
-2004-01-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.894576072692871,hinzugefÃ¼gte Daten,2.881
+2003-12-31 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.1,"Freigegeben, validierte Daten",2.874
+2004-01-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.995,hinzugefÃ¼gte Daten,2.881
 2004-01-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.89,"Freigegeben, validierte Daten",2.882
 2004-01-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.54,"Freigegeben, validierte Daten",3.279
 2004-01-04 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.17,"Freigegeben, validierte Daten",1.737
@@ -10652,8 +10652,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2009-02-27 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.29,"Freigegeben, validierte Daten",2.462
 2009-02-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.08,"Freigegeben, validierte Daten",4.709
 2009-03-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.19,"Freigegeben, validierte Daten",1.719
-2009-03-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.988287448883057,"Freigegeben, validierte Daten",5.735
-2009-03-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.685666561126709,hinzugefÃ¼gte Daten,6.144
+2009-03-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.3,"Freigegeben, validierte Daten",5.735
+2009-03-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.0600000000000005,hinzugefÃ¼gte Daten,6.144
 2009-03-04 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.82,"Freigegeben, validierte Daten",5.941
 2009-03-05 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.52,"Freigegeben, validierte Daten",5.956
 2009-03-06 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.0,"Freigegeben, validierte Daten",5.187
@@ -10680,7 +10680,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2009-03-27 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.27,"Freigegeben, validierte Daten",9.699
 2009-03-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.86,"Freigegeben, validierte Daten",10.101
 2009-03-29 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.85,"Freigegeben, validierte Daten",6.605
-2009-03-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.051182746887207,"Freigegeben, validierte Daten",7.341
+2009-03-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.74,"Freigegeben, validierte Daten",7.341
 2009-03-31 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.16,hinzugefÃ¼gte Daten,7.424
 2009-04-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.58,"Freigegeben, validierte Daten",
 2009-04-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.92,"Freigegeben, validierte Daten",
@@ -10886,8 +10886,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2009-10-19 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.06,"Freigegeben, validierte Daten",6.259
 2009-10-20 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.67,"Freigegeben, validierte Daten",6.008
 2009-10-21 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.34,"Freigegeben, validierte Daten",6.408
-2009-10-22 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.066831111907959,"Freigegeben, validierte Daten",8.057
-2009-10-23 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.024603843688965,hinzugefÃ¼gte Daten,7.612
+2009-10-22 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.32,"Freigegeben, validierte Daten",8.057
+2009-10-23 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.355,hinzugefÃ¼gte Daten,7.612
 2009-10-24 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.39,"Freigegeben, validierte Daten",8.184
 2009-10-25 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.09,"Freigegeben, validierte Daten",7.003
 2009-10-26 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.36,"Freigegeben, validierte Daten",8.745
@@ -11060,8 +11060,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2010-04-11 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.09,"Freigegeben, validierte Daten",5.294
 2010-04-12 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.71,"Freigegeben, validierte Daten",5.938
 2010-04-13 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.33,"Freigegeben, validierte Daten",5.42
-2010-04-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.381165981292725,"Freigegeben, validierte Daten",5.504
-2010-04-15 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.509500026702881,hinzugefÃ¼gte Daten,5.221
+2010-04-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.27,"Freigegeben, validierte Daten",5.504
+2010-04-15 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.38,hinzugefÃ¼gte Daten,5.221
 2010-04-16 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.49,"Freigegeben, validierte Daten",5.221
 2010-04-17 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.17,"Freigegeben, validierte Daten",3.901
 2010-04-18 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.51,"Freigegeben, validierte Daten",4.62
@@ -11071,8 +11071,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2010-04-22 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.35,"Freigegeben, validierte Daten",7.197
 2010-04-23 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.09,"Freigegeben, validierte Daten",8.044
 2010-04-24 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.63,"Freigegeben, validierte Daten",8.424
-2010-04-25 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,9.142602920532227,"Freigegeben, validierte Daten",8.661
-2010-04-26 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.758960723876953,hinzugefÃ¼gte Daten,12.779
+2010-04-25 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,9.05,"Freigegeben, validierte Daten",8.661
+2010-04-26 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.56,hinzugefÃ¼gte Daten,12.779
 2010-04-27 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.07,"Freigegeben, validierte Daten",11.948
 2010-04-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.43,"Freigegeben, validierte Daten",10.698
 2010-04-29 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,9.0,"Freigegeben, validierte Daten",11.368
@@ -11290,8 +11290,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2010-11-27 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.68,"Freigegeben, validierte Daten",4.712
 2010-11-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.35,"Freigegeben, validierte Daten",3.704
 2010-11-29 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.54,"Freigegeben, validierte Daten",5.122
-2010-11-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.044833183288574,"Freigegeben, validierte Daten",5.048
-2010-12-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.084993362426758,hinzugefÃ¼gte Daten,4.306
+2010-11-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.56,"Freigegeben, validierte Daten",5.048
+2010-12-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.835,hinzugefÃ¼gte Daten,4.306
 2010-12-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,4.11,"Freigegeben, validierte Daten",4.116
 2010-12-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.43,"Freigegeben, validierte Daten",4.577
 2010-12-04 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,3.38,"Freigegeben, validierte Daten",3.377
@@ -11393,8 +11393,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-03-10 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.24,"Freigegeben, validierte Daten",2.294
 2011-03-11 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.89,"Freigegeben, validierte Daten",2.911
 2011-03-12 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.78,"Freigegeben, validierte Daten",2.579
-2011-03-13 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.189632892608643,"Freigegeben, validierte Daten",2.446
-2011-03-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.567288875579834,hinzugefÃ¼gte Daten,2.832
+2011-03-13 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.19,"Freigegeben, validierte Daten",2.446
+2011-03-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.4350000000000005,hinzugefÃ¼gte Daten,2.832
 2011-03-15 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.68,"Freigegeben, validierte Daten",2.217
 2011-03-16 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.99,"Freigegeben, validierte Daten",2.345
 2011-03-17 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.94,"Freigegeben, validierte Daten",3.438
@@ -11424,8 +11424,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-04-10 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.32,"Freigegeben, validierte Daten",11.552
 2011-04-11 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.2,"Freigegeben, validierte Daten",11.33
 2011-04-12 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.26,"Freigegeben, validierte Daten",12.649
-2011-04-13 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.262932777404785,"Freigegeben, validierte Daten",11.626
-2011-04-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.612498760223389,hinzugefÃ¼gte Daten,10.181
+2011-04-13 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.33,"Freigegeben, validierte Daten",11.626
+2011-04-14 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.49,hinzugefÃ¼gte Daten,10.181
 2011-04-15 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.65,"Freigegeben, validierte Daten",8.916
 2011-04-16 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.17,"Freigegeben, validierte Daten",7.78
 2011-04-17 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.98,"Freigegeben, validierte Daten",6.519
@@ -11625,8 +11625,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-10-28 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.27,"Freigegeben, validierte Daten",6.533
 2011-10-29 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.17,"Freigegeben, validierte Daten",6.022
 2011-10-30 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.57,"Freigegeben, validierte Daten",6.078
-2011-10-31 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.192956447601318,"Freigegeben, validierte Daten",6.437
-2011-11-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.015072822570801,hinzugefÃ¼gte Daten,5.993
+2011-10-31 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.55,"Freigegeben, validierte Daten",6.437
+2011-11-01 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.484999999999999,hinzugefÃ¼gte Daten,5.993
 2011-11-02 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.42,"Freigegeben, validierte Daten",5.954
 2011-11-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,7.2,"Freigegeben, validierte Daten",4.763
 2011-11-04 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,8.04,"Freigegeben, validierte Daten",4.919
@@ -11661,8 +11661,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-12-03 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.46,"Freigegeben, validierte Daten",3.137
 2011-12-04 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.83,"Freigegeben, validierte Daten",2.321
 2011-12-05 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.68,"Freigegeben, validierte Daten",4.439
-2011-12-06 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.9635009765625,"Freigegeben, validierte Daten",3.17
-2011-12-07 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.700588226318359,hinzugefÃ¼gte Daten,2.537
+2011-12-06 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.77,"Freigegeben, validierte Daten",3.17
+2011-12-07 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.845,hinzugefÃ¼gte Daten,2.537
 2011-12-08 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.92,"Freigegeben, validierte Daten",3.802
 2011-12-09 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,5.48,"Freigegeben, validierte Daten",3.258
 2011-12-10 00:00:00,"Buochs, Flugplatz",2481,Wassertemperatur,Tagesmittel,Â°C,Engelberger Aa,,6.23,"Freigegeben, validierte Daten",3.114

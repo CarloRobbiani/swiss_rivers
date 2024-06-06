@@ -1460,7 +1460,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 1983-12-29 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,5.0,"Freigegeben, validierte Daten"
 1983-12-30 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.8,"Freigegeben, validierte Daten"
 1983-12-31 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,5.7,"Freigegeben, validierte Daten"
-1984-01-01 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,6.573391437530518,hinzugefÃ¼gte Daten
+1984-01-01 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,5.050000000000001,hinzugefÃ¼gte Daten
 1984-01-02 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.4,"Freigegeben, validierte Daten"
 1984-01-03 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.0,"Freigegeben, validierte Daten"
 1984-01-04 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.0,"Freigegeben, validierte Daten"
@@ -8765,7 +8765,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-29 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.3,"Freigegeben, validierte Daten"
 2003-12-30 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,3.6,"Freigegeben, validierte Daten"
 2003-12-31 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,3.5,"Freigegeben, validierte Daten"
-2004-01-01 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,4.644738674163818,hinzugefÃ¼gte Daten
+2004-01-01 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,3.495,hinzugefÃ¼gte Daten
 2004-01-02 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,3.49,"Freigegeben, validierte Daten"
 2004-01-03 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,2.91,"Freigegeben, validierte Daten"
 2004-01-04 00:00:00,"Diepoldsau, RietbrÃ¼cke",2473,Wassertemperatur,Tagesmittel,Â°C,Rhein,,2.55,"Freigegeben, validierte Daten"

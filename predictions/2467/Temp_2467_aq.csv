@@ -8765,7 +8765,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.2,"Freigegeben, validierte Daten",
 2003-12-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.9,"Freigegeben, validierte Daten",
 2003-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.3,"Freigegeben, validierte Daten",
-2004-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,5.1299638748168945,hinzugefÃ¼gte Daten,8.534
+2004-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.14,hinzugefÃ¼gte Daten,8.534
 2004-01-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.98,"Freigegeben, validierte Daten",13.189
 2004-01-03 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.7,"Freigegeben, validierte Daten",17.951
 2004-01-04 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.37,"Freigegeben, validierte Daten",8.156
@@ -10225,8 +10225,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2007-12-28 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.53,"Freigegeben, validierte Daten",10.043
 2007-12-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.44,"Freigegeben, validierte Daten",9.717
 2007-12-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.87,"Freigegeben, validierte Daten",10.436
-2007-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.881092071533203,"Freigegeben, validierte Daten",10.248
-2008-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.794644355773926,hinzugefÃ¼gte Daten,10.416
+2007-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.49,"Freigegeben, validierte Daten",10.248
+2008-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.2300000000000004,hinzugefÃ¼gte Daten,10.416
 2008-01-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,2.97,"Freigegeben, validierte Daten",10.304
 2008-01-03 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.42,"Freigegeben, validierte Daten",41.981
 2008-01-04 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.38,"Freigegeben, validierte Daten",39.215
@@ -12417,8 +12417,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2013-12-28 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.8,"Freigegeben, validierte Daten",13.648
 2013-12-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.16,"Freigegeben, validierte Daten",14.816
 2013-12-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.05,"Freigegeben, validierte Daten",30.371
-2013-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.944201469421387,"Freigegeben, validierte Daten",25.895
-2014-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.614687919616699,hinzugefÃ¼gte Daten,11.032
+2013-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.75,"Freigegeben, validierte Daten",25.895
+2014-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.89,hinzugefÃ¼gte Daten,11.032
 2014-01-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.03,"Freigegeben, validierte Daten",11.503
 2014-01-03 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.94,"Freigegeben, validierte Daten",32.689
 2014-01-04 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.13,"Freigegeben, validierte Daten",75.608
@@ -14637,8 +14637,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2020-01-26 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.54,"Freigegeben, provisorische Daten",16.284
 2020-01-27 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.12,"Freigegeben, provisorische Daten",28.371
 2020-01-28 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.15,"Freigegeben, provisorische Daten",36.7
-2020-01-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,6.168943405151367,"Freigegeben, provisorische Daten",53.224
-2020-01-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,5.852431297302246,hinzugefÃ¼gte Daten,58.849
+2020-01-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.09,"Freigegeben, provisorische Daten",53.224
+2020-01-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.38,hinzugefÃ¼gte Daten,58.849
 2020-01-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.67,"Freigegeben, provisorische Daten",49.517
 2020-02-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.55,"Freigegeben, provisorische Daten",37.1
 2020-02-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,5.69,"Freigegeben, provisorische Daten",25.747

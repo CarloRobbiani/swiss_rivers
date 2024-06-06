@@ -8764,8 +8764,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-28 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.6,"Freigegeben, validierte Daten",19.3
 2003-12-29 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.6,"Freigegeben, validierte Daten",19.441
 2003-12-30 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.6,"Freigegeben, validierte Daten",19.632
-2003-12-31 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.373178482055664,"Freigegeben, validierte Daten",19.336
-2004-01-01 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.190253257751465,hinzugefÃ¼gte Daten,18.773
+2003-12-31 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.6,"Freigegeben, validierte Daten",19.336
+2004-01-01 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.54,hinzugefÃ¼gte Daten,18.773
 2004-01-02 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.48,"Freigegeben, validierte Daten",18.337
 2004-01-03 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.41,"Freigegeben, validierte Daten",17.857
 2004-01-04 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.32,"Freigegeben, validierte Daten",17.556
@@ -11634,14 +11634,14 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2011-11-06 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,10.62,"Freigegeben, validierte Daten",29.55
 2011-11-07 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,10.57,"Freigegeben, validierte Daten",27.332
 2011-11-08 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,10.23,"Freigegeben, validierte Daten",26.867
-2011-11-09 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,8.992107391357422,"Freigegeben, validierte Daten",27.041
-2011-11-10 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,7.725988864898682,hinzugefÃ¼gte Daten,26.546
+2011-11-09 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.81,"Freigegeben, validierte Daten",27.041
+2011-11-10 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.79,hinzugefÃ¼gte Daten,26.546
 2011-11-11 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.77,"Freigegeben, validierte Daten",25.8
 2011-11-12 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.75,"Freigegeben, validierte Daten",24.741
 2011-11-13 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.67,"Freigegeben, validierte Daten",23.847
 2011-11-14 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.59,"Freigegeben, validierte Daten",22.794
-2011-11-15 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.362173080444336,"Freigegeben, validierte Daten",22.661
-2011-11-16 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,6.293488025665283,hinzugefÃ¼gte Daten,22.798
+2011-11-15 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.47,"Freigegeben, validierte Daten",22.661
+2011-11-16 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.350000000000001,hinzugefÃ¼gte Daten,22.798
 2011-11-17 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.23,"Freigegeben, validierte Daten",22.474
 2011-11-18 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.2,"Freigegeben, validierte Daten",22.077
 2011-11-19 00:00:00,"Weesen, BiÃ¤sche",2104,Wassertemperatur,Tagesmittel,Â°C,Linth,,9.11,"Freigegeben, validierte Daten",21.238

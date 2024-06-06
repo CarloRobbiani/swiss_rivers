@@ -226,11 +226,11 @@ if __name__ == "__main__":
 
     reader = ResourceRiverReaderFactory.ticino_special_reader()
     data_x, data_edges = reader.read()
-    plot_special(data_x, data_edges)
+    #plot_special(data_x, data_edges)
     
 
     
-    """ reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
+    reader_rhone_1990 = ResourceRiverReaderFactory.rohne_reader(-1990)
     data_x_rhone_1990, data_edges_rhone_1990 = reader_rhone_1990.read()
 
     reader_rhone_2010 = ResourceRiverReaderFactory.rohne_reader(-2010)
@@ -239,7 +239,8 @@ if __name__ == "__main__":
     
     reader_ti = ResourceRiverReaderFactory.ticino_reader()
     data_x_ti, data_edges_ti = reader_ti.read()
-    
+    plot_special(data_x_ti, data_edges_ti)
+    """
 
     reader_inn = ResourceRiverReaderFactory.inn_reader()
     data_x, data_edges = reader_inn.read() """
@@ -247,6 +248,7 @@ if __name__ == "__main__":
 
     #plot_river_data_both(data_x_rhein_2010, data_edges_rhein_2010, data_x_rhein_1990, data_edges_rhein_1990)
     #plot_river_data_both(data_x_rhone_2010, data_edges_rhone_2010, data_x_rhone_1990, data_edges_rhone_1990)
+
     
     """ def update(val):
         current_date = slider_to_date(slider.val)

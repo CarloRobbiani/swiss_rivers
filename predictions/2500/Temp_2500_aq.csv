@@ -8764,8 +8764,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2003-12-28 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.4,"Freigegeben, validierte Daten",0.479
 2003-12-29 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.4,"Freigegeben, validierte Daten",0.487
 2003-12-30 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,4.9,"Freigegeben, validierte Daten",0.477
-2003-12-31 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.535985946655273,"Freigegeben, validierte Daten",0.465
-2004-01-01 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.736769676208496,hinzugefÃ¼gte Daten,0.468
+2003-12-31 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.4,"Freigegeben, validierte Daten",0.465
+2004-01-01 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.44,hinzugefÃ¼gte Daten,0.468
 2004-01-02 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,5.48,"Freigegeben, validierte Daten",0.47
 2004-01-03 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,4.71,"Freigegeben, validierte Daten",0.477
 2004-01-04 00:00:00,Ittigen,2500,Wassertemperatur,Tagesmittel,Â°C,Worble,,4.49,"Freigegeben, validierte Daten",0.461

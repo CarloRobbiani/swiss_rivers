@@ -39,6 +39,8 @@ class Neighbour:
         for i in range(edges.shape[1]):
             start = data[edges[0,i], 2].item()
             end = data[edges[1,i], 2].item()
+            if start == -1 or end == -1:
+                continue
             if start not in adj_list:
                 adj_list[start] = []
             adj_list[start].append(end)

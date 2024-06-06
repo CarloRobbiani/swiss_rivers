@@ -18,19 +18,20 @@ class Model():
         directory = f"models/{station}"
         
 
-        files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
+        """  files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
         if (self.model_type != "atqn2wt_special"):
             filename = files[-2]
         else:
-            filename = files[-1]
-        self.data = np.load(f"models/{station}/" + filename)
+            filename = files[-1] """
 
-        self.read_npy_file()
         
 
         self.model = Model.read_metadata(station, model_type, input_size)
         files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")] #TODO consider special cases
-
+        
+        npy_file = self.find_normalizer_for_model(files[-1], f"models/{station}")
+        self.data = np.load(npy_file)
+        self.read_npy_file() #load normalizers
 
         self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
 
@@ -114,15 +115,14 @@ class Model():
     #returns the model from the metadata
     def read_metadata(station, model, input_size):
         directory = f"models/{station}"
-        if model == "atqn2wt_T1990":
-            prefix = f"{station}_{model}"
-        else: 
-            prefix = f"{station}_{model}_T2010"
+
+        prefix = f"{station}_{model}"
+
 
         filename = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
         
         #f = open(f"C:/Users/carlo/OneDrive/Documents/GitHub/swiss_rivers/models/{station}/" + str(filename[0]))
-        f = open(f"models/{station}/" + str(filename[0]))
+        f = open(f"models/{station}/" + str(filename[-1]))
 
         metadata = json.load(f)
         model = RecurrentPredictionModel(input_size, 
@@ -141,11 +141,24 @@ class Model():
         for item in self.arr:
             self.normalizers.append(MinMaxNormalizer(np.array(item, dtype=np.float32)))
 
+    #selects the normalizer file corrsponding to the model
+    def find_normalizer_for_model(self, model_file, directory):
+        
+        files = os.listdir(directory)
+        files = sorted(files)
+        
+        # Find the index of the given model file in the sorted list
+        model_filename = os.path.basename(model_file)
+        model_index = files.index(model_filename)
+        
+        # Check if the next file is a normalizer file
+        if model_index < len(files) - 1 and files[model_index + 1].endswith(".npy"):
+            normalizer_file = os.path.join(directory, files[model_index + 1])
+            return normalizer_file
+        else:
+            return None
+
     
-            
-
-
-
 if __name__ == "__main__":
 
     #Model.read_metadata(2170, "at2wt")

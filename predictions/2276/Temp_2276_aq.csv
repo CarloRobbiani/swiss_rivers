@@ -14059,8 +14059,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2018-06-27 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,9.95,"Freigegeben, validierte Daten",1.245
 2018-06-28 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,9.43,"Freigegeben, validierte Daten",1.206
 2018-06-29 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.07,"Freigegeben, validierte Daten",1.184
-2018-06-30 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.987508773803711,"Freigegeben, validierte Daten",1.349
-2018-07-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.29981803894043,hinzugefÃ¼gte Daten,1.495
+2018-06-30 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.7,"Freigegeben, validierte Daten",1.349
+2018-07-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.75,hinzugefÃ¼gte Daten,1.495
 2018-07-02 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.8,"Freigegeben, validierte Daten",1.585
 2018-07-03 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.17,"Freigegeben, validierte Daten",1.468
 2018-07-04 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.15,"Freigegeben, validierte Daten",1.354
@@ -14394,8 +14394,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-05-28 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,7.56,"Freigegeben, provisorische Daten",4.204
 2019-05-29 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,7.2,"Freigegeben, provisorische Daten",4.196
 2019-05-30 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,7.95,"Freigegeben, provisorische Daten",3.201
-2019-05-31 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.198270797729492,"Freigegeben, provisorische Daten",3.131
-2019-06-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.723970413208008,hinzugefÃ¼gte Daten,3.931
+2019-05-31 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.37,"Freigegeben, provisorische Daten",3.131
+2019-06-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.559999999999999,hinzugefÃ¼gte Daten,3.931
 2019-06-02 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.75,"Freigegeben, provisorische Daten",4.684
 2019-06-03 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,9.02,"Freigegeben, provisorische Daten",5.547
 2019-06-04 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.94,"Freigegeben, provisorische Daten",5.977
@@ -14425,8 +14425,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-06-28 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.82,"Freigegeben, provisorische Daten",2.723
 2019-06-29 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.07,"Freigegeben, provisorische Daten",2.328
 2019-06-30 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.42,"Freigegeben, provisorische Daten",2.151
-2019-07-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,9.297643661499023,"Freigegeben, provisorische Daten",2.275
-2019-07-02 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.55750846862793,hinzugefÃ¼gte Daten,2.169
+2019-07-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.39,"Freigegeben, provisorische Daten",2.275
+2019-07-02 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.205,hinzugefÃ¼gte Daten,2.169
 2019-07-03 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.02,"Freigegeben, provisorische Daten",2.087
 2019-07-04 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.82,"Freigegeben, provisorische Daten",1.851
 2019-07-05 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.11,"Freigegeben, provisorische Daten",1.775
@@ -14459,8 +14459,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-08-01 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.62,"Freigegeben, provisorische Daten",1.425
 2019-08-02 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.29,"Freigegeben, provisorische Daten",1.432
 2019-08-03 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.11,"Freigegeben, provisorische Daten",1.226
-2019-08-04 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,8.711044311523438,"Freigegeben, provisorische Daten",1.22
-2019-08-05 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.08919620513916,hinzugefÃ¼gte Daten,1.219
+2019-08-04 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.57,"Freigegeben, provisorische Daten",1.22
+2019-08-05 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.39,hinzugefÃ¼gte Daten,1.219
 2019-08-06 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.21,"Freigegeben, provisorische Daten",1.602
 2019-08-07 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,10.12,"Freigegeben, provisorische Daten",1.586
 2019-08-08 00:00:00,Isenthal,2276,Wassertemperatur,Tagesmittel,Â°C,Grosstalbach,,11.01,"Freigegeben, provisorische Daten",1.338

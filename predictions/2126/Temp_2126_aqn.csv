@@ -13188,8 +13188,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2016-02-07 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.39,"Freigegeben, validierte Daten",3.149,6.17
 2016-02-08 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.75,"Freigegeben, validierte Daten",2.583,6.71
 2016-02-09 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,7.3,"Freigegeben, validierte Daten",2.413,7.32
-2016-02-10 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.403007984161377,"Freigegeben, validierte Daten",2.47,6.13
-2016-02-11 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,5.918900012969971,hinzugefÃ¼gte Daten,2.063,5.41
+2016-02-10 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.18,"Freigegeben, validierte Daten",2.47,6.13
+2016-02-11 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.14,hinzugefÃ¼gte Daten,2.063,5.41
 2016-02-12 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.1,"Freigegeben, validierte Daten",1.885,5.84
 2016-02-13 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.5,"Freigegeben, validierte Daten",2.502,6.42
 2016-02-14 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.72,"Freigegeben, validierte Daten",3.031,6.76
@@ -13483,8 +13483,8 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2016-11-28 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,7.94,"Freigegeben, validierte Daten",0.884,7.5
 2016-11-29 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.15,"Freigegeben, validierte Daten",0.869,5.37
 2016-11-30 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,5.65,"Freigegeben, validierte Daten",0.797,4.23
-2016-12-01 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,5.406879901885986,"Freigegeben, validierte Daten",0.749,4.34
-2016-12-02 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,5.159274101257324,hinzugefÃ¼gte Daten,0.735,4.32
+2016-12-01 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,5.7,"Freigegeben, validierte Daten",0.749,4.34
+2016-12-02 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.02,hinzugefÃ¼gte Daten,0.735,4.32
 2016-12-03 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.34,"Freigegeben, validierte Daten",0.708,5.11
 2016-12-04 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.47,"Freigegeben, validierte Daten",0.685,5.54
 2016-12-05 00:00:00,WÃ¤ngi,2126,Wassertemperatur,Tagesmittel,Â°C,Murg,,6.22,"Freigegeben, validierte Daten",0.674,5.26
