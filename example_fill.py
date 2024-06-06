@@ -238,7 +238,7 @@ class fillers:
         output_df.reset_index(inplace=True)
         output_df.to_csv(f"predictions/{station}/Temp_{station}_aqn.csv", index=False)
 
-    def fill_aqn2gap_special(station, adj_list, file_list, save_path):
+    def fill_aqn2gap_special(station, adj_list, file_list, save_path): #TODO consider how to call
 
         cols = ["Flow"] #columns to check for missing data
         air_df = Read_txt.read_air_temp("air_temp")
@@ -301,7 +301,7 @@ class fillers:
                 
                 if n_list == []: #if list is empty add special neighbour and load special model
                     n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][cols[-1]])
-                    model_atq = Model(station, "atqn2wt_T1990", 3) #TODO Add these models, is not yet working
+                    model_atq = Model(station, "atqn2wt_special", 3) #TODO Add these models, is not yet working
                 else:
                     model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
 
@@ -352,7 +352,8 @@ if __name__ == "__main__":
     for st in os.listdir("models"):
         fillers.fill_a2gap(int(st), big_adj, "filled_hydro", "predictions")
         fillers.fill_aq2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions") 
+        fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions")
+        fillers.fill_aqn2gap_special(int(st), big_adj, "filled_hydro", "predictions") 
     """
     
     for st in os.listdir("models"):

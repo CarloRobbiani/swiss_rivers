@@ -19,7 +19,7 @@ class Model():
         
 
         files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
-        if (Neighbour.alter_neighbour(station) != 0):
+        if (self.model_type != "atqn2wt_special"):
             filename = files[-2]
         else:
             filename = files[-1]
@@ -31,11 +31,8 @@ class Model():
         self.model = Model.read_metadata(station, model_type, input_size)
         files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")] #TODO consider special cases
 
-        if (model_type == "atqn2wt"):
-            if (Neighbour.alter_neighbour(station) != 0):
-                self.model.load_state_dict(torch.load(f"models/{station}/" + files[-2]))
-        else:
-            self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
+
+        self.model.load_state_dict(torch.load(f"models/{station}/" + files[-1]))
 
         self.model.eval()
 
