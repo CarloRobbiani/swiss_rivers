@@ -3,15 +3,11 @@ import os
 import pandas as pd
 from txt_to_csv import Gaps, Read_txt
 from datetime import datetime, timedelta
-import profile
-from line_profiler import LineProfiler
 from fastparquet import ParquetFile
-import torch
 from reading import Read_txt
 import numpy as np
 
-import numpy as np
-from filling_main import interpolate, fill_with_air, return_flow, isnewer
+from filling_main import interpolate
 from models import Model
     
 exception_stations = [2617, 2612, 2462, 2167, 2068]
@@ -322,7 +318,7 @@ class fillers:
         output_df.to_csv(f"{save_path}/{station}/Temp_{station}_aqn_special.csv", index=False)
     
     #returns the final estimation of the df
-    def return_final_df(station, file_path, save_path): #TODO handle special cases where only aqn_special in folder
+    def return_final_df(station, file_path, save_path, include_special): #TODO handle special cases where only aqn_special in folder
         df = pd.read_csv(f"filled_hydro\Temp\{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
         df = df.sort_values(by="Zeitstempel")
         df = df.set_index("Zeitstempel")
@@ -335,16 +331,17 @@ class fillers:
         df_aqn = pd.read_csv(f"{file_path}\{station}\Temp_{station}_aqn.csv")
         df_aqn = df_aqn.sort_values(by="Zeitstempel")
         df_aqn = df_aqn.set_index("Zeitstempel")
-        df_aqns = pd.read_csv(f"{file_path}\{station}\Temp_{station}_aqn_special.csv")
-        df_aqns = df_aqns.sort_values(by="Zeitstempel")
-        df_aqns = df_aqns.set_index("Zeitstempel")
         df["Model"] = "Source"
 
         df.loc[df["Wert"].isna(), "Model"] = "AQN2Gap"
         df["Wert"] = df["Wert"].fillna(df_aqn["Wert"])
 
-        df.loc[df["Wert"].isna(), "Model"] = "AQN2Gap"
-        df["Wert"] = df["Wert"].fillna(df_aqns["Wert"])
+        if include_special:
+            df_aqns = pd.read_csv(f"{file_path}\{station}\Temp_{station}_aqn_special.csv")
+            df_aqns = df_aqns.sort_values(by="Zeitstempel")
+            df_aqns = df_aqns.set_index("Zeitstempel")
+            df.loc[df["Wert"].isna(), "Model"] = "AQN2Gap"
+            df["Wert"] = df["Wert"].fillna(df_aqns["Wert"])
 
         df.loc[df["Wert"].isna(), "Model"] = "AQ2Gap"
         df["Wert"] = df["Wert"].fillna(df_aq["Wert"])
@@ -372,7 +369,7 @@ if __name__ == "__main__":
     """
     
     for st in os.listdir("models"):
-        fillers.return_final_df(int(st), "predictions", "predictions") #TODO add check if special thing is here and choose if want to include
+        fillers.return_final_df(int(st), "predictions", "predictions", False) #TODO add check if special thing is here and choose if want to include
     
       
     

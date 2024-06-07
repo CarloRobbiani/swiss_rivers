@@ -12418,7 +12418,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2013-12-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.16,"Freigegeben, validierte Daten",Source
 2013-12-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.05,"Freigegeben, validierte Daten",Source
 2013-12-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.75,"Freigegeben, validierte Daten",Source
-2014-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,1.3556081056594849,hinzugefÃ¼gte Daten,AQN2Gap
+2014-01-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.89,hinzugefÃ¼gte Daten,AQN2Gap
 2014-01-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.03,"Freigegeben, validierte Daten",Source
 2014-01-03 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,3.94,"Freigegeben, validierte Daten",Source
 2014-01-04 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.13,"Freigegeben, validierte Daten",Source
@@ -14638,7 +14638,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2020-01-27 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.12,"Freigegeben, provisorische Daten",Source
 2020-01-28 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.15,"Freigegeben, provisorische Daten",Source
 2020-01-29 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.09,"Freigegeben, provisorische Daten",Source
-2020-01-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,1.302016019821167,hinzugefÃ¼gte Daten,AQN2Gap
+2020-01-30 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.38,hinzugefÃ¼gte Daten,AQN2Gap
 2020-01-31 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.67,"Freigegeben, provisorische Daten",Source
 2020-02-01 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,4.55,"Freigegeben, provisorische Daten",Source
 2020-02-02 00:00:00,GÃ¼mmenen,2467,Wassertemperatur,Tagesmittel,Â°C,Saane,,5.69,"Freigegeben, provisorische Daten",Source

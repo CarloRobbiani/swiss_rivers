@@ -12370,7 +12370,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2013-11-11 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,6.57,"Freigegeben, validierte Daten",Source
 2013-11-12 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,6.07,"Freigegeben, validierte Daten",Source
 2013-11-13 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.39,"Freigegeben, validierte Daten",Source
-2013-11-14 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.845836162567139,hinzugefÃ¼gte Daten,AQN2Gap
+2013-11-14 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.484999999999999,hinzugefÃ¼gte Daten,AQN2Gap
 2013-11-15 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.58,"Freigegeben, validierte Daten",Source
 2013-11-16 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.6,"Freigegeben, validierte Daten",Source
 2013-11-17 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,5.85,"Freigegeben, validierte Daten",Source
@@ -12494,7 +12494,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2014-03-15 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,6.35,"Freigegeben, validierte Daten",Source
 2014-03-16 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,7.27,"Freigegeben, validierte Daten",Source
 2014-03-17 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,7.43,"Freigegeben, validierte Daten",Source
-2014-03-18 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,8.877777099609375,hinzugefÃ¼gte Daten,AQN2Gap
+2014-03-18 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,7.75,hinzugefÃ¼gte Daten,AQN2Gap
 2014-03-19 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,8.07,"Freigegeben, validierte Daten",Source
 2014-03-20 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,7.41,"Freigegeben, validierte Daten",Source
 2014-03-21 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,8.01,"Freigegeben, validierte Daten",Source
@@ -13348,7 +13348,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2016-07-16 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,13.47,"Freigegeben, validierte Daten",Source
 2016-07-17 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,15.03,"Freigegeben, validierte Daten",Source
 2016-07-18 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,17.1,"Freigegeben, validierte Daten",Source
-2016-07-19 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,19.378625869750977,hinzugefÃ¼gte Daten,AQN2Gap
+2016-07-19 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,18.285,hinzugefÃ¼gte Daten,AQN2Gap
 2016-07-20 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,19.47,"Freigegeben, validierte Daten",Source
 2016-07-21 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,20.0,"Freigegeben, validierte Daten",Source
 2016-07-22 00:00:00,Emmen,2634,Wassertemperatur,Tagesmittel,Â°C,Kleine Emme,,18.93,"Freigegeben, validierte Daten",Source

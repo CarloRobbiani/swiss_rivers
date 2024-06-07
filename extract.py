@@ -1,6 +1,7 @@
 import zipfile
 import os
 
+#method to find folders with files that have prefix
 def find_folders_with_files(directory, prefix):
     matching_folders = []
 
@@ -12,6 +13,7 @@ def find_folders_with_files(directory, prefix):
 
     return matching_folders
 
+#method that extracts the model files from downloads
 def extract_zip():
     files = [f for f in os.listdir("C:/Users/carlo/Downloads/WT_Models")]
 
@@ -21,6 +23,7 @@ def extract_zip():
             dir = f"models/{station}"
             zip_ref.extractall(dir)
 
+#method that creates folders in predictions corresponding to the model files
 def create_folders():
     files = os.listdir("models")
 

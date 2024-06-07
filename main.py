@@ -8,7 +8,7 @@ from txt_to_csv import Gaps
 #model_path: path the LSTM models are saved
 #need_new_files: True if new files with NaN values are needed, False if they are already there
 #file_list: The folder where the hydro data is saved e.g. "hydro_data"
-#folder_save_path: where the new files with added NaN values should be saved
+#folder_save_path: where the new files with added NaN values should be saved to access them later
 #prediction_save_path: where the prediction should be saved
 def main_procedure(model_path, need_new_files, file_list, NaN_save_path, prediction_save_path):
 
@@ -26,4 +26,4 @@ def main_procedure(model_path, need_new_files, file_list, NaN_save_path, predict
 
 
 if __name__ == "__main__":
-    main_procedure("models", True, "hydro_data", "filled_hydro", "predictions")
+    main_procedure("models", False, "hydro_data", "filled_hydro", "predictions")

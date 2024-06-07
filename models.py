@@ -12,19 +12,9 @@ class Model():
 
     def __init__(self, station, model_type, input_size):
 
-
         self.station = station
         self.model_type = model_type
-        directory = f"models/{station}"
-        
-
-        """  files = [filename for filename in os.listdir(directory) if filename.endswith("normalizers.npy")]
-        if (self.model_type != "atqn2wt_special"):
-            filename = files[-2]
-        else:
-            filename = files[-1] """
-
-        
+        directory = f"models/{station}"        
 
         self.model = Model.read_metadata(station, model_type, input_size)
         files = [filename for filename in os.listdir(directory) if filename.endswith(f"{model_type}.pt")] #TODO consider special cases
@@ -141,7 +131,7 @@ class Model():
         for item in self.arr:
             self.normalizers.append(MinMaxNormalizer(np.array(item, dtype=np.float32)))
 
-    #selects the normalizer file corrsponding to the model
+    #selects the normalizer file corrsponding to the model .pt file
     def find_normalizer_for_model(self, model_file, directory):
         
         files = os.listdir(directory)

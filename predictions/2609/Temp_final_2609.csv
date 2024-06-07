@@ -14255,7 +14255,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-01-09 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,1.21,"Freigegeben, provisorische Daten",Source
 2019-01-10 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,0.94,"Freigegeben, provisorische Daten",Source
 2019-01-11 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,1.16,"Freigegeben, provisorische Daten",Source
-2019-01-12 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,1.551012396812439,hinzugefÃ¼gte Daten,AQN2Gap
+2019-01-12 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,1.2799999999999998,hinzugefÃ¼gte Daten,AQN2Gap
 2019-01-13 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,1.4,"Freigegeben, provisorische Daten",Source
 2019-01-14 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,2.34,"Freigegeben, provisorische Daten",Source
 2019-01-15 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,2.12,"Freigegeben, provisorische Daten",Source
@@ -14315,7 +14315,7 @@ Zeitstempel,Stationsname,Stationsnummer,Parameter,Zeitreihe,Parametereinheit,Gew
 2019-03-10 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,3.91,"Freigegeben, provisorische Daten",Source
 2019-03-11 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,2.59,"Freigegeben, provisorische Daten",Source
 2019-03-12 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,3.55,"Freigegeben, provisorische Daten",Source
-2019-03-13 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,2.851710081100464,hinzugefÃ¼gte Daten,AQN2Gap
+2019-03-13 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,3.455,hinzugefÃ¼gte Daten,AQN2Gap
 2019-03-14 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,3.36,"Freigegeben, provisorische Daten",Source
 2019-03-15 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,3.43,"Freigegeben, provisorische Daten",Source
 2019-03-16 00:00:00,Einsiedeln,2609,Wassertemperatur,Tagesmittel,Â°C,Alp,,4.77,"Freigegeben, provisorische Daten",Source
