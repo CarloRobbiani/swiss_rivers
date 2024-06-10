@@ -262,7 +262,7 @@ if __name__=="__main__":
     #plot_missing_length("parquet_hydro\Temp", "Wert")
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
 
-    df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
+    #df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
     #plot_multi_color(df)
     
     plot_res_heatmeap()

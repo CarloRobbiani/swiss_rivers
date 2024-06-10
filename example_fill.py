@@ -239,13 +239,14 @@ class fillers:
         output_df.reset_index(inplace=True)
         output_df.to_csv(f"predictions/{station}/Temp_{station}_aqn.csv", index=False)
 
-    def fill_aqn2gap_special(station, adj_list, file_list, save_path): #TODO consider how to call
+    def fill_aqn2gap_special(station, adj_list, file_list, save_path):
 
         cols = ["Flow"] #columns to check for missing data
         air_df = Read_txt.read_air_temp("air_temp")
-        special_n = (Neighbour.alter_neighbour(station))
+        special_n = Neighbour.alter_neighbour(station)
 
-        if station == -1:
+        #TODO check if list
+        if station == -1 or special_n == 0:#if there is no special case for this station skip it
             return -1
 
         df_flow = pd.read_csv(f"{file_list}\Flow/{station}_Abfluss_Tagesmittel.txt", delimiter=';',  encoding="latin1")
@@ -255,13 +256,13 @@ class fillers:
         df_temp = pd.read_csv(f"{file_list}\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
         df_temp = df_temp.sort_values(by="Zeitstempel")
         df_temp["Flow"] = df_flow["Wert"].to_numpy()
-        for n in adj_list[station]:
+        """ for n in adj_list[station]:
             if n == -1:
                 continue
             df_n = pd.read_csv(f"{file_list}\Temp/{n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
             df_n = df_n.sort_values(by="Zeitstempel")
             df_temp[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
-            cols.append(df_n["Stationsnummer"][0])
+            #cols.append(df_n["Stationsnummer"][0]) """
 
         if special_n != 0:
             df_n = pd.read_csv(f"{file_list}\Temp/{special_n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
@@ -286,10 +287,12 @@ class fillers:
                 continue
 
             #Check if one or more neighbours are missing and ignore them 
-            date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols)
+            #date_list = Gaps.consecutive_non_missing_with_neighbours(df_temp, str(start_date), str(end_date), cols[-1])
+
+            date_list = Gaps.consecutive_non_missing(df_temp, str(start_date), str(end_date), cols)
             
 
-            for start, end, missing_cols in date_list:
+            for start, end in date_list:
                 if start == end:
                     continue # All rows have some missing data
                 start_d = datetime.strptime(start, "%Y-%m-%d %H:%M:%S")
@@ -299,7 +302,13 @@ class fillers:
                 flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
                 value_list = Read_txt.get_air_betw(station, start, end, air_df, gap_l, big_adj)
 
-                for n in adj_list[station]:
+                #for station in special_n:
+                n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][cols[-1]])
+                    #n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][station])
+                model_atq = Model(station, "atqn2wt_special", 3)
+                #model_atq = Model(station, "atqn2wt_special", len(special_n))#TODO check if it is a list
+
+                """ for n in adj_list[station]:
                     if n not in missing_cols:
                         n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][n])
                 
@@ -308,7 +317,7 @@ class fillers:
                     model_atq = Model(station, "atqn2wt_special", 3) #TODO Add these models, is not yet working
                 else:
                     #model_atq = Model(station, "atqn2wt", len(adj_list[station])+2)
-                    continue
+                    continue """
 
                 value_wt = model_atq.aqn2gap(value_list, flow_list, n_list)
                 array_value = value_wt.detach().numpy()
@@ -318,7 +327,7 @@ class fillers:
         output_df.to_csv(f"{save_path}/{station}/Temp_{station}_aqn_special.csv", index=False)
     
     #returns the final estimation of the df
-    def return_final_df(station, file_path, save_path, include_special): #TODO handle special cases where only aqn_special in folder
+    def return_final_df(station, file_path, save_path, include_special):
         df = pd.read_csv(f"filled_hydro\Temp\{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
         df = df.sort_values(by="Zeitstempel")
         df = df.set_index("Zeitstempel")
@@ -336,7 +345,7 @@ class fillers:
         df.loc[df["Wert"].isna(), "Model"] = "AQN2Gap"
         df["Wert"] = df["Wert"].fillna(df_aqn["Wert"])
 
-        if include_special:
+        if include_special and os.path.exists(f"{file_path}\{station}\Temp_{station}_aqn_special.csv"):
             df_aqns = pd.read_csv(f"{file_path}\{station}\Temp_{station}_aqn_special.csv")
             df_aqns = df_aqns.sort_values(by="Zeitstempel")
             df_aqns = df_aqns.set_index("Zeitstempel")
@@ -360,20 +369,14 @@ if __name__ == "__main__":
 
 
     big_adj = Neighbour.all_adj_list()
-    """ 
-    for st in os.listdir("models"):
-        fillers.fill_a2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aq2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions")
-        #fillers.fill_aqn2gap_special(int(st), big_adj, "filled_hydro", "predictions") 
-    """
     
     for st in os.listdir("models"):
-        fillers.return_final_df(int(st), "predictions", "predictions", False) #TODO add check if special thing is here and choose if want to include
+        #fillers.fill_a2gap(int(st), big_adj, "filled_hydro", "predictions")
+        #fillers.fill_aq2gap(int(st), big_adj, "filled_hydro", "predictions")
+        #fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions")
+        fillers.fill_aqn2gap_special(int(st), big_adj, "filled_hydro", "predictions") 
     
-      
     
-    #fill_aq2gap(2410, big_adj)
-    #fill_a2gap(2481, big_adj)
-    #fill_aq2gap(2481, big_adj)
-    #fill_aqn2gap(2481, big_adj)
+    #for st in os.listdir("models"):
+     #   fillers.return_final_df(int(st), "predictions", "predictions", True) 
+    

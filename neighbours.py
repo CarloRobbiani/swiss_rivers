@@ -7,7 +7,6 @@ import numpy as np
 class Neighbour:
 
     #station lookup table for the special cases returns 0 if station not in list
-    #TODO check if both directions are needed
     def alter_neighbour(station):
         adj_list = {
             2179 : 2085,
@@ -27,7 +26,7 @@ class Neighbour:
             2009 : 2174
         }
         if station not in adj_list:
-            return 0
+            return []
 
         return adj_list.get(station)
 
