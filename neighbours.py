@@ -23,12 +23,18 @@ class Neighbour:
             2109 : 2030,
             2019 : 2030,
             2473 : 2143,
-            2009 : 2174
-        }
+            2009 : 2174}
+        """ 2282 : 2085, """
+        """ 2288 : [2473, 2143], """
+        """ 2386 : 2044, """
+        """ 2606 : [2174, 2009] """
+        
         if station not in adj_list:
             return []
-
-        return adj_list.get(station)
+        neighbours = adj_list.get(station)
+        if not isinstance(neighbours, list):
+            neighbours = [neighbours]
+        return neighbours
 
 
     

@@ -116,6 +116,30 @@ def plot_river_data_both(data_2010, data_edges_2010, data_1990, data_edges_1990)
 
     plt.show()
 
+
+def create_special_graph_missing_neighbours(data_rhein, data_rhone):
+    stations_rhein = [2288, 2473, 2143, 2282, 2085, 2386, 2044]
+    stations_rhone = [2606, 2174, 2009]
+
+    mask_rhein = torch.tensor([elem[-1] in stations_rhein for elem in data_rhein])
+
+    tensor_x_rhein = data_rhein[mask_rhein]
+    tensor_edges_rhein = torch.tensor([[2, 2, 6, 3],
+                                       [0, 4, 5, 1]])
+    print(tensor_edges_rhein)
+    torch.save(tensor_x_rhein, "river_data\gewaesser_special_rhein_missing_n_x.pt")
+    torch.save(tensor_edges_rhein, "river_data\gewaesser_special_rhein_missing_n_edges.pt")
+
+    mask_rhone = torch.tensor([elem[-1] in stations_rhone for elem in data_rhone])
+
+    tensor_x_rhone = data_rhone[mask_rhone]
+    tensor_edges_rhone = torch.tensor([[1, 1],
+                                       [0, 2,]])
+    print(tensor_edges_rhone)
+    torch.save(tensor_x_rhone, "river_data\gewaesser_special_rhone_missing_n_x.pt")
+    torch.save(tensor_edges_rhone, "river_data\gewaesser_special_rhone_missing_n_edges.pt")
+
+
 def create_special_graph_rhein(data_2010):
     stations = [2179, 2308, 2033,2126 ,2410 ,2150 ,2327, 2085, 2143, 2044, 2109, 2019, 2030, 2473]
 
@@ -239,7 +263,12 @@ if __name__ == "__main__":
     
     reader_ti = ResourceRiverReaderFactory.ticino_reader()
     data_x_ti, data_edges_ti = reader_ti.read()
-    plot_special(data_x_ti, data_edges_ti)
+
+    reader = ResourceRiverReaderFactory.rhein_missing_n_reader()
+    data_x, data_edges = reader.read()
+    plot_special(data_x, data_edges)
+
+    #plot_special(data_x_ti, data_edges_ti)
     """
 
     reader_inn = ResourceRiverReaderFactory.inn_reader()

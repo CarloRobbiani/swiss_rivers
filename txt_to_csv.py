@@ -96,10 +96,10 @@ class Gaps():
     #Method to find out what dates have missing values in the dataset of hydro data
     #Assumes the dates are there
     def miss_date(df):
-        df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
+        df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
 
-        # Find all rows where 'Wert' column has missing values
-        missing_values_dates = df.loc[df['Wert'].isna(), 'Zeitstempel']
+        # Find all rows where "Wert" column has missing values
+        missing_values_dates = df.loc[df["Wert"].isna(), "Zeitstempel"]
         return missing_values_dates
 
     #function that returns df with information of gap lenght and start and end time of gap
@@ -109,7 +109,7 @@ class Gaps():
         df = pd.read_csv(f"{save_path}\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
         #pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
         #df = pf.to_pandas()
-        df["Zeitstempel"] = pd.to_datetime(df['Zeitstempel'])
+        df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
         df = df.sort_values(by="Zeitstempel")
         #df.set_index("Zeitstempel", inplace=True)
 

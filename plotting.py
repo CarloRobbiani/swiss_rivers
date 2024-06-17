@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 import seaborn as sns
 import os
 import matplotlib.lines as mlines
-
+import numpy as np
 #plots the nr of missing values of neighbours as a bar plot
 def plot_missing_neighbour_nr(adj_list):
     values = []
@@ -218,7 +218,7 @@ def plot_long_gaps(file_path):
     plt.legend()
     plt.show() 
 
-#Plots the value of two df into one plot
+#Plots gaps of df
 #df is a  df from the predictions
 #TODO make that plt plots with missing values on axis
 def plot_multi_color(df):
@@ -250,6 +250,93 @@ def plot_multi_color(df):
     plt.xlabel("Date")
     plt.show()
 
+#Plots the different model results into one plot
+def plot_overlapping(station):
+    folder = f"predictions/{station}"
+
+    a2gap = pd.read_csv(f"{folder}/Temp_{station}_a.csv")
+    aq2gap = pd.read_csv(f"{folder}/Temp_{station}_aq.csv")
+    aqn2gap = pd.read_csv(f"{folder}/Temp_{station}_aqn.csv")
+
+    a_x,a_y,a_colors = read_df_with_colors(a2gap, "red")
+    aq_x,aq_y,aq_colors = read_df_with_colors(aq2gap, "orange")
+    aqn_x,aqn_y,aqn_colors = read_df_with_colors(aqn2gap, "green")
+
+    fig, ax = plt.subplots()
+    for i in range(len(a_x) - 1):
+        ax.plot(a_x.iloc[i:i+2],a_y.iloc[i:i+2], color = a_colors.iloc[i])
+        ax.plot(aq_x.iloc[i:i+2],aq_y.iloc[i:i+2], color = aq_colors.iloc[i], linestyle = "dotted")
+        ax.plot(aqn_x.iloc[i:i+2],aqn_y.iloc[i:i+2], color = aqn_colors.iloc[i], linestyle = "dashed")
+
+    red_line = mlines.Line2D([], [], color='red', label='A2Gap')
+    yellow_line = mlines.Line2D([], [], color='orange', label='AQ2Gap', linestyle=":")
+    green_line = mlines.Line2D([], [], color='green', label='AQN2Gap', linestyle="--")
+    blue_line = mlines.Line2D([], [], color='blue', label='Recorded Data')
+    ax.legend(handles=[red_line, yellow_line, green_line, blue_line])
+    plt.title("Water temperature of the station 2282")
+    plt.ylabel("Temperature C°")
+    plt.xlabel("Date")
+    plt.show()
+
+
+def plot_artificial_gap(station):
+    folder = f"predictions/{station}"
+
+    original = pd.read_csv(f"filled_hydro/Temp/{station}_Wassertemperatur copy.txt", delimiter=";")
+
+    a2gap = pd.read_csv(f"{folder}/Temp_{station}_a.csv")
+    aq2gap = pd.read_csv(f"{folder}/Temp_{station}_aq.csv")
+    aqn2gap = pd.read_csv(f"{folder}/Temp_{station}_aqn.csv")
+
+    o_x, o_y, o_colors = read_df_with_colors(original, "blue")
+    a_x,a_y,a_colors = read_df_with_colors(a2gap, "red")
+    aq_x,aq_y,aq_colors = read_df_with_colors(aq2gap, "orange")
+    aqn_x,aqn_y,aqn_colors = read_df_with_colors(aqn2gap, "green")
+
+    fig, ax = plt.subplots()
+    for i in range(len(a_x) - 1):
+        ax.plot(o_x.iloc[i:i+2],o_y.iloc[i:i+2], color = o_colors.iloc[i])
+        ax.plot(a_x.iloc[i:i+2],a_y.iloc[i:i+2], color = a_colors.iloc[i])
+        ax.plot(aq_x.iloc[i:i+2],aq_y.iloc[i:i+2], color = aq_colors.iloc[i], linestyle = "dotted")
+        ax.plot(aqn_x.iloc[i:i+2],aqn_y.iloc[i:i+2], color = aqn_colors.iloc[i], linestyle = "dashed")
+
+    red_line = mlines.Line2D([], [], color='red', label='A2Gap')
+    yellow_line = mlines.Line2D([], [], color='orange', label='AQ2Gap', linestyle=":")
+    green_line = mlines.Line2D([], [], color='green', label='AQN2Gap', linestyle="--")
+    blue_line = mlines.Line2D([], [], color='blue', label='Recorded Data')
+    ax.legend(handles=[red_line, yellow_line, green_line, blue_line])
+    plt.title(f"Water temperature of the station {station}")
+    plt.ylabel("Temperature C°")
+    plt.xlabel("Date")
+    plt.show()
+
+    
+#helper function for coloring and filtering
+def read_df_with_colors(df, impute_color):
+
+
+    df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
+    df["Freigabestatus"] = np.where(df["Wert"].apply(has_more_than_5_decimals), 'hinzugefÃ¼gte Daten', df["Freigabestatus"])
+    
+    # Filter timestamps 
+    df_filtered = df[df['Zeitstempel'].dt.year < 2021]
+    df_filtered = df_filtered[df_filtered["Zeitstempel"].dt.year > 2019]
+
+    df_filtered = df_filtered.sort_values(by="Zeitstempel")
+    
+
+    #color_map = {'hinzugefÃ¼gte Daten': impute_color, 'other': 'blue'}
+    color_map = {'hinzugefÃ¼gte Daten': impute_color, 'other': 'blue'}
+    colors = df_filtered['Freigabestatus'].map(lambda x: color_map.get(x, 'blue'))
+    
+    x = df_filtered['Zeitstempel']
+    y = df_filtered['Wert']
+    return x,y,colors
+
+def has_more_than_5_decimals(value):
+    return len(str(value).split('.')[1]) > 5 if '.' in str(value) else False
+
+# Apply the condition and replace the string accordingly
 
 
 if __name__=="__main__":
@@ -265,7 +352,7 @@ if __name__=="__main__":
     #df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
     #plot_multi_color(df)
     
-    plot_res_heatmeap()
+    plot_artificial_gap(2179)
 
 
 

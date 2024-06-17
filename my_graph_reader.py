@@ -48,4 +48,12 @@ class ResourceRiverReaderFactory():
     @staticmethod
     def ticino_special_reader():
         return ResourceRiverReader(f"special_ti")
+    
+    @staticmethod
+    def rhein_missing_n_reader():
+        return ResourceRiverReader(f"special_rhein_missing_n")
+    
+    @staticmethod
+    def rhone_missing_n_reader():
+        return ResourceRiverReader(f"special_rhone_missing_n")
         
