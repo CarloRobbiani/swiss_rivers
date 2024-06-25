@@ -12,7 +12,6 @@ class Read_txt:
 
         files = os.listdir(folder_path)
 
-        #init list of dataframes
         dfs = []
 
         for file in files:

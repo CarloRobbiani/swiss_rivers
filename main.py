@@ -24,6 +24,10 @@ def main_procedure(model_path, need_new_files, file_list, NaN_save_path, predict
         fillers.fill_aq2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
         fillers.fill_aqn2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
 
+        fillers.fill_aqn2gap_special(int(st), big_adj, NaN_save_path, prediction_save_path) 
+
+        fillers.return_final_df(int(st), prediction_save_path, prediction_save_path, True) 
+
 
 if __name__ == "__main__":
     main_procedure("models", False, "hydro_data", "filled_hydro", "predictions")

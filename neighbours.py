@@ -23,11 +23,13 @@ class Neighbour:
             2109 : 2030,
             2019 : 2030,
             2473 : 2143,
-            2009 : 2174}
-        """ 2282 : 2085, """
-        """ 2288 : [2473, 2143], """
-        """ 2386 : 2044, """
-        """ 2606 : [2174, 2009] """
+            2009 : 2174,
+            #here come the last special cases
+            2282 : 2085,
+            2288 : [2473, 2143], 
+            2386 : 2044, 
+            2606 : [2174, 2009]
+        }
         
         if station not in adj_list:
             return []
@@ -81,7 +83,6 @@ class Neighbour:
 
 
     #Enter station_nr and adjacency list from the river in hydro data and return the neighbouring stations
-    #Problem: find right adj list
     #station: station number ####
     def get_neigbour(station, adj_list):
         if station not in adj_list:
@@ -97,8 +98,8 @@ class Neighbour:
         for neighbour in neighbour_list:
             if neighbour == -1:
                     continue
-            #df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-            df = pd.read_parquet(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
+            df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+            #df = pd.read_parquet(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
             #df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
@@ -113,9 +114,9 @@ class Neighbour:
             if st == -1:
                 continue
 
-            #df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
-            pf = ParquetFile(f"parquet_hydro\Temp/{st}_Wassertemperatur.parquet")
-            df = pf.to_pandas()
+            df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+            #pf = ParquetFile(f"parquet_hydro\Temp/{st}_Wassertemperatur.parquet")
+            #df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             values[st] = df.loc[date, "Wert"]
         return values
@@ -139,9 +140,9 @@ if __name__== "__main__":
     for station in adj_rhein:
         if str(station) == "-1":
                 continue
-        #df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="iso-8859-1")
-        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        df = pf.to_pandas()
+        df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+        #pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
+        #df = pf.to_pandas()
         dates = Gaps.miss_date(df)
         n_list = Neighbour.get_neigbour(station, adj_rhein)
         for date in dates:

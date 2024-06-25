@@ -107,8 +107,6 @@ class Gaps():
     #start date is the day before the gap, end date the day after the gap ends
     def gaps_with_dates(station, save_path):
         df = pd.read_csv(f"{save_path}\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        #pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        #df = pf.to_pandas()
         df["Zeitstempel"] = pd.to_datetime(df["Zeitstempel"])
         df = df.sort_values(by="Zeitstempel")
         #df.set_index("Zeitstempel", inplace=True)
@@ -220,10 +218,8 @@ class Gaps():
         gap_df['end_date'] = pd.to_datetime(gap_df['end_date'])
         gap_df['end_date'] += pd.Timedelta(days=1)
 
-        # Create boolean mask to filter rows where the date is within the range
         mask = (date >= gap_df['start_date']) & (date <= gap_df['end_date'])
 
-        # Use boolean indexing to filter rows and get the gap_length
         matching_gaps = gap_df[mask]
 
         if not matching_gaps.empty:

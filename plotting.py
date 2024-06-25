@@ -9,6 +9,7 @@ import seaborn as sns
 import os
 import matplotlib.lines as mlines
 import numpy as np
+from filling_main import isnewer
 #plots the nr of missing values of neighbours as a bar plot
 def plot_missing_neighbour_nr(adj_list):
     values = []
@@ -78,6 +79,68 @@ def plot_missing_length(file_path, column):
     fig.suptitle("Amount of Gaps in Water temp. with given length")
     plt.show()
 
+#plots the amount of gaps in the different categories
+def plot_categories(adj_list):
+    
+    data = []
+    between = 0 #3651
+    some_missing = 0 #29987
+    only_missing = 0 #60896
+    files = os.listdir("filled_hydro/Temp")
+    for file in files:
+        df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
+        built_in = pd.to_datetime(df["Zeitstempel"].iloc[0])
+        comparison_date = pd.to_datetime("1990-01-01-00:00:00")
+        df.sort_values(by="Zeitstempel", inplace=True)
+        station = int(file[0:4])
+
+        current_seq = 0
+
+        for value in df["Wert"].isnull():
+            if value:
+                current_seq+=1
+            else:
+                if(current_seq > 0):
+                    data.append(current_seq)
+                current_seq = 0
+        if(current_seq > 0):
+            data.append(current_seq)
+
+
+        if station not in adj_list:
+            continue
+        cols = []
+        print(station)
+        for n in adj_list[station]:
+            df_n = pd.read_csv(f"filled_hydro\Temp/{n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
+            
+            df_n = df_n.sort_values(by="Zeitstempel")
+            df[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
+            cols.append(df_n["Stationsnummer"][0])
+        
+        df_null = df[df["Wert"].isna()]
+        df_null['missing_count'] = df_null[cols].isna().sum(axis=1)
+        nr_neighbours = len(adj_list[station])
+        #TODO add check for date
+        #for missing_count in df_null['missing_count']:
+        for _,row in df_null.iterrows():
+            date = pd.to_datetime(row["Zeitstempel"])
+            missing_count = row["missing_count"]
+            if built_in > comparison_date and date < built_in and missing_count == 0 and nr_neighbours > 1:
+                between += 1
+            if missing_count == nr_neighbours:
+                only_missing += 1
+            elif 0 < missing_count < nr_neighbours:
+                some_missing += 1
+
+
+
+    short_gaps = [x for x in data if x <= 2]
+    long_gaps = [x for x in data if  x > 2]
+    print(len(long_gaps)) #410000
+
+
+
 #plots a heatmap of all the missing values in the files of filepath
 #TODO Annotate plot with station numbers and years and so on
 def plot_missing_values(file_path):
@@ -115,10 +178,10 @@ def plot_missing_values(file_path):
     plt.show()
 
 #plots heatmap with colours depending on model
+#TODO consider special cases, same category as AQN2Gap
 def plot_res_heatmeap():
 
     data = {}
-    cols = ["Wert", "Model"]
     stations = os.listdir("predictions")
     for st in stations:
         df = pd.read_csv(f"predictions\{st}/Temp_final_{st}.csv", delimiter=",")
@@ -128,6 +191,7 @@ def plot_res_heatmeap():
 
 
     final_df = pd.DataFrame(data)
+    final_df.replace("AQN2Gap_special", "AQN2Gap", inplace=True) #such that the special cases also count in for the AQN2Gap model
     #final_df = pd.concat(data, axis=0)
     final_df = final_df.sort_index()
 
@@ -138,7 +202,7 @@ def plot_res_heatmeap():
     numbers = {
         "Source": 0,
         "A2Gap": 1,
-        "AQ2Gap": 2, #TODO Change it to AQ2gap later on with return_final_df function renaming
+        "AQ2Gap": 2,
         "AQN2Gap": 3
     }
 
@@ -287,11 +351,13 @@ def plot_artificial_gap(station):
     a2gap = pd.read_csv(f"{folder}/Temp_{station}_a.csv")
     aq2gap = pd.read_csv(f"{folder}/Temp_{station}_aq.csv")
     aqn2gap = pd.read_csv(f"{folder}/Temp_{station}_aqn.csv")
+    interpolation = pd.read_csv(f"{folder}/Temp_{station}_interpolation.csv")
 
     o_x, o_y, o_colors = read_df_with_colors(original, "blue")
     a_x,a_y,a_colors = read_df_with_colors(a2gap, "red")
     aq_x,aq_y,aq_colors = read_df_with_colors(aq2gap, "orange")
     aqn_x,aqn_y,aqn_colors = read_df_with_colors(aqn2gap, "green")
+    i_x, i_y, i_colors = read_df_with_colors(interpolation, "darkgreen")
 
     fig, ax = plt.subplots()
     for i in range(len(a_x) - 1):
@@ -299,12 +365,14 @@ def plot_artificial_gap(station):
         ax.plot(a_x.iloc[i:i+2],a_y.iloc[i:i+2], color = a_colors.iloc[i])
         ax.plot(aq_x.iloc[i:i+2],aq_y.iloc[i:i+2], color = aq_colors.iloc[i], linestyle = "dotted")
         ax.plot(aqn_x.iloc[i:i+2],aqn_y.iloc[i:i+2], color = aqn_colors.iloc[i], linestyle = "dashed")
+        ax.plot(i_x.iloc[i:i+2],i_y.iloc[i:i+2], color = i_colors.iloc[i])
 
     red_line = mlines.Line2D([], [], color='red', label='A2Gap')
     yellow_line = mlines.Line2D([], [], color='orange', label='AQ2Gap', linestyle=":")
     green_line = mlines.Line2D([], [], color='green', label='AQN2Gap', linestyle="--")
     blue_line = mlines.Line2D([], [], color='blue', label='Recorded Data')
-    ax.legend(handles=[red_line, yellow_line, green_line, blue_line])
+    dark_green_line = mlines.Line2D([], [], color='darkgreen', label='Interpolation')
+    ax.legend(handles=[red_line, yellow_line, green_line, blue_line, dark_green_line])
     plt.title(f"Water temperature of the station {station}")
     plt.ylabel("Temperature C°")
     plt.xlabel("Date")
@@ -351,8 +419,9 @@ if __name__=="__main__":
 
     #df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
     #plot_multi_color(df)
-    
-    plot_artificial_gap(2179)
+    big_adj = Neighbour.all_adj_list()
+    plot_categories(big_adj)
+    #plot_artificial_gap(2179)
 
 
 
