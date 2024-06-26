@@ -1,8 +1,7 @@
 import os
 import pandas as pd
-from txt_to_csv import Gaps
 from hydro_to_meteo import Hydro2MeteoMapper
-from datetime import datetime
+
 
 #class with functions to read all the text files
 class Read_txt:
@@ -83,48 +82,8 @@ class Read_txt:
         
     
 
-import pyarrow as pa
-import pyarrow.parquet as pq
-class read_parquet:
-
-    #Method that takes the hydro data and adds NaN for the column "Wert" entries where there are no dates
-    #File_list: Folder with the original temp/flow data
-    #folder_save_path: the folder where the data should be saved to
-    def fill_gaps(file_list, folder_save_path):
-
-        for file in os.listdir(file_list):
-            file_path = file_list + "/" + file
-            df = pd.read_csv(file_path, skiprows=8, delimiter=";", encoding="latin1")
-            missings = Gaps.find_missing_dates(df)
-
-            for date in missings:
-                new_row = {'Stationsname': df.iloc[:,0].iloc[0],
-            'Stationsnummer': df.iloc[:,1].iloc[0],
-            'Parameter': df.iloc[:,2].iloc[0],
-            'Zeitreihe': df.iloc[:,3].iloc[0],
-            'Parametereinheit': df.iloc[:,4].iloc[0],
-            'Gewässer': df.iloc[:,5].iloc[0],
-            'Zeitstempel': str(date),
-            'Zeitpunkt_des_Auftretens': None,
-            'Wert': None,
-            'Freigabestatus': "hinzugefügte Daten"}
-                df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
-
-            
-            file_name = str(file)[:-4]
-            path = folder_save_path + "/" + file_name + ".parquet"
-
-            table = pa.Table.from_pandas(df)
-            pq.write_table(table, path)
-            #df.to_csv(path, sep=";", index = False)
-
-
-
 if __name__ == "__main__":
-
-    #read_parquet.fill_gaps("hydro_data/Temp", "parquet_hydro/Temp")
-    read_parquet.fill_gaps("hydro_data/Flow", "parquet_hydro/Flow")
-
-    #air_df = Read_txt.read_air_temp("air_temp")
-    #air_df.head()
+  
+    air_df = Read_txt.read_air_temp("air_temp")
+    air_df.head()
 

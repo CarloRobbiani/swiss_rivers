@@ -148,7 +148,15 @@ class Model():
         else:
             return None
 
-    
+#interpolate a gap    
+def interpolate(df, start_date, end_date):
+   start_value = df.loc[df["Zeitstempel"] == str(start_date), "Wert"].iloc[0]
+   end_value = df.loc[df["Zeitstempel"] == str(end_date), "Wert"].iloc[0]
+
+   result = float((start_value + end_value) / 2)
+   return result
+
+
 if __name__ == "__main__":
 
     #Model.read_metadata(2170, "at2wt")
@@ -160,3 +168,5 @@ if __name__ == "__main__":
     print(odel2)
     tor = torch.load("models/Apr18_16-06-55_bnode052_11183649_3435_best_valid_loss_at2wt.pt")
     #print(tor) """
+
+

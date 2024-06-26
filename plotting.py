@@ -3,13 +3,12 @@ from matplotlib.ticker import MaxNLocator
 import pandas as pd
 from txt_to_csv import Gaps, Read_txt
 from neighbours import Neighbour
-from my_graph_reader import ResourceRiverReaderFactory
+from graph_reader import ResourceRiverReaderFactory
 from collections import Counter, defaultdict
 import seaborn as sns
 import os
 import matplotlib.lines as mlines
 import numpy as np
-from filling_main import isnewer
 #plots the nr of missing values of neighbours as a bar plot
 def plot_missing_neighbour_nr(adj_list):
     values = []
@@ -39,8 +38,8 @@ def plot_missing_length(file_path, column):
     data = []
     files = os.listdir(file_path)
     for file in files:
-        #df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
-        df = pd.read_parquet(f"parquet_hydro\Temp/{file}")
+        df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
+        #df = pd.read_parquet(f"parquet_hydro\Temp/{file}")
         df.sort_values(by="Zeitstempel", inplace=True)
         current_seq = 0
 
@@ -79,70 +78,10 @@ def plot_missing_length(file_path, column):
     fig.suptitle("Amount of Gaps in Water temp. with given length")
     plt.show()
 
-#plots the amount of gaps in the different categories
-def plot_categories(adj_list):
-    
-    data = []
-    between = 0 #3651
-    some_missing = 0 #29987
-    only_missing = 0 #60896
-    files = os.listdir("filled_hydro/Temp")
-    for file in files:
-        df = pd.read_csv(f"filled_hydro\Temp/{file}", delimiter=';',  encoding="latin1")
-        built_in = pd.to_datetime(df["Zeitstempel"].iloc[0])
-        comparison_date = pd.to_datetime("1990-01-01-00:00:00")
-        df.sort_values(by="Zeitstempel", inplace=True)
-        station = int(file[0:4])
-
-        current_seq = 0
-
-        for value in df["Wert"].isnull():
-            if value:
-                current_seq+=1
-            else:
-                if(current_seq > 0):
-                    data.append(current_seq)
-                current_seq = 0
-        if(current_seq > 0):
-            data.append(current_seq)
-
-
-        if station not in adj_list:
-            continue
-        cols = []
-        print(station)
-        for n in adj_list[station]:
-            df_n = pd.read_csv(f"filled_hydro\Temp/{n}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-            
-            df_n = df_n.sort_values(by="Zeitstempel")
-            df[df_n["Stationsnummer"][0]] = df_n["Wert"].to_numpy()
-            cols.append(df_n["Stationsnummer"][0])
-        
-        df_null = df[df["Wert"].isna()]
-        df_null['missing_count'] = df_null[cols].isna().sum(axis=1)
-        nr_neighbours = len(adj_list[station])
-        #TODO add check for date
-        #for missing_count in df_null['missing_count']:
-        for _,row in df_null.iterrows():
-            date = pd.to_datetime(row["Zeitstempel"])
-            missing_count = row["missing_count"]
-            if built_in > comparison_date and date < built_in and missing_count == 0 and nr_neighbours > 1:
-                between += 1
-            if missing_count == nr_neighbours:
-                only_missing += 1
-            elif 0 < missing_count < nr_neighbours:
-                some_missing += 1
-
-
-
-    short_gaps = [x for x in data if x <= 2]
-    long_gaps = [x for x in data if  x > 2]
-    print(len(long_gaps)) #410000
-
 
 
 #plots a heatmap of all the missing values in the files of filepath
-#TODO Annotate plot with station numbers and years and so on
+
 def plot_missing_values(file_path):
     data = {}
     files = os.listdir(file_path)
@@ -244,7 +183,6 @@ def plot_missing_per_year(file_path):
     plt.show() 
 
 #plots the amount of long gaps (>360) per year
-#TODO maybe change to starting date again instead of for every year if it occurs
 def plot_long_gaps(file_path):
     dates = []
     dates_short = []
@@ -284,7 +222,6 @@ def plot_long_gaps(file_path):
 
 #Plots gaps of df
 #df is a  df from the predictions
-#TODO make that plt plots with missing values on axis
 def plot_multi_color(df):
     
     df['Zeitstempel'] = pd.to_datetime(df['Zeitstempel'])
@@ -321,23 +258,27 @@ def plot_overlapping(station):
     a2gap = pd.read_csv(f"{folder}/Temp_{station}_a.csv")
     aq2gap = pd.read_csv(f"{folder}/Temp_{station}_aq.csv")
     aqn2gap = pd.read_csv(f"{folder}/Temp_{station}_aqn.csv")
+    interpolation = pd.read_csv(f"{folder}/Temp_{station}_interpolation.csv")
 
     a_x,a_y,a_colors = read_df_with_colors(a2gap, "red")
     aq_x,aq_y,aq_colors = read_df_with_colors(aq2gap, "orange")
     aqn_x,aqn_y,aqn_colors = read_df_with_colors(aqn2gap, "green")
+    i_x,i_y,i_colors = read_df_with_colors(interpolation, "black")
 
     fig, ax = plt.subplots()
     for i in range(len(a_x) - 1):
         ax.plot(a_x.iloc[i:i+2],a_y.iloc[i:i+2], color = a_colors.iloc[i])
         ax.plot(aq_x.iloc[i:i+2],aq_y.iloc[i:i+2], color = aq_colors.iloc[i], linestyle = "dotted")
         ax.plot(aqn_x.iloc[i:i+2],aqn_y.iloc[i:i+2], color = aqn_colors.iloc[i], linestyle = "dashed")
+        ax.plot(i_x.iloc[i:i+2],i_y.iloc[i:i+2], color = i_colors.iloc[i])
 
     red_line = mlines.Line2D([], [], color='red', label='A2Gap')
     yellow_line = mlines.Line2D([], [], color='orange', label='AQ2Gap', linestyle=":")
     green_line = mlines.Line2D([], [], color='green', label='AQN2Gap', linestyle="--")
     blue_line = mlines.Line2D([], [], color='blue', label='Recorded Data')
-    ax.legend(handles=[red_line, yellow_line, green_line, blue_line])
-    plt.title("Water temperature of the station 2282")
+    black_line = mlines.Line2D([], [], color='black', label='Interpolation')
+    ax.legend(handles=[red_line, yellow_line, green_line, blue_line, black_line])
+    plt.title(f"Water temperature of the station {station}")
     plt.ylabel("Temperature C°")
     plt.xlabel("Date")
     plt.show()
@@ -387,8 +328,8 @@ def read_df_with_colors(df, impute_color):
     df["Freigabestatus"] = np.where(df["Wert"].apply(has_more_than_5_decimals), 'hinzugefÃ¼gte Daten', df["Freigabestatus"])
     
     # Filter timestamps 
-    df_filtered = df[df['Zeitstempel'].dt.year < 2021]
-    df_filtered = df_filtered[df_filtered["Zeitstempel"].dt.year > 2019]
+    df_filtered = df[df['Zeitstempel'].dt.year < 2020]
+    df_filtered = df_filtered[df_filtered["Zeitstempel"].dt.year > 2016]
 
     df_filtered = df_filtered.sort_values(by="Zeitstempel")
     
@@ -404,8 +345,16 @@ def read_df_with_colors(df, impute_color):
 def has_more_than_5_decimals(value):
     return len(str(value).split('.')[1]) > 5 if '.' in str(value) else False
 
-# Apply the condition and replace the string accordingly
+#check if a station was already built on a specific day or not
+def isnewer(station, date):
+    df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
 
+    building_date = df["Zeitstempel"].iloc[0]
+    building_year = int(building_date[:4])
+    spec_date = int(date[:4])
+    if building_year > spec_date:
+        return True
+    return False
 
 if __name__=="__main__":
 
@@ -418,10 +367,7 @@ if __name__=="__main__":
     #example = (Neighbour.get_Neighbour_values(2044, "1996-02-12 00:00:00", adj_rhein))
 
     #df = pd.read_csv("predictions/2608\Temp_final_2608.csv")
-    #plot_multi_color(df)
-    big_adj = Neighbour.all_adj_list()
-    plot_categories(big_adj)
+    plot_res_heatmeap()
     #plot_artificial_gap(2179)
-
-
+    #plot_overlapping(2232)
 

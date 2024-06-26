@@ -1,7 +1,6 @@
-from my_graph_reader import ResourceRiverReaderFactory
+from graph_reader import ResourceRiverReaderFactory
 import pandas as pd
 from txt_to_csv import Gaps
-from fastparquet import ParquetFile
 import numpy as np
 
 class Neighbour:
@@ -99,38 +98,11 @@ class Neighbour:
             if neighbour == -1:
                     continue
             df = pd.read_csv(f"filled_hydro\Temp/{neighbour}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-            #df = pd.read_parquet(f"parquet_hydro\Temp/{neighbour}_Wassertemperatur.parquet")
-            #df = pf.to_pandas()
             df.set_index('Zeitstempel', inplace=True)
             isMissing.append(int(pd.isna(df.loc[date, "Wert"])))
 
         return sum(isMissing)
     
-    #Get the values of all neighbouring stations on a certain date
-    def get_Neighbour_values(station, date, adj_list):
-        values = {}
-        neighbour_stations = Neighbour.get_neigbour(station, adj_list)
-        for st in neighbour_stations:
-            if st == -1:
-                continue
-
-            df = pd.read_csv(f"filled_hydro\Temp/{st}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-            #pf = ParquetFile(f"parquet_hydro\Temp/{st}_Wassertemperatur.parquet")
-            #df = pf.to_pandas()
-            df.set_index('Zeitstempel', inplace=True)
-            values[st] = df.loc[date, "Wert"]
-        return values
-    
-    #returns the value of a station on a given date
-    def get_value(station, date):
-        pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        df = pf.to_pandas()
-
-        value = station.loc[station["Zeitstempel"] == date]["Wert"]
-        if value == np.nan:
-            return None
-        return value
-
 
 if __name__== "__main__":
     reader_rhein = ResourceRiverReaderFactory.rhein_reader(-2010)
@@ -141,8 +113,6 @@ if __name__== "__main__":
         if str(station) == "-1":
                 continue
         df = pd.read_csv(f"filled_hydro\Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        #pf = ParquetFile(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
-        #df = pf.to_pandas()
         dates = Gaps.miss_date(df)
         n_list = Neighbour.get_neigbour(station, adj_rhein)
         for date in dates:

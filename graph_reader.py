@@ -1,31 +1,21 @@
 
 import torch
 
-# TODO: remove Aare Reader
-
-class AareReader:
-
-    def read(self):
-        data_x = torch.load('swissrivernetwork/reader/gewaesser_aare_x.pt') # yes we know, Aare includes Rhein
-        data_edges = torch.load('swissrivernetwork/reader/gewaesser_aare_edges.pt')
-        return data_x, data_edges
-    
-    def my_read(self):
-        data_x = torch.load('C:\Bachelorarbeit\Graphes/river_data\gewaesser_inn_x.pt') # yes we know, Aare includes Rhein
-        data_edges = torch.load('C:\Bachelorarbeit\Graphes/river_data/gewaesser_inn_edges.pt')
-        return data_x, data_edges
-
 class ResourceRiverReader():
 
     def __init__(self, river):
         self.river = river
 
     def read(self):
-        data_x = torch.load(f'swissrivernetwork/resources/rivers/gewaesser_{self.river}_x.pt')
-        data_edges = torch.load(f'swissrivernetwork/resources/rivers/gewaesser_{self.river}_edges.pt')
+        data_x = torch.load(f'river_data/gewaesser_{self.river}_x.pt')
+        data_edges = torch.load(f'river_data/gewaesser_{self.river}_edges.pt')
         return data_x, data_edges
 
 class ResourceRiverReaderFactory():
+
+    @staticmethod
+    def aare_reader(suffix=''):
+        return ResourceRiverReader(f'aare{suffix}')
 
     @staticmethod
     def rhein_reader(suffix=''):
@@ -42,4 +32,28 @@ class ResourceRiverReaderFactory():
     @staticmethod
     def ticino_reader(suffix=''):
         return ResourceRiverReader(f'ticino{suffix}')
+    
+    @staticmethod
+    def rhein_special_reader():
+        return ResourceRiverReader(f"special_rhein")
+    
+    @staticmethod
+    def rhone_special_reader():
+        return ResourceRiverReader(f"special_rhone")
+    
+    @staticmethod
+    def inn_special_reader():
+        return ResourceRiverReader(f"special_inn")
+    
+    @staticmethod
+    def ticino_special_reader():
+        return ResourceRiverReader(f"special_ti")
+    
+    @staticmethod
+    def rhein_missing_n_reader():
+        return ResourceRiverReader(f"special_rhein_missing_n")
+    
+    @staticmethod
+    def rhone_missing_n_reader():
+        return ResourceRiverReader(f"special_rhone_missing_n")
         

@@ -2,7 +2,6 @@ import pandas as pd
 import os
 from collections import Counter
 import datetime
-from fastparquet import ParquetFile
 from itertools import groupby
 
 #class with functions to read all the text files

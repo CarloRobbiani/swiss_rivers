@@ -4,19 +4,16 @@ import pandas as pd
 from txt_to_csv import Gaps, Read_txt
 from datetime import datetime, timedelta
 from reading import Read_txt
-import numpy as np
-
-from filling_main import interpolate
+from models import interpolate
 from models import Model
     
-exception_stations = [2617, 2612, 2462, 2167, 2068]
-class fillers:
+
+class Imputing:
 
     #This function is only for visualization purposes
-    def fill_interpolation(station):
+    def impute_interpolation(station):
         
         df = pd.read_csv(f"filled_hydro/Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        #df = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
         df = df.sort_values(by="Zeitstempel")
         output_df = df.set_index("Zeitstempel")
         missing_dates_df = Gaps.gaps_with_dates(station, "filled_hydro")
@@ -27,16 +24,18 @@ class fillers:
             gap_length = row["gap_length"]
             date_range = pd.date_range(start_date + timedelta(days=1), end_date - timedelta(days=1))
             value_list = []
+            if start_date == pd.to_datetime("1979-12-31 00:00:00"):
+                continue
 
             temperature = interpolate(df, start_date, end_date)
             for date in date_range:
                 output_df.loc[str(date), "Wert"] = temperature
-
+        output_df.reset_index(inplace=True)
         output_df.to_csv(f"predictions/{station}/Temp_{station}_interpolation.csv", index=False)
     
 
     #fills in gaps only with air temperature
-    def fill_a2gap(station, adj_list, file_list, save_path):
+    def impute_a2gap(station, adj_list, file_list, save_path):
 
         air_df = Read_txt.read_air_temp("air_temp")
 
@@ -46,7 +45,6 @@ class fillers:
         model_at = Model(station, "at2wt", 1)
 
         df = pd.read_csv(f"{file_list}/Temp/{station}_Wassertemperatur.txt", delimiter=';',  encoding="latin1")
-        #df = pd.read_parquet(f"parquet_hydro\Temp/{station}_Wassertemperatur.parquet")
         df = df.sort_values(by="Zeitstempel")
         output_df = df.set_index("Zeitstempel")
         missing_dates_df = Gaps.gaps_with_dates(station, file_list)
@@ -73,10 +71,9 @@ class fillers:
             output_df.loc[str(start_date+ timedelta(days=1)): str(end_date - timedelta(days=1)),"Wert"] = array_value
         output_df.reset_index(inplace=True)
         output_df.to_csv(f"{save_path}/{station}/Temp_{station}_a.csv", index=False)
-        #output_df.to_csv("temp.csv", index=False)
 
     #fills in gaps with air temperature and discharge
-    def fill_aq2gap(station, adj_list, file_list, save_path):
+    def impute_aq2gap(station, adj_list, file_list, save_path):
         air_df = Read_txt.read_air_temp("air_temp")
 
         if station == -1:
@@ -129,7 +126,7 @@ class fillers:
         #output_df.to_csv("temp_q.csv", index=False)
 
     
-    def fill_aqn2gap(station, adj_list, file_list, save_path):
+    def impute_aqn2gap(station, adj_list, file_list, save_path):
 
         cols = ["Flow"] #columns to check for missing data
         air_df = Read_txt.read_air_temp("air_temp")
@@ -197,7 +194,7 @@ class fillers:
         output_df.to_csv(f"{save_path}/{station}/Temp_{station}_aqn.csv", index=False)
 
 
-    def fill_aqn2gap_special(station, adj_list, file_list, save_path):
+    def impute_aqn2gap_special(station, adj_list, file_list, save_path):
 
         cols = ["Flow"] #columns to check for missing data
         air_df = Read_txt.read_air_temp("air_temp")
@@ -258,7 +255,7 @@ class fillers:
                 gap_l = (end_d - start_d).days
                 n_list = []
                 flow_list = df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)]["Flow"]
-                value_list = Read_txt.get_air_betw(station, start, end, air_df, gap_l, big_adj)
+                value_list = Read_txt.get_air_betw(station, start, end, air_df, gap_l, adj_list)
 
                 for special_station in special_n:
                     #n_list.append(df_temp[(df_temp["Zeitstempel"] >= start) & (df_temp["Zeitstempel"] < end)][cols[-1]])
@@ -328,14 +325,14 @@ if __name__ == "__main__":
 
 
     big_adj = Neighbour.all_adj_list()
-    
-    """ for st in os.listdir("models"):
-        fillers.fill_a2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aq2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions")
-        fillers.fill_aqn2gap_special(int(st), big_adj, "filled_hydro", "predictions")  """
-    
-    
+
     for st in os.listdir("models"):
-        fillers.return_final_df(int(st), "predictions", "predictions", False) 
+        Imputing.impute_a2gap(int(st), big_adj, "filled_hydro", "predictions")
+        #fillers.fill_aq2gap(int(st), big_adj, "filled_hydro", "predictions")
+        #fillers.fill_aqn2gap(int(st), big_adj, "filled_hydro", "predictions")
+        #fillers.fill_aqn2gap_special(int(st), big_adj, "filled_hydro", "predictions")
+    
+    
+    #for st in os.listdir("models"):
+    #    fillers.return_final_df(int(st), "predictions", "predictions", False) 
     

@@ -1,4 +1,4 @@
-from example_fill import fillers
+from imputing import Imputing
 import os
 from neighbours import Neighbour
 from txt_to_csv import Gaps
@@ -20,13 +20,13 @@ def main_procedure(model_path, need_new_files, file_list, NaN_save_path, predict
 
     for st in os.listdir(model_path):
         print(st)
-        fillers.fill_a2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
-        fillers.fill_aq2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
-        fillers.fill_aqn2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
+        Imputing.impute_a2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
+        Imputing.impute_aq2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
+        Imputing.impute_aqn2gap(int(st), big_adj, NaN_save_path, prediction_save_path)
 
-        fillers.fill_aqn2gap_special(int(st), big_adj, NaN_save_path, prediction_save_path) 
+        Imputing.impute_aqn2gap_special(int(st), big_adj, NaN_save_path, prediction_save_path) 
 
-        fillers.return_final_df(int(st), prediction_save_path, prediction_save_path, True) 
+        Imputing.return_final_df(int(st), prediction_save_path, prediction_save_path, True) 
 
 
 if __name__ == "__main__":
