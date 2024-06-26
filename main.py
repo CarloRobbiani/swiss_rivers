@@ -30,4 +30,4 @@ def main_procedure(model_path, need_new_files, file_list, NaN_save_path, predict
 
 
 if __name__ == "__main__":
-    main_procedure("models", False, "hydro_data", "filled_hydro", "predictions")
+    main_procedure("models", True, "hydro_data", "filled_hydro", "predictions")
